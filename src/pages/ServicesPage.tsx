@@ -3,26 +3,22 @@ import {
   Wrench, 
   ShieldCheck, 
   Lock, 
-  MessageCircle, 
   ArrowRight, 
   CheckCircle2, 
-  AlertTriangle,
-  Monitor,
-  HelpCircle,
+  AlertTriangle, 
   FileText
 } from 'lucide-react';
+import { InstagramIcon as Instagram } from '../components/InstagramIcon';
 import { PageRoute } from '../types';
 import { COMPUTER_SERVICES } from '../data/servicesData';
 import { ServiceCard } from '../components/ServiceCard';
-import { getWhatsAppServiceUrl, SERVICE_MESSAGES, CONTACT_CONFIG } from '../config/contactConfig';
+import { CONTACT_CONFIG } from '../config/contactConfig';
 
 interface ServicesPageProps {
   onNavigate: (route: PageRoute) => void;
 }
 
 export const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
-  const generalWhatsAppUrl = getWhatsAppServiceUrl(SERVICE_MESSAGES.general);
-
   return (
     <div className="py-10 bg-[#f8fafc] min-h-screen text-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
@@ -44,13 +40,13 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
 
             <div className="pt-2 flex flex-wrap items-center gap-3">
               <a
-                href={generalWhatsAppUrl}
+                href={CONTACT_CONFIG.instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-black px-6 py-3 rounded-xl text-xs sm:text-sm transition-all shadow-lg shadow-emerald-600/30 cursor-pointer"
+                className="flex items-center gap-2 bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 hover:from-purple-500 hover:via-pink-500 hover:to-orange-400 text-white font-black px-6 py-3 rounded-xl text-xs sm:text-sm transition-all shadow-lg shadow-pink-600/30 cursor-pointer"
               >
-                <MessageCircle className="w-4 h-4" />
-                <span>Conversar com Técnico no WhatsApp</span>
+                <Instagram className="w-4 h-4" />
+                <span>Fale conosco pelo Instagram</span>
               </a>
 
               <button
@@ -96,7 +92,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
               Catálogo de Serviços Remotos
             </h2>
             <p className="text-xs sm:text-sm text-slate-600 mt-1">
-              Selecione o serviço desejado e inicie o contato direto com mensagem pré-preenchida.
+              Selecione o serviço desejado e entre em contato direto pelo nosso perfil oficial no Instagram.
             </p>
           </div>
 
@@ -132,7 +128,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
               </span>
               <h3 className="text-sm font-bold text-slate-900">Contato Inicial</h3>
               <p className="text-xs text-slate-600 leading-relaxed">
-                Você entra em contato via WhatsApp informando qual serviço precisa e descrevendo eventuais mensagens de erro.
+                Você nos envia uma mensagem no Instagram ({CONTACT_CONFIG.instagramHandle}) informando qual serviço precisa e descrevendo eventuais mensagens de falha.
               </p>
             </div>
 
@@ -181,13 +177,13 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
           </div>
 
           <a
-            href={generalWhatsAppUrl}
+            href={CONTACT_CONFIG.instagramUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-shrink-0 flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-black px-5 py-3 rounded-xl text-xs transition-colors cursor-pointer"
+            className="flex-shrink-0 flex items-center gap-2 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white font-black px-5 py-3 rounded-xl text-xs transition-colors cursor-pointer"
           >
-            <MessageCircle className="w-4 h-4" />
-            <span>Falar no WhatsApp: {CONTACT_CONFIG.whatsappDisplay}</span>
+            <Instagram className="w-4 h-4" />
+            <span>Fale conosco pelo Instagram: {CONTACT_CONFIG.instagramHandle}</span>
           </a>
         </div>
       </div>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Mail, Send, MessageSquare, Check, MapPin } from 'lucide-react';
+import { Mail, Send, Check, MapPin } from 'lucide-react';
+import { InstagramIcon as Instagram } from '../components/InstagramIcon';
 
 export const ContactPage: React.FC = () => {
   const [name, setName] = useState('');
@@ -55,13 +56,18 @@ export const ContactPage: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3 p-3 bg-slate-50 rounded-xl border border-slate-200">
-                  <MessageSquare className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
+                <a
+                  href="https://www.instagram.com/welligtontech/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-3 p-3 bg-pink-50/60 hover:bg-pink-50 rounded-xl border border-pink-200 transition-colors group cursor-pointer"
+                >
+                  <Instagram className="w-4 h-4 text-pink-600 flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
                   <div>
-                    <span className="font-bold text-slate-900 block">Comunidade & Alertas</span>
-                    <span className="text-slate-500">Canal VIP no WhatsApp</span>
+                    <span className="font-bold text-slate-900 block">Instagram Oficial</span>
+                    <span className="text-pink-600 font-bold">@welligtontech</span>
                   </div>
-                </div>
+                </a>
 
                 <div className="flex items-start gap-3 p-3 bg-slate-50 rounded-xl border border-slate-200">
                   <MapPin className="w-4 h-4 text-amber-600 flex-shrink-0 mt-0.5" />

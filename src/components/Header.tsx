@@ -4,7 +4,6 @@ import {
   MapPin, 
   Bell, 
   Heart, 
-  MessageCircle, 
   Flame, 
   ChevronRight, 
   ShieldCheck, 
@@ -13,7 +12,9 @@ import {
   X,
   ExternalLink
 } from 'lucide-react';
+import { InstagramIcon as Instagram } from './InstagramIcon';
 import { PageRoute } from '../types';
+import { CONTACT_CONFIG } from '../config/contactConfig';
 
 interface HeaderProps {
   currentRoute: PageRoute;
@@ -251,16 +252,16 @@ export const Header: React.FC<HeaderProps> = ({
             </button>
           </div>
 
-          {/* Green WhatsApp VIP Pill (Screenshot 4) */}
+          {/* Instagram Profile Pill */}
           <a
-            href="https://chat.whatsapp.com"
+            href={CONTACT_CONFIG.instagramUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden lg:flex items-center gap-1.5 bg-emerald-600/30 hover:bg-emerald-600/40 text-emerald-300 border border-emerald-500/40 px-3 py-1 rounded-full text-xs font-bold transition-all shadow-sm"
+            className="hidden lg:flex items-center gap-1.5 bg-gradient-to-r from-purple-600/20 via-pink-600/20 to-orange-500/20 hover:from-purple-600/30 hover:via-pink-600/30 hover:to-orange-500/30 text-pink-300 border border-pink-500/40 px-3.5 py-1 rounded-full text-xs font-bold transition-all shadow-sm"
           >
-            <MessageCircle className="w-3.5 h-3.5 text-emerald-400" />
-            <span>Grupo VIP WhatsApp</span>
-            <ExternalLink className="w-3 h-3 text-emerald-400 ml-0.5" />
+            <Instagram className="w-3.5 h-3.5 text-pink-400" />
+            <span>Fale conosco pelo Instagram</span>
+            <ExternalLink className="w-3 h-3 text-pink-400 ml-0.5" />
           </a>
         </div>
       </div>
@@ -314,13 +315,13 @@ export const Header: React.FC<HeaderProps> = ({
           </div>
 
           <a
-            href="https://chat.whatsapp.com"
+            href={CONTACT_CONFIG.instagramUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2 w-full p-2.5 bg-emerald-600 text-slate-950 font-bold text-xs rounded-xl"
+            className="flex items-center justify-center gap-2 w-full p-2.5 bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 text-white font-bold text-xs rounded-xl"
           >
-            <MessageCircle className="w-4 h-4" />
-            <span>Entrar no Grupo VIP do WhatsApp</span>
+            <Instagram className="w-4 h-4" />
+            <span>Fale conosco pelo Instagram</span>
           </a>
         </div>
       )}

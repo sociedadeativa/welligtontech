@@ -4,24 +4,19 @@ import {
   ShieldCheck, 
   CheckCircle2, 
   AlertTriangle, 
-  MessageCircle, 
   ArrowLeft, 
-  HelpCircle,
-  Laptop,
-  Check,
-  Lock,
-  ExternalLink
+  Check, 
+  Lock 
 } from 'lucide-react';
+import { InstagramIcon as Instagram } from '../components/InstagramIcon';
 import { PageRoute } from '../types';
-import { getWhatsAppServiceUrl, SERVICE_MESSAGES, CONTACT_CONFIG } from '../config/contactConfig';
+import { CONTACT_CONFIG } from '../config/contactConfig';
 
 interface OfficeServicePageProps {
   onNavigate: (route: PageRoute) => void;
 }
 
 export const OfficeServicePage: React.FC<OfficeServicePageProps> = ({ onNavigate }) => {
-  const whatsAppOfficeUrl = getWhatsAppServiceUrl(SERVICE_MESSAGES.officeInstallation);
-
   const includedApps = [
     { name: 'Microsoft Word', desc: 'Editor de documentos e textos com formatações e modelos oficiais.' },
     { name: 'Microsoft Excel', desc: 'Planilhas eletrônicas, fórmulas, tabelas dinâmicas e gráficos.' },
@@ -83,17 +78,17 @@ export const OfficeServicePage: React.FC<OfficeServicePageProps> = ({ onNavigate
 
           <div className="pt-2 flex flex-wrap items-center gap-3">
             <a
-              href={whatsAppOfficeUrl}
+              href={CONTACT_CONFIG.instagramUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-black px-6 py-3.5 rounded-xl text-xs sm:text-sm transition-all shadow-lg shadow-emerald-600/30 cursor-pointer"
+              className="flex items-center gap-2 bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 hover:from-purple-500 hover:via-pink-500 hover:to-orange-400 text-white font-black px-6 py-3.5 rounded-xl text-xs sm:text-sm transition-all shadow-lg shadow-pink-600/30 cursor-pointer"
             >
-              <MessageCircle className="w-4 h-4" />
-              <span>Solicitar Instalação via WhatsApp</span>
+              <Instagram className="w-4 h-4" />
+              <span>Fale conosco pelo Instagram</span>
             </a>
 
             <span className="text-xs text-slate-400 bg-[#121c38] px-3.5 py-3 rounded-xl border border-slate-700/80">
-              Atendimento agendado • {CONTACT_CONFIG.whatsappDisplay}
+              Atendimento agendado • {CONTACT_CONFIG.instagramHandle} no Instagram
             </span>
           </div>
         </div>
@@ -216,18 +211,18 @@ export const OfficeServicePage: React.FC<OfficeServicePageProps> = ({ onNavigate
             Pronto para configurar seu Microsoft Office com suporte técnico?
           </h2>
           <p className="text-xs sm:text-sm text-slate-600 max-w-xl mx-auto leading-relaxed">
-            Clique no botão abaixo para nos enviar uma mensagem no WhatsApp. O texto com a sua solicitação já estará pré-preenchido.
+            Clique no botão abaixo para nos enviar uma mensagem no Instagram oficial @welligtontech. Tire suas dúvidas diretamente com nossa equipe técnica.
           </p>
 
           <div className="pt-2">
             <a
-              href={whatsAppOfficeUrl}
+              href={CONTACT_CONFIG.instagramUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-black px-8 py-4 rounded-2xl text-sm transition-all shadow-xl shadow-emerald-600/30 cursor-pointer"
+              className="inline-flex items-center gap-2.5 bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 hover:from-purple-500 hover:via-pink-500 hover:to-orange-400 text-white font-black px-8 py-4 rounded-2xl text-sm transition-all shadow-xl shadow-pink-600/30 cursor-pointer"
             >
-              <MessageCircle className="w-5 h-5" />
-              <span>Solicitar Instalação pelo WhatsApp</span>
+              <Instagram className="w-5 h-5" />
+              <span>Fale conosco pelo Instagram</span>
             </a>
           </div>
 

@@ -6,13 +6,12 @@ import {
   Zap, 
   ArrowRight, 
   ShieldCheck, 
-  MessageCircle,
-  CheckCircle2,
   Lock
 } from 'lucide-react';
+import { InstagramIcon as Instagram } from './InstagramIcon';
 import { PageRoute } from '../types';
 import { COMPUTER_SERVICES } from '../data/servicesData';
-import { getWhatsAppServiceUrl, SERVICE_MESSAGES } from '../config/contactConfig';
+import { CONTACT_CONFIG } from '../config/contactConfig';
 
 interface ServicesBannerSectionProps {
   onNavigate: (route: PageRoute) => void;
@@ -51,8 +50,6 @@ export const ServicesBannerSection: React.FC<ServicesBannerSectionProps> = ({ on
         {/* 4 Cards Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {COMPUTER_SERVICES.map((serv) => {
-            const whatsAppUrl = getWhatsAppServiceUrl(serv.whatsappMessage);
-
             return (
               <div
                 key={serv.id}
@@ -85,13 +82,13 @@ export const ServicesBannerSection: React.FC<ServicesBannerSectionProps> = ({ on
 
                 <div className="space-y-2 pt-2 border-t border-slate-700/60">
                   <a
-                    href={whatsAppUrl}
+                    href={CONTACT_CONFIG.instagramUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full flex items-center justify-center gap-1.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-2 px-3 rounded-xl text-xs transition-colors shadow-sm cursor-pointer"
+                    className="w-full flex items-center justify-center gap-1.5 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white font-bold py-2 px-3 rounded-xl text-xs transition-colors shadow-sm cursor-pointer"
                   >
-                    <MessageCircle className="w-3.5 h-3.5" />
-                    <span>Solicitar via WhatsApp</span>
+                    <Instagram className="w-3.5 h-3.5" />
+                    <span>Fale conosco pelo Instagram</span>
                   </a>
 
                   {serv.dedicatedRoute ? (

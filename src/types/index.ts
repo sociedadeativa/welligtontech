@@ -44,7 +44,6 @@ export interface ServiceItem {
   iconName: 'office' | 'windows' | 'troubleshoot' | 'optimization';
   includedItems: string[];
   requirements: string[];
-  whatsappMessage: string;
   isSpecialHighlight?: boolean;
   dedicatedRoute?: PageRoute;
 }

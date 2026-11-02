@@ -1,5 +1,4 @@
 import { ServiceItem } from '../types';
-import { SERVICE_MESSAGES } from '../config/contactConfig';
 
 export const COMPUTER_SERVICES: ServiceItem[] = [
   {
@@ -10,7 +9,6 @@ export const COMPUTER_SERVICES: ServiceItem[] = [
     iconName: 'office',
     isSpecialHighlight: true,
     dedicatedRoute: 'servico-office',
-    whatsappMessage: SERVICE_MESSAGES.officeInstallation,
     includedItems: [
       'Download do instalador oficial direto dos servidores Microsoft',
       'Instalação limpa dos aplicativos (Word, Excel, PowerPoint, Outlook)',
@@ -30,7 +28,6 @@ export const COMPUTER_SERVICES: ServiceItem[] = [
     shortDescription: 'Configuração inicial ou personalização técnica do Windows 10 e Windows 11 para estabilidade e produtividade.',
     fullDescription: 'Ajustamos as principais configurações do seu sistema operacional para garantir funcionamento adequado de periféricos, proteção de privacidade, contas de usuário e atualizações críticas de drivers.',
     iconName: 'windows',
-    whatsappMessage: SERVICE_MESSAGES.windowsConfig,
     includedItems: [
       'Verificação e instalação de drivers oficiais compatíveis',
       'Ajustes de configurações de privacidade e notificações',
@@ -50,7 +47,6 @@ export const COMPUTER_SERVICES: ServiceItem[] = [
     shortDescription: 'Diagnóstico remoto para falhas em programas, erros de inicialização, incompatibilidades e lentidão atípica.',
     fullDescription: 'Identificação e correção de problemas frequentes como programas que fecham sozinhos, mensagens de erro de DLLs ausentes, conflitos entre aplicativos e instabilidades no uso diário do computador.',
     iconName: 'troubleshoot',
-    whatsappMessage: SERVICE_MESSAGES.troubleshooting,
     includedItems: [
       'Diagnóstico de logs de erro do Windows e aplicativos',
       'Correção de falhas de inicialização e dependências (Visual C++, .NET)',
@@ -69,7 +65,6 @@ export const COMPUTER_SERVICES: ServiceItem[] = [
     shortDescription: 'Limpeza de arquivos temporários e otimização de inicialização para deixar seu computador mais ágil no dia a dia.',
     fullDescription: 'Procedimento técnico voltado para melhorar os tempos de resposta do computador, reduzindo o consumo desnecessário de memória RAM e uso excessivo de disco/CPU causados por serviços residuais.',
     iconName: 'optimization',
-    whatsappMessage: SERVICE_MESSAGES.pcOptimization,
     includedItems: [
       'Desativação de programas pesados que iniciam junto com o Windows',
       'Limpeza de cache, arquivos temporários e registros órfãos',

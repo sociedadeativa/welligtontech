@@ -4,14 +4,14 @@ import {
   Monitor, 
   Wrench, 
   Zap, 
-  MessageCircle, 
   CheckCircle2, 
   AlertCircle, 
   ArrowRight,
   ShieldCheck
 } from 'lucide-react';
+import { InstagramIcon as Instagram } from './InstagramIcon';
 import { ServiceItem, PageRoute } from '../types';
-import { getWhatsAppServiceUrl } from '../config/contactConfig';
+import { CONTACT_CONFIG } from '../config/contactConfig';
 
 interface ServiceCardProps {
   service: ServiceItem;
@@ -33,8 +33,6 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service, onNavigate })
         return <Wrench className="w-6 h-6 text-orange-600" />;
     }
   };
-
-  const whatsAppUrl = getWhatsAppServiceUrl(service.whatsappMessage);
 
   return (
     <div className={`bg-white rounded-3xl border transition-all duration-300 flex flex-col justify-between overflow-hidden relative shadow-sm hover:shadow-xl ${
@@ -108,13 +106,13 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service, onNavigate })
       {/* Action Buttons */}
       <div className="p-6 pt-0 space-y-2">
         <a
-          href={whatsAppUrl}
+          href={CONTACT_CONFIG.instagramUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-extrabold py-3 px-4 rounded-xl text-xs sm:text-sm transition-all shadow-md shadow-emerald-600/20 active:scale-[0.98] cursor-pointer"
+          className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 hover:from-purple-500 hover:via-pink-500 hover:to-orange-400 text-white font-extrabold py-3 px-4 rounded-xl text-xs sm:text-sm transition-all shadow-md shadow-pink-600/20 active:scale-[0.98] cursor-pointer"
         >
-          <MessageCircle className="w-4 h-4" />
-          <span>Solicitar Atendimento via WhatsApp</span>
+          <Instagram className="w-4 h-4" />
+          <span>Fale conosco pelo Instagram</span>
         </a>
 
         {service.dedicatedRoute && onNavigate && (

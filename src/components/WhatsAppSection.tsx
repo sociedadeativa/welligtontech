@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { MessageCircle, Send, Check, CheckCircle2, ArrowRight } from 'lucide-react';
+import { Send, Check, CheckCircle2, ArrowRight } from 'lucide-react';
+import { InstagramIcon as Instagram } from './InstagramIcon';
+import { CONTACT_CONFIG } from '../config/contactConfig';
 
 export const WhatsAppSection: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -63,18 +65,18 @@ export const WhatsAppSection: React.FC = () => {
                 <span>Escolha por onde prefere receber:</span>
               </h3>
 
-              {/* Green WhatsApp Button */}
+              {/* Instagram Button */}
               <a
-                href="https://chat.whatsapp.com"
+                href={CONTACT_CONFIG.instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full flex items-center justify-between bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold p-3.5 rounded-xl text-xs sm:text-sm transition-all shadow-lg shadow-emerald-600/25 cursor-pointer"
+                className="w-full flex items-center justify-between bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 hover:opacity-95 text-white font-extrabold p-3.5 rounded-xl text-xs sm:text-sm transition-all shadow-lg shadow-pink-600/25 cursor-pointer"
               >
                 <div className="flex items-center gap-2.5">
-                  <MessageCircle className="w-5 h-5" />
+                  <Instagram className="w-5 h-5" />
                   <div className="text-left">
-                    <span className="text-[10px] uppercase font-bold block text-emerald-200">GRUPO VIP</span>
-                    <span>Entrar no Grupo WhatsApp</span>
+                    <span className="text-[10px] uppercase font-bold block text-pink-200">INSTAGRAM OFICIAL</span>
+                    <span>Fale conosco pelo Instagram</span>
                   </div>
                 </div>
                 <ArrowRight className="w-4 h-4" />
