@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Send, Check, CheckCircle2, ArrowRight } from 'lucide-react';
+import { Send, Check, CheckCircle2, ArrowRight, Mail } from 'lucide-react';
 import { InstagramIcon as Instagram } from './InstagramIcon';
 import { CONTACT_CONFIG } from '../config/contactConfig';
 
@@ -65,7 +65,7 @@ export const WhatsAppSection: React.FC = () => {
                 <span>Escolha por onde prefere receber:</span>
               </h3>
 
-              {/* Instagram Button */}
+              {/* Instagram Button (Primary) */}
               <a
                 href={CONTACT_CONFIG.instagramUrl}
                 target="_blank"
@@ -75,7 +75,10 @@ export const WhatsAppSection: React.FC = () => {
                 <div className="flex items-center gap-2.5">
                   <Instagram className="w-5 h-5" />
                   <div className="text-left">
-                    <span className="text-[10px] uppercase font-bold block text-pink-200">INSTAGRAM OFICIAL</span>
+                    <div className="flex items-center gap-1.5">
+                      <span className="text-[10px] uppercase font-bold text-pink-200">INSTAGRAM OFICIAL</span>
+                      <span className="text-[9px] font-black uppercase px-1.5 py-0.2 rounded bg-pink-500/80 text-white">Principal</span>
+                    </div>
                     <span>Fale conosco pelo Instagram</span>
                   </div>
                 </div>
@@ -98,6 +101,23 @@ export const WhatsAppSection: React.FC = () => {
                 </div>
                 <ArrowRight className="w-4 h-4" />
               </a>
+
+              {/* Secondary Business Email Link */}
+              <div className="p-3 bg-[#0c1630] rounded-xl border border-slate-800 text-xs flex items-center justify-between gap-2">
+                <div className="flex items-center gap-2 min-w-0">
+                  <Mail className="w-4 h-4 text-orange-400 flex-shrink-0" />
+                  <div className="truncate">
+                    <span className="text-[10px] uppercase font-bold text-slate-400 block">Contato Comercial (Secundário)</span>
+                    <a
+                      href={CONTACT_CONFIG.businessEmailMailto}
+                      className="text-orange-400 hover:text-orange-300 font-mono underline font-medium truncate block"
+                    >
+                      {CONTACT_CONFIG.businessEmail}
+                    </a>
+                  </div>
+                </div>
+                <span className="text-[10px] font-bold text-slate-500 uppercase flex-shrink-0">E-mail</span>
+              </div>
 
               {/* Newsletter form */}
               <div className="pt-2 border-t border-slate-800/80">

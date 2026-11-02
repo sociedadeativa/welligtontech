@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Mail, Send, Check, MapPin } from 'lucide-react';
+import { Mail, Send, Check, MapPin, ExternalLink, ArrowUpRight } from 'lucide-react';
 import { InstagramIcon as Instagram } from '../components/InstagramIcon';
+import { CONTACT_CONFIG } from '../config/contactConfig';
 
 export const ContactPage: React.FC = () => {
   const [name, setName] = useState('');
@@ -48,27 +49,69 @@ export const ContactPage: React.FC = () => {
               </h3>
 
               <div className="space-y-3 text-xs text-slate-600">
-                <div className="flex items-start gap-3 p-3 bg-slate-50 rounded-xl border border-slate-200">
-                  <Mail className="w-4 h-4 text-orange-600 flex-shrink-0 mt-0.5" />
-                  <div>
-                    <span className="font-bold text-slate-900 block">E-mail Editorial</span>
-                    <span className="text-slate-500 font-mono">contato@welligtontech.com.br</span>
-                  </div>
-                </div>
-
+                {/* 1. Canal Principal: Instagram Oficial */}
                 <a
-                  href="https://www.instagram.com/welligtontech/"
+                  href={CONTACT_CONFIG.instagramUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-start gap-3 p-3 bg-pink-50/60 hover:bg-pink-50 rounded-xl border border-pink-200 transition-colors group cursor-pointer"
+                  className="flex items-start gap-3 p-3.5 bg-gradient-to-r from-pink-50/80 to-purple-50/50 hover:from-pink-100/90 hover:to-purple-100/70 rounded-2xl border-2 border-pink-300 transition-all group cursor-pointer shadow-sm"
                 >
-                  <Instagram className="w-4 h-4 text-pink-600 flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
-                  <div>
-                    <span className="font-bold text-slate-900 block">Instagram Oficial</span>
-                    <span className="text-pink-600 font-bold">@welligtontech</span>
+                  <div className="w-8 h-8 rounded-xl bg-pink-100 text-pink-600 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                    <Instagram className="w-4 h-4 text-pink-600" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center justify-between gap-1">
+                      <span className="font-extrabold text-slate-900 block">Instagram Oficial</span>
+                      <span className="text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-pink-600 text-white">
+                        Principal
+                      </span>
+                    </div>
+                    <span className="text-pink-600 font-bold block mt-0.5">{CONTACT_CONFIG.instagramHandle}</span>
+                    <p className="text-[11px] text-slate-500 mt-0.5 leading-snug">
+                      Canal prioritário para atendimento rápido e dúvidas.
+                    </p>
                   </div>
                 </a>
 
+                {/* 2. Canal Secundário: E-mail Comercial Oficial */}
+                <a
+                  href={CONTACT_CONFIG.businessEmailMailto}
+                  className="flex items-start gap-3 p-3.5 bg-orange-50/70 hover:bg-orange-100/80 rounded-2xl border-2 border-orange-200 hover:border-orange-400 transition-all group cursor-pointer shadow-sm"
+                >
+                  <div className="w-8 h-8 rounded-xl bg-orange-100 text-orange-600 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                    <Mail className="w-4 h-4 text-orange-600" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center justify-between gap-1">
+                      <span className="font-extrabold text-slate-900 block">E-mail Comercial</span>
+                      <span className="text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-orange-600 text-white">
+                        Secundário
+                      </span>
+                    </div>
+                    <span className="text-orange-600 hover:text-orange-700 font-mono font-bold block mt-0.5 underline break-all">
+                      {CONTACT_CONFIG.businessEmail}
+                    </span>
+                    <p className="text-[11px] text-slate-500 mt-0.5 leading-snug">
+                      Canal oficial secundário para propostas e contato direto.
+                    </p>
+                  </div>
+                </a>
+
+                {/* 3. E-mail Editorial */}
+                <div className="flex items-start gap-3 p-3 bg-slate-50 rounded-xl border border-slate-200">
+                  <Mail className="w-4 h-4 text-slate-500 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <span className="font-bold text-slate-900 block">E-mail Editorial</span>
+                    <a
+                      href={`mailto:${CONTACT_CONFIG.editorialEmail}`}
+                      className="text-slate-600 hover:text-orange-600 font-mono underline block mt-0.5"
+                    >
+                      {CONTACT_CONFIG.editorialEmail}
+                    </a>
+                  </div>
+                </div>
+
+                {/* 4. Localização */}
                 <div className="flex items-start gap-3 p-3 bg-slate-50 rounded-xl border border-slate-200">
                   <MapPin className="w-4 h-4 text-amber-600 flex-shrink-0 mt-0.5" />
                   <div>

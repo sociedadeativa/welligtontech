@@ -1,5 +1,7 @@
 import React from 'react';
-import { ShieldCheck } from 'lucide-react';
+import { ShieldCheck, Mail } from 'lucide-react';
+import { InstagramIcon as Instagram } from './InstagramIcon';
+import { CONTACT_CONFIG } from '../config/contactConfig';
 import { PageRoute } from '../types';
 
 interface FooterProps {
@@ -34,9 +36,32 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               O WelligtonTech é o seu portal independente de referência para encontrar as melhores ofertas em hardware, computadores, notebooks e eletrônicos no Brasil. Comparamos preços e selecionamos promoções reais para você economizar com segurança.
             </p>
 
-            <p className="text-[11px] text-slate-400 pt-1">
-              Contato editorial: <span className="text-orange-400 font-mono">contato@welligtontech.com.br</span>
-            </p>
+            {/* Canais de Atendimento e Contato */}
+            <div className="pt-2 space-y-2 border-t border-slate-800/80">
+              <div className="flex items-center gap-2 text-[11px]">
+                <span className="text-slate-400 font-semibold">Canal principal:</span>
+                <a
+                  href={CONTACT_CONFIG.instagramUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-pink-400 hover:text-pink-300 font-bold transition-colors inline-flex items-center gap-1.5"
+                >
+                  <Instagram className="w-3.5 h-3.5 text-pink-400" />
+                  <span>{CONTACT_CONFIG.instagramHandle} (Instagram)</span>
+                </a>
+              </div>
+
+              <div className="flex items-center gap-2 text-[11px]">
+                <Mail className="w-3.5 h-3.5 text-orange-400 flex-shrink-0" />
+                <span className="text-slate-400 font-semibold">E-mail comercial (secundário):</span>
+                <a
+                  href={CONTACT_CONFIG.businessEmailMailto}
+                  className="text-orange-400 hover:text-orange-300 font-mono underline transition-colors"
+                >
+                  {CONTACT_CONFIG.businessEmail}
+                </a>
+              </div>
+            </div>
           </div>
 
           {/* Categorias (takes 2 cols) */}
