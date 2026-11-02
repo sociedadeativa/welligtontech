@@ -12,6 +12,8 @@ import { AboutPage } from './pages/AboutPage';
 import { ContactPage } from './pages/ContactPage';
 import { PrivacyPolicyPage } from './pages/PrivacyPolicyPage';
 import { AffiliateDisclosurePage } from './pages/AffiliateDisclosurePage';
+import { ServicesPage } from './pages/ServicesPage';
+import { OfficeServicePage } from './pages/OfficeServicePage';
 import { Product, CategoryItem, BrandItem, BuyingGuide, PageRoute } from './types';
 
 export const App: React.FC = () => {
@@ -106,6 +108,12 @@ export const App: React.FC = () => {
     } else if (currentRoute === 'privacidade') {
       title = "Política de Privacidade LGPD | WelligtonTech";
       desc = "Nossa conformidade integral com a Lei Geral de Proteção de Dados Pessoais.";
+    } else if (currentRoute === 'servicos') {
+      title = "Serviços de Informática & Suporte Remoto | WelligtonTech";
+      desc = "Suporte de informática remoto: instalação de Microsoft Office com licença original, configuração do Windows, otimização de PC e resolução de erros via AnyDesk.";
+    } else if (currentRoute === 'servico-office') {
+      title = "Instalação e Configuração de Microsoft Office Original | WelligtonTech";
+      desc = "Serviço profissional de instalação remota do Microsoft Office (365, 2024, 2021). Exclusivo para licenças originais com ativação oficial.";
     }
 
     document.title = title;
@@ -242,6 +250,10 @@ export const App: React.FC = () => {
         {currentRoute === 'privacidade' && <PrivacyPolicyPage />}
 
         {currentRoute === 'afiliados' && <AffiliateDisclosurePage />}
+
+        {currentRoute === 'servicos' && <ServicesPage onNavigate={navigateTo} />}
+
+        {currentRoute === 'servico-office' && <OfficeServicePage onNavigate={navigateTo} />}
       </main>
 
       {/* Footer */}

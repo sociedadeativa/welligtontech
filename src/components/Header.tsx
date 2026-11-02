@@ -223,6 +223,16 @@ export const Header: React.FC<HeaderProps> = ({
             </button>
 
             <button
+              onClick={() => onNavigate('servicos')}
+              className={`flex items-center gap-1.5 hover:text-orange-400 transition-colors whitespace-nowrap cursor-pointer ${
+                currentRoute === 'servicos' || currentRoute === 'servico-office' ? 'text-orange-400 font-bold' : ''
+              }`}
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span>Serviços de Informática</span>
+            </button>
+
+            <button
               onClick={() => onNavigate('sobre')}
               className={`hover:text-orange-400 transition-colors whitespace-nowrap cursor-pointer ${
                 currentRoute === 'sobre' ? 'text-orange-400 font-bold' : ''
@@ -282,6 +292,12 @@ export const Header: React.FC<HeaderProps> = ({
               className="p-2.5 bg-[#121c38] rounded-xl text-left"
             >
               Guias de Compra
+            </button>
+            <button
+              onClick={() => { onNavigate('servicos'); setMobileMenuOpen(false); }}
+              className="p-2.5 bg-[#121c38] rounded-xl text-left text-orange-400 font-semibold"
+            >
+              🛠️ Serviços de TI
             </button>
             <button
               onClick={() => { onNavigate('sobre'); setMobileMenuOpen(false); }}

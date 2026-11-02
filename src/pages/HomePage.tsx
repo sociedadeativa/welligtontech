@@ -7,6 +7,7 @@ import { BestSellersSection } from '../components/BestSellersSection';
 import { RecentlyAddedSection } from '../components/RecentlyAddedSection';
 import { RecommendedBrandsSection } from '../components/RecommendedBrandsSection';
 import { BuyingGuidesSection } from '../components/BuyingGuidesSection';
+import { ServicesBannerSection } from '../components/ServicesBannerSection';
 import { WhatsAppSection } from '../components/WhatsAppSection';
 import { ValuePropsRibbon } from '../components/ValuePropsRibbon';
 import { Product, CategoryItem, BrandItem, BuyingGuide, PageRoute } from '../types';
@@ -97,10 +98,13 @@ export const HomePage: React.FC<HomePageProps> = ({
         onNavigate={onNavigate}
       />
 
-      {/* 9. WhatsApp / Telegram VIP Community Section */}
+      {/* 9. Dedicated Remote Computer Support Services Section */}
+      <ServicesBannerSection onNavigate={onNavigate} />
+
+      {/* 10. WhatsApp / Telegram VIP Community Section */}
       <WhatsAppSection />
 
-      {/* 10. Value Proposition Ribbon (4 Badges) */}
+      {/* 11. Value Proposition Ribbon (4 Badges) */}
       <ValuePropsRibbon />
     </div>
   );

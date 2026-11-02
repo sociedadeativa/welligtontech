@@ -8,7 +8,9 @@ export type PageRoute =
   | 'sobre'
   | 'contato'
   | 'privacidade'
-  | 'afiliados';
+  | 'afiliados'
+  | 'servicos'
+  | 'servico-office';
 
 export interface CategoryItem {
   id: string;
@@ -32,6 +34,19 @@ export interface BuyingGuide {
   category: string;
   date: string;
   image: string;
+}
+
+export interface ServiceItem {
+  id: string;
+  title: string;
+  shortDescription: string;
+  fullDescription: string;
+  iconName: 'office' | 'windows' | 'troubleshoot' | 'optimization';
+  includedItems: string[];
+  requirements: string[];
+  whatsappMessage: string;
+  isSpecialHighlight?: boolean;
+  dedicatedRoute?: PageRoute;
 }
 
 export interface Product {

@@ -124,12 +124,23 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             </h4>
             <ul className="space-y-2 text-xs">
               <li>
+                <button onClick={() => onNavigate('servicos')} className="text-orange-400 font-bold hover:underline transition-colors flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                  <span>Serviços de Informática</span>
+                </button>
+              </li>
+              <li>
+                <button onClick={() => onNavigate('servico-office')} className="hover:text-orange-400 transition-colors">
+                  Instalação de Microsoft Office
+                </button>
+              </li>
+              <li>
                 <button onClick={() => onNavigate('sobre')} className="hover:text-orange-400 transition-colors">
                   Sobre o WelligtonTech
                 </button>
               </li>
               <li>
-                <button onClick={() => onNavigate('afiliados')} className="text-orange-400 font-bold hover:underline transition-colors">
+                <button onClick={() => onNavigate('afiliados')} className="hover:text-orange-400 transition-colors">
                   Transparência & Afiliados
                 </button>
               </li>
