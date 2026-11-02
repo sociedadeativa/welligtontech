@@ -1,0 +1,8 @@
+{
+  "name": "WelligtonTech - Portal de Ofertas e Hardware",
+  "description": "Portal de ofertas, tecnologia, hardware e recomendações de produtos de informática com comparador e assistente de setups.",
+  "permissions": [],
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
