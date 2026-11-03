@@ -52,6 +52,7 @@ export interface StoreOfferItem {
   storeId: 'amazon' | 'mercadolivre' | 'shopee';
   storeName: 'Amazon' | 'Mercado Livre' | 'Shopee';
   url: string;
+  modelName?: string;
   specsVariation?: string;
   badge?: string;
 }

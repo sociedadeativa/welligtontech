@@ -22,6 +22,7 @@
     { "id": "asus", "name": "ASUS", "categoryLabel": "Notebooks & Hardware", "offersCount": 18 },
     { "id": "samsung", "name": "SAMSUNG", "categoryLabel": "Notebooks & Galaxy", "offersCount": 14 },
     { "id": "acer", "name": "ACER", "categoryLabel": "Notebooks & Aspire", "offersCount": 10 },
+    { "id": "hp", "name": "HP", "categoryLabel": "Notebooks & Produtividade", "offersCount": 3 },
     { "id": "amd", "name": "AMD", "categoryLabel": "CPUs & GPUs", "offersCount": 14 },
     { "id": "intel", "name": "intel", "categoryLabel": "Processadores & Mini PCs", "offersCount": 12 },
     { "id": "msi", "name": "msi", "categoryLabel": "Placas-mãe & Fontes", "offersCount": 16 },
@@ -72,6 +73,72 @@
     }
   ],
   "products": [
+    {
+      "id": "notebook-hp-15-intel-core",
+      "name": "Notebook HP 15.6\" (HP 256R G9 / HP 200 G2i - Intel Core)",
+      "slug": "notebook-hp-15-6-hp-256r-g9-hp-200-g2i-intel-core",
+      "category": "notebooks",
+      "categoryLabel": "Notebooks",
+      "brand": "HP",
+      "store": "Amazon / ML / Shopee",
+      "storeDotColor": "#0096d6",
+      "currentPrice": 2499.00,
+      "previousPrice": 3199.00,
+      "discountPercentage": 22,
+      "installments": { "count": 10, "value": 274.90 },
+      "image": "/assets/products/hp-256r-g9.png",
+      "affiliateUrl": "https://link.amazon/B0d7W8nGD",
+      "amazonUrl": "https://link.amazon/B0d7W8nGD",
+      "mercadoLivreUrl": "https://meli.la/217RBAQ",
+      "shopeeUrl": "https://s.shopee.com.br/70LQ0vb3mJ",
+      "stores": [
+        {
+          "storeId": "amazon",
+          "storeName": "Amazon",
+          "url": "https://link.amazon/B0d7W8nGD",
+          "modelName": "HP 256R G9",
+          "specsVariation": "Modelo HP 256R G9 • Intel Core i5 13th Gen, 16GB RAM, 256GB SSD, Windows 11 Home",
+          "badge": "Mais Vendido"
+        },
+        {
+          "storeId": "mercadolivre",
+          "storeName": "Mercado Livre",
+          "url": "https://meli.la/217RBAQ",
+          "modelName": "HP 200 G2i",
+          "specsVariation": "Modelo HP 200 G2i • Intel Core 5 120U, 8GB DDR5 RAM, 256GB SSD, Windows 11 Home (Modelo diferente: HP 200 G2i)",
+          "badge": "Envio Full"
+        },
+        {
+          "storeId": "shopee",
+          "storeName": "Shopee",
+          "url": "https://s.shopee.com.br/70LQ0vb3mJ",
+          "modelName": "HP 256R G9",
+          "specsVariation": "Modelo HP 256R G9 • Intel Core i3 13th Gen, 8GB RAM, 256GB SSD, Windows 11",
+          "badge": "Cupom Oficial"
+        }
+      ],
+      "hasStoreVariations": true,
+      "storeVariationsNote": "Atenção: Os anúncios parceiros deste notebook possuem modelos e configurações técnicas específicas por loja. Na Amazon: modelo HP 256R G9 com Intel Core i5 13ª Geração, 16GB RAM e 256GB SSD. No Mercado Livre: modelo HP 200 G2i (modelo distinto) com processador Intel Core 5 120U, 8GB DDR5 e 256GB SSD. Na Shopee: modelo HP 256R G9 com Intel Core i3 13ª Geração, 8GB RAM e 256GB SSD. Confira a configuração desejada antes de comprar.",
+      "rating": 4.8,
+      "reviewCount": 142,
+      "badge": "ESQUENTA",
+      "badgeColor": "purple",
+      "remainingUnits": 11,
+      "specs": {
+        "Modelos por Loja": "Amazon: HP 256R G9 | Mercado Livre: HP 200 G2i | Shopee: HP 256R G9",
+        "Processador": "Amazon: Intel Core i5 13th Gen | ML: Intel Core 5 120U | Shopee: Intel Core i3 13th Gen",
+        "Memória RAM": "Amazon: 16GB RAM | ML: 8GB DDR5 RAM | Shopee: 8GB RAM",
+        "Armazenamento": "256GB SSD PCIe NVMe M.2",
+        "Tela": "15.6\" Antirreflexo com bordas finas",
+        "Sistema Operacional": "Amazon/ML: Windows 11 Home | Shopee: Windows 11",
+        "Conectividade": "Wi-Fi, Bluetooth, USB-C, USB-A, HDMI, Áudio combo"
+      },
+      "description": "Notebook HP de 15.6 polegadas com design fino e alta durabilidade para trabalho e estudos. Os anúncios vinculados possuem variações de modelo e hardware: HP 256R G9 com Core i5 13ª Geração e 16GB RAM na Amazon; modelo diferenciado HP 200 G2i com processador Intel Core 5 120U e 8GB DDR5 no Mercado Livre; e HP 256R G9 com Core i3 13ª Geração e 8GB RAM na Shopee.",
+      "isEsquenta": true,
+      "isMostSearched": true,
+      "isBestSeller": false,
+      "isRecentlyAdded": true
+    },
     {
       "id": "dell-inspiron-15",
       "name": "Dell Inspiron 15 (Intel Core i5-1334U, 8GB RAM, 512GB SSD, Windows 11 Home, 15.6\" FHD 120Hz)",

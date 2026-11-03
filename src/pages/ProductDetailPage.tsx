@@ -41,6 +41,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
       shortName: 'Amazon',
       url: product.amazonUrl || product.affiliateUrl,
       badge: product.stores?.find((s) => s.storeId === 'amazon')?.badge || 'Oferta Oficial',
+      modelName: product.stores?.find((s) => s.storeId === 'amazon')?.modelName,
       specsVariation: product.stores?.find((s) => s.storeId === 'amazon')?.specsVariation,
       btnClass: 'bg-slate-900 hover:bg-slate-800 text-amber-400 border border-slate-700 shadow-sm'
     },
@@ -50,6 +51,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
       shortName: 'Mercado Livre',
       url: product.mercadoLivreUrl || product.affiliateUrl,
       badge: product.stores?.find((s) => s.storeId === 'mercadolivre')?.badge || 'Envio Oficial',
+      modelName: product.stores?.find((s) => s.storeId === 'mercadolivre')?.modelName,
       specsVariation: product.stores?.find((s) => s.storeId === 'mercadolivre')?.specsVariation,
       btnClass: 'bg-[#FFE600] hover:bg-[#F5DC00] text-[#2D3277] border border-yellow-400 font-black shadow-sm'
     },
@@ -59,6 +61,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
       shortName: 'Shopee',
       url: product.shopeeUrl || product.affiliateUrl,
       badge: product.stores?.find((s) => s.storeId === 'shopee')?.badge || 'Loja Oficial',
+      modelName: product.stores?.find((s) => s.storeId === 'shopee')?.modelName,
       specsVariation: product.stores?.find((s) => s.storeId === 'shopee')?.specsVariation,
       btnClass: 'bg-[#EE4D2D] hover:bg-[#DE3C1C] text-white border border-[#EE4D2D] shadow-sm'
     }
@@ -169,6 +172,15 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
 
               {/* Three Store Buttons (Amazon, Mercado Livre, Shopee) */}
               <div className="pt-2 space-y-2">
+                {product.hasStoreVariations && (
+                  <div className="p-3 rounded-xl bg-amber-50 border border-amber-300 text-amber-950 text-xs font-semibold flex items-start gap-2 shadow-2xs">
+                    <Info className="w-4 h-4 text-amber-700 shrink-0 mt-0.5" />
+                    <span>
+                      <strong className="font-black text-amber-900">Atenção:</strong> Os modelos e especificações técnicas variam conforme a loja parceira selecionada. Consulte os detalhes comparativos abaixo.
+                    </span>
+                  </div>
+                )}
+
                 <span className="block text-xs font-black uppercase tracking-wider text-slate-700">
                   Comprar na sua loja preferida:
                 </span>
@@ -237,6 +249,11 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
                         {store.badge}
                       </span>
                     </div>
+                    {store.modelName && (
+                      <div className="text-[11px] font-black text-amber-950 bg-amber-100/70 px-2.5 py-1 rounded-lg border border-amber-200">
+                        Modelo: {store.modelName}
+                      </div>
+                    )}
                     <p className="text-xs text-slate-700 font-medium leading-relaxed bg-slate-50 p-2.5 rounded-xl border border-slate-100">
                       {store.specsVariation || 'Especificação padrão conforme ficha técnica.'}
                     </p>
