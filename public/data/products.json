@@ -528,29 +528,29 @@
       "discountPercentage": 33,
       "installments": { "count": 3, "value": 19.97 },
       "image": "/assets/products/logitech-m170-wireless-mouse.webp",
-      "affiliateUrl": "https://link.amazon/B01K1JW8C2",
-      "amazonUrl": "https://link.amazon/B01K1JW8C2",
-      "mercadoLivreUrl": "https://meli.la/1M170WLM",
-      "shopeeUrl": "https://s.shopee.com.br/6M170WLM",
+      "affiliateUrl": "https://link.amazon/B0cavVgt7",
+      "amazonUrl": "https://link.amazon/B0cavVgt7",
+      "mercadoLivreUrl": "https://meli.la/1FsBKp4",
+      "shopeeUrl": "https://s.shopee.com.br/1W0TDvUT3y",
       "stores": [
         {
           "storeId": "amazon",
           "storeName": "Amazon",
-          "url": "https://link.amazon/B01K1JW8C2",
+          "url": "https://link.amazon/B0cavVgt7",
           "specsVariation": "Mouse Sem Fio Logitech M170 Preto/Cinza, Receptor USB Nano 2.4GHz, Pilha AA Inclusa",
           "badge": "Mais Vendido"
         },
         {
           "storeId": "mercadolivre",
           "storeName": "Mercado Livre",
-          "url": "https://meli.la/1M170WLM",
+          "url": "https://meli.la/1FsBKp4",
           "specsVariation": "Mouse Sem Fio Logitech M170 Preto/Cinza, Receptor USB Nano 2.4GHz, Pilha AA Inclusa",
           "badge": "Envio Full"
         },
         {
           "storeId": "shopee",
           "storeName": "Shopee",
-          "url": "https://s.shopee.com.br/6M170WLM",
+          "url": "https://s.shopee.com.br/1W0TDvUT3y",
           "specsVariation": "Mouse Sem Fio Logitech M170 Preto/Cinza, Receptor USB Nano 2.4GHz, Pilha AA Inclusa",
           "badge": "Garantia Shopee"
         }
