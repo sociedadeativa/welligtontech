@@ -26,7 +26,7 @@ export const AffiliateDisclosurePage: React.FC = () => {
               1. O que são Links de Afiliados?
             </h2>
             <p>
-              O <strong>WelligtonTech</strong> é um portal gratuito mantido através de programas de afiliados. Quando você clica em um botão "Ir à Loja" direcionando para a KaBuM!, Amazon, TerabyteShop ou Pichau e realiza uma compra, o portal pode receber uma pequena comissão percentual pelo direcionamento qualificado.
+              O <strong>WelligtonTech</strong> é um portal gratuito mantido através de programas de afiliados. Quando você clica nos botões oficiais direcionando para a Amazon, Mercado Livre ou Shopee e realiza uma compra, o portal pode receber uma pequena comissão percentual pelo direcionamento qualificado.
             </p>
             <div className="p-4 bg-emerald-50 border border-emerald-200 rounded-2xl flex items-start gap-3 text-emerald-900">
               <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
@@ -70,11 +70,10 @@ export const AffiliateDisclosurePage: React.FC = () => {
             <p>
               Participamos dos programas oficiais de afiliados das maiores e mais confiáveis redes de varejo de informática e tecnologia do Brasil:
             </p>
-            <ul className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-1 text-xs">
-              <li className="p-3 bg-slate-50 rounded-xl border border-slate-200 text-slate-900 font-bold">KaBuM!</li>
+            <ul className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-1 text-xs">
               <li className="p-3 bg-slate-50 rounded-xl border border-slate-200 text-slate-900 font-bold">Amazon Brasil</li>
-              <li className="p-3 bg-slate-50 rounded-xl border border-slate-200 text-slate-900 font-bold">TerabyteShop</li>
-              <li className="p-3 bg-slate-50 rounded-xl border border-slate-200 text-slate-900 font-bold">Pichau Informática</li>
+              <li className="p-3 bg-slate-50 rounded-xl border border-slate-200 text-slate-900 font-bold">Mercado Livre</li>
+              <li className="p-3 bg-slate-50 rounded-xl border border-slate-200 text-slate-900 font-bold">Shopee</li>
             </ul>
           </section>
 

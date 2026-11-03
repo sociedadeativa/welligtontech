@@ -28,7 +28,7 @@ export const OffersPage: React.FC<OffersPageProps> = ({
   const [selectedBrand, setSelectedBrand] = useState('all');
   const [sortBy, setSortBy] = useState<'discount' | 'priceAsc' | 'priceDesc' | 'recent'>('discount');
 
-  const stores = ['all', 'KaBuM!', 'Amazon Brasil', 'TerabyteShop', 'Pichau'];
+  const stores = ['all', 'Amazon', 'Mercado Livre', 'Shopee'];
   const brands = useMemo(() => {
     const list = Array.from(new Set(products.map((p) => p.brand)));
     return ['all', ...list];
@@ -52,7 +52,14 @@ export const OffersPage: React.FC<OffersPageProps> = ({
     }
 
     if (selectedStore !== 'all') {
-      result = result.filter((p) => p.store === selectedStore);
+      result = result.filter(
+        (p) =>
+          p.store.toLowerCase().includes(selectedStore.toLowerCase()) ||
+          p.stores?.some((s) => s.storeName.toLowerCase().includes(selectedStore.toLowerCase())) ||
+          (selectedStore === 'Amazon' && Boolean(p.amazonUrl)) ||
+          (selectedStore === 'Mercado Livre' && Boolean(p.mercadoLivreUrl)) ||
+          (selectedStore === 'Shopee' && Boolean(p.shopeeUrl))
+      );
     }
 
     if (selectedBrand !== 'all') {

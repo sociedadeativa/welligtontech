@@ -200,10 +200,10 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             <span>Transparência & Aviso de Afiliados (Compliance):</span>
           </div>
           <p className="text-slate-400">
-            O <strong>WelligtonTech</strong> é um portal brasileiro independente de curadoria, comparativo de preços e divulgação de ofertas de tecnologia e eletrônicos. Participamos de programas de afiliados comerciais (incluindo o Programa de Associados da Amazon, Programa de Afiliados KaBuM!, TerabyteShop, Pichau e Mercado Livre Afiliados). Como afiliados, podemos receber uma comissão monetária por compras qualificadas efetuadas através dos links disponibilizados neste site, identificados devidamente com a tag <code className="text-orange-300 font-mono font-bold">rel="sponsored"</code>, sem nenhum acréscimo de valor ou cobrança extra para o consumidor final.
+            O <strong>WelligtonTech</strong> é um portal brasileiro independente de curadoria, comparativo de preços e divulgação de ofertas de tecnologia e eletrônicos. Participamos de programas de afiliados comerciais (incluindo o Programa de Associados da Amazon, Mercado Livre Afiliados e Shopee Afiliados). Como afiliados, podemos receber uma comissão monetária por compras qualificadas efetuadas através dos links disponibilizados neste site, identificados devidamente com a tag <code className="text-orange-300 font-mono font-bold">rel="sponsored"</code>, sem nenhum acréscimo de valor ou cobrança extra para o consumidor final.
           </p>
           <p className="text-slate-500">
-            <strong>Aviso de Demonstração:</strong> Os produtos, preços, estoques e promoções exibidos nesta versão inicial são fictícios e destinados unicamente para demonstração de interface e usabilidade do portal. Os preços reais, prazos e disponibilidade são sempre confirmados nas respectivas lojas oficiais parceiras no momento da compra.
+            <strong>Transparência e Conformidade:</strong> Os links de produtos nesta seção foram atualizados com ofertas oficiais e links de afiliados verificados das lojas Amazon, Mercado Livre e Shopee. Os preços reais, prazos e disponibilidade são sempre confirmados nas respectivas lojas oficiais parceiras no momento da compra.
           </p>
         </div>
 

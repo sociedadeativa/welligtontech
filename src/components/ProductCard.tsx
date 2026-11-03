@@ -142,6 +142,14 @@ export const ProductCard: React.FC<ProductCardProps> = ({
             À vista no <strong className="text-slate-800 font-bold">PIX</strong> ou {product.installments.count}x de {formatBRL(product.installments.value)}
           </p>
 
+          {/* Store variation notice if applicable */}
+          {product.hasStoreVariations && (
+            <div className="mt-2 py-1 px-2 rounded-lg bg-amber-50 border border-amber-200/80 text-[10px] text-amber-900 font-semibold flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-amber-500 shrink-0 animate-pulse" />
+              <span className="truncate">Especificações variam por loja</span>
+            </div>
+          )}
+
           {/* Stock remaining notice (Red text like in screenshot) */}
           <div className="flex items-center justify-between text-[10px] mt-2 pt-2 border-t border-slate-100">
             <span className="text-rose-600 font-black">
@@ -154,27 +162,61 @@ export const ProductCard: React.FC<ProductCardProps> = ({
         </div>
       </div>
 
-      {/* Two Bottom Action Buttons (Screenshot 4, 3, 2) */}
-      <div className="p-3 pt-2 grid grid-cols-2 gap-2">
-        {/* Comparar Button */}
+      {/* Action Area: Details Button + 3 Dedicated Store Buttons */}
+      <div className="p-3 pt-2 space-y-2">
+        {/* Comparar / Ver Ficha Button */}
         <button
           onClick={() => onSelectProduct(product)}
-          className="flex items-center justify-center gap-1 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold py-2 px-2.5 rounded-xl text-xs transition-colors cursor-pointer"
+          className="w-full flex items-center justify-center gap-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold py-1.5 px-2 rounded-xl text-xs transition-colors cursor-pointer"
         >
-          <Eye className="w-3.5 h-3.5" />
-          <span>Comparar</span>
+          <Eye className="w-3.5 h-3.5 text-slate-500" />
+          <span>Ver Ficha & Comparativo</span>
         </button>
 
-        {/* Ir à Loja Affiliate Button (rel="sponsored") */}
-        <a
-          href={product.affiliateUrl}
-          target="_blank"
-          rel="sponsored noopener noreferrer"
-          className="flex items-center justify-center gap-1 bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-500 hover:to-orange-600 text-white font-extrabold py-2 px-2.5 rounded-xl text-xs transition-all shadow-md shadow-orange-600/20 active:scale-[0.98] cursor-pointer"
-        >
-          <span>Ir à Loja</span>
-          <ExternalLink className="w-3.5 h-3.5" />
-        </a>
+        {/* 3 Dedicated Store Affiliate Buttons (Amazon, Mercado Livre, Shopee) */}
+        <div>
+          <div className="flex items-center justify-between text-[10px] font-bold text-slate-500 mb-1 px-0.5">
+            <span>Comprar na loja oficial:</span>
+            <span className="text-[9px] text-slate-400 font-normal">rel="sponsored"</span>
+          </div>
+          <div className="grid grid-cols-3 gap-1.5">
+            {/* Amazon Button */}
+            <a
+              href={product.amazonUrl || product.affiliateUrl}
+              target="_blank"
+              rel="sponsored noopener noreferrer"
+              className="flex items-center justify-center gap-0.5 bg-slate-900 hover:bg-slate-800 text-amber-400 py-1.5 px-1 rounded-lg text-[10px] font-black tracking-tight transition-all shadow-xs active:scale-95 text-center cursor-pointer group/btn"
+              title="Abrir oferta na Amazon (Abre em nova aba com rel=sponsored)"
+            >
+              <span>Amazon</span>
+              <ExternalLink className="w-2.5 h-2.5 opacity-80 group-hover/btn:opacity-100 shrink-0" />
+            </a>
+
+            {/* Mercado Livre Button */}
+            <a
+              href={product.mercadoLivreUrl || product.affiliateUrl}
+              target="_blank"
+              rel="sponsored noopener noreferrer"
+              className="flex items-center justify-center gap-0.5 bg-[#FFE600] hover:bg-[#F5DC00] text-[#2D3277] py-1.5 px-1 rounded-lg text-[10px] font-black tracking-tight transition-all shadow-xs active:scale-95 text-center cursor-pointer group/btn"
+              title="Abrir oferta no Mercado Livre (Abre em nova aba com rel=sponsored)"
+            >
+              <span className="truncate">M. Livre</span>
+              <ExternalLink className="w-2.5 h-2.5 opacity-80 group-hover/btn:opacity-100 shrink-0" />
+            </a>
+
+            {/* Shopee Button */}
+            <a
+              href={product.shopeeUrl || product.affiliateUrl}
+              target="_blank"
+              rel="sponsored noopener noreferrer"
+              className="flex items-center justify-center gap-0.5 bg-[#EE4D2D] hover:bg-[#DE3C1C] text-white py-1.5 px-1 rounded-lg text-[10px] font-black tracking-tight transition-all shadow-xs active:scale-95 text-center cursor-pointer group/btn"
+              title="Abrir oferta na Shopee (Abre em nova aba com rel=sponsored)"
+            >
+              <span>Shopee</span>
+              <ExternalLink className="w-2.5 h-2.5 opacity-80 group-hover/btn:opacity-100 shrink-0" />
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   );

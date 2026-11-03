@@ -35,9 +35,9 @@ export const App: React.FC = () => {
   const [favorites, setFavorites] = useState<string[]>(() => {
     try {
       const saved = localStorage.getItem('welligtontech_favs');
-      return saved ? JSON.parse(saved) : ['wt-01', 'wt-02'];
+      return saved ? JSON.parse(saved) : ['dell-inspiron-15', 'samsung-galaxy-book4'];
     } catch {
-      return ['wt-01', 'wt-02'];
+      return ['dell-inspiron-15', 'samsung-galaxy-book4'];
     }
   });
   const [favoritesModalOpen, setFavoritesModalOpen] = useState(false);

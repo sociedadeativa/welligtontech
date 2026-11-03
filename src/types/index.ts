@@ -48,6 +48,14 @@ export interface ServiceItem {
   dedicatedRoute?: PageRoute;
 }
 
+export interface StoreOfferItem {
+  storeId: 'amazon' | 'mercadolivre' | 'shopee';
+  storeName: 'Amazon' | 'Mercado Livre' | 'Shopee';
+  url: string;
+  specsVariation?: string;
+  badge?: string;
+}
+
 export interface Product {
   id: string;
   name: string;
@@ -66,6 +74,12 @@ export interface Product {
   };
   image: string;
   affiliateUrl: string;
+  amazonUrl: string;
+  mercadoLivreUrl: string;
+  shopeeUrl: string;
+  stores?: StoreOfferItem[];
+  hasStoreVariations?: boolean;
+  storeVariationsNote?: string;
   rating: number;
   reviewCount: number;
   badge: string;

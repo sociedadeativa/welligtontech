@@ -30,12 +30,35 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
     return val.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
   };
 
-  const storeComparison = [
-    { store: product.store, price: product.currentPrice, isBest: true, link: product.affiliateUrl },
-    { store: 'KaBuM!', price: Number((product.currentPrice * 1.05).toFixed(2)), isBest: false, link: 'https://kabum.com.br' },
-    { store: 'Amazon Brasil', price: Number((product.currentPrice * 1.08).toFixed(2)), isBest: false, link: 'https://amazon.com.br' },
-    { store: 'TerabyteShop', price: Number((product.currentPrice * 1.10).toFixed(2)), isBest: false, link: 'https://terabyteshop.com.br' },
-  ].filter((v, i, a) => a.findIndex(t => t.store === v.store) === i);
+  const storeOffers = [
+    {
+      storeId: 'amazon',
+      name: 'Amazon Brasil',
+      shortName: 'Amazon',
+      url: product.amazonUrl || product.affiliateUrl,
+      badge: product.stores?.find((s) => s.storeId === 'amazon')?.badge || 'Oferta Oficial',
+      specsVariation: product.stores?.find((s) => s.storeId === 'amazon')?.specsVariation,
+      btnClass: 'bg-slate-900 hover:bg-slate-800 text-amber-400 border border-slate-700 shadow-sm'
+    },
+    {
+      storeId: 'mercadolivre',
+      name: 'Mercado Livre',
+      shortName: 'Mercado Livre',
+      url: product.mercadoLivreUrl || product.affiliateUrl,
+      badge: product.stores?.find((s) => s.storeId === 'mercadolivre')?.badge || 'Envio Oficial',
+      specsVariation: product.stores?.find((s) => s.storeId === 'mercadolivre')?.specsVariation,
+      btnClass: 'bg-[#FFE600] hover:bg-[#F5DC00] text-[#2D3277] border border-yellow-400 font-black shadow-sm'
+    },
+    {
+      storeId: 'shopee',
+      name: 'Shopee',
+      shortName: 'Shopee',
+      url: product.shopeeUrl || product.affiliateUrl,
+      badge: product.stores?.find((s) => s.storeId === 'shopee')?.badge || 'Loja Oficial',
+      specsVariation: product.stores?.find((s) => s.storeId === 'shopee')?.specsVariation,
+      btnClass: 'bg-[#EE4D2D] hover:bg-[#DE3C1C] text-white border border-[#EE4D2D] shadow-sm'
+    }
+  ];
 
   return (
     <div className="py-8 bg-[#f8fafc] min-h-screen text-slate-800">
@@ -49,11 +72,11 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
           <span>Voltar para as ofertas</span>
         </button>
 
-        {/* Fictional Sample Notice */}
+        {/* Affiliate Disclosure Notice */}
         <div className="bg-amber-50 border border-amber-200 p-3.5 rounded-xl flex items-center gap-2 text-xs text-amber-900">
-          <Info className="w-4 h-4 text-amber-600 flex-shrink-0" />
+          <Info className="w-4 h-4 text-amber-600 shrink-0" />
           <span>
-            <strong>Aviso de Demonstração:</strong> Esta página contém dados ilustrativos. Ao clicar no botão abaixo, você será redirecionado para a loja oficial parceira através de link patrocinado (<code className="font-mono text-orange-600 font-bold">rel="sponsored"</code>).
+            <strong>Transparência de Afiliados:</strong> Todos os links para Amazon, Mercado Livre e Shopee são links patrocinados oficiais devidamente identificados com as tags <code className="font-mono text-orange-600 font-bold">rel="sponsored"</code> e <code className="font-mono text-orange-600 font-bold">rel="noopener noreferrer"</code>. Os preços e a disponibilidade são verificados diretamente nas lojas parceiras.
           </span>
         </div>
 
@@ -102,7 +125,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
             </div>
 
             {/* Pricing Box */}
-            <div className="p-6 bg-slate-50 rounded-2xl border border-slate-200 space-y-3">
+            <div className="p-6 bg-slate-50 rounded-2xl border border-slate-200 space-y-4">
               <div className="flex items-baseline gap-2">
                 <span className="text-xs text-slate-400 line-through">
                   De {formatBRL(product.previousPrice)}
@@ -120,63 +143,98 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
               </div>
 
               <p className="text-xs text-slate-500">
-                ou {formatBRL(product.currentPrice * 1.1)} em até {product.installments.count}x de {formatBRL(product.installments.value)} sem juros no cartão
+                ou em até {product.installments.count}x de {formatBRL(product.installments.value)} sem juros no cartão
               </p>
 
-              {/* Affiliate CTA */}
-              <div className="pt-2">
-                <a
-                  href={product.affiliateUrl}
-                  target="_blank"
-                  rel="sponsored noopener noreferrer"
-                  className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-500 hover:to-orange-600 text-white font-black py-4 px-6 rounded-2xl text-sm transition-all shadow-lg shadow-orange-600/25 cursor-pointer"
-                >
-                  <span>IR PARA A LOJA OFICIAL ({product.store.toUpperCase()})</span>
-                  <ExternalLink className="w-4 h-4" />
-                </a>
+              {/* Three Store Buttons (Amazon, Mercado Livre, Shopee) */}
+              <div className="pt-2 space-y-2">
+                <span className="block text-xs font-black uppercase tracking-wider text-slate-700">
+                  Comprar na sua loja preferida:
+                </span>
 
-                <div className="flex items-center justify-between text-[11px] text-slate-400 mt-2 px-1">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+                  {storeOffers.map((store) => (
+                    <a
+                      key={store.storeId}
+                      href={store.url}
+                      target="_blank"
+                      rel="sponsored noopener noreferrer"
+                      className={`flex flex-col items-center justify-center p-3 rounded-xl transition-all font-extrabold cursor-pointer active:scale-98 ${store.btnClass}`}
+                    >
+                      <div className="flex items-center gap-1.5 text-xs">
+                        <span>{store.shortName}</span>
+                        <ExternalLink className="w-3.5 h-3.5" />
+                      </div>
+                      <span className="text-[10px] opacity-85 font-normal mt-0.5">
+                        {store.badge}
+                      </span>
+                    </a>
+                  ))}
+                </div>
+
+                <div className="flex items-center justify-between text-[11px] text-slate-400 pt-1 px-1">
                   <span className="flex items-center gap-1">
                     <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-                    Redirecionamento seguro para a loja parceira
+                    Lojas homologadas • Redirecionamento seguro
                   </span>
-                  <span>rel="sponsored"</span>
+                  <span className="font-mono text-[10px]">rel="sponsored"</span>
                 </div>
-              </div>
-            </div>
-
-            {/* Simulated Store Price Comparison */}
-            <div className="space-y-2">
-              <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
-                Comparativo de Preços nas Principais Lojas
-              </span>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-                {storeComparison.map((sc, i) => (
-                  <div
-                    key={i}
-                    className={`p-2.5 rounded-xl border text-xs flex flex-col justify-between ${
-                      sc.isBest
-                        ? 'bg-emerald-50 border-emerald-300 text-emerald-900'
-                        : 'bg-white border-slate-200 text-slate-700'
-                    }`}
-                  >
-                    <div className="flex items-center justify-between">
-                      <span className="font-bold">{sc.store}</span>
-                      {sc.isBest && (
-                        <span className="text-[9px] bg-emerald-600 text-white font-black px-1 rounded">
-                          MELHOR
-                        </span>
-                      )}
-                    </div>
-                    <span className="text-sm font-mono font-bold mt-1 text-slate-900">
-                      {formatBRL(sc.price)}
-                    </span>
-                  </div>
-                ))}
               </div>
             </div>
           </div>
         </div>
+
+        {/* Store-specific Hardware Variations Notice & Breakdown */}
+        {product.hasStoreVariations && (
+          <div className="bg-amber-50/70 border border-amber-300 rounded-3xl p-6 sm:p-8 shadow-sm space-y-4">
+            <div className="flex items-start gap-3">
+              <div className="w-9 h-9 rounded-full bg-amber-200 text-amber-900 flex items-center justify-center shrink-0 mt-0.5">
+                <Info className="w-5 h-5 text-amber-800" />
+              </div>
+              <div className="space-y-1">
+                <h2 className="text-base sm:text-lg font-black text-amber-950">
+                  Variações de Hardware Verificadas por Loja
+                </h2>
+                <p className="text-xs text-amber-900 leading-relaxed">
+                  {product.storeVariationsNote || "Os anúncios deste modelo possuem variações de processador, memória RAM, armazenamento SSD ou sistema operacional dependendo da plataforma parceira. Não afirmamos que os anúncios são idênticos. Confira a configuração exata de cada anúncio antes de comprar:"}
+                </p>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+              {storeOffers.map((store) => (
+                <div
+                  key={store.storeId}
+                  className="p-4 bg-white rounded-2xl border border-amber-200 shadow-xs flex flex-col justify-between space-y-3"
+                >
+                  <div className="space-y-1.5">
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-black uppercase text-slate-900">
+                        {store.name}
+                      </span>
+                      <span className="text-[10px] font-bold bg-amber-100 text-amber-800 px-2 py-0.5 rounded">
+                        {store.badge}
+                      </span>
+                    </div>
+                    <p className="text-xs text-slate-700 font-medium leading-relaxed bg-slate-50 p-2.5 rounded-xl border border-slate-100">
+                      {store.specsVariation || 'Especificação padrão conforme ficha técnica.'}
+                    </p>
+                  </div>
+
+                  <a
+                    href={store.url}
+                    target="_blank"
+                    rel="sponsored noopener noreferrer"
+                    className={`w-full py-2 px-3 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 transition-all ${store.btnClass}`}
+                  >
+                    <span>Ver na {store.shortName}</span>
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* Technical Specs */}
         <div className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-sm space-y-4">
