@@ -99,7 +99,8 @@
           "url": "https://link.amazon/B0d7W8nGD",
           "modelName": "HP 256R G9",
           "specsVariation": "Modelo HP 256R G9 • Intel Core i5 13th Gen, 16GB RAM, 256GB SSD, Windows 11 Home",
-          "badge": "Mais Vendido"
+          "badge": "Mais Vendido",
+          "image": "/assets/products/hp-256r-g9.png"
         },
         {
           "storeId": "mercadolivre",
@@ -107,7 +108,8 @@
           "url": "https://meli.la/217RBAQ",
           "modelName": "HP 200 G2i",
           "specsVariation": "Modelo HP 200 G2i • Intel Core 5 120U, 8GB DDR5 RAM, 256GB SSD, Windows 11 Home (Modelo diferente: HP 200 G2i)",
-          "badge": "Envio Full"
+          "badge": "Envio Full",
+          "image": "/assets/products/hp-256r-g9.svg"
         },
         {
           "storeId": "shopee",
@@ -115,7 +117,8 @@
           "url": "https://s.shopee.com.br/70LQ0vb3mJ",
           "modelName": "HP 256R G9",
           "specsVariation": "Modelo HP 256R G9 • Intel Core i3 13th Gen, 8GB RAM, 256GB SSD, Windows 11",
-          "badge": "Cupom Oficial"
+          "badge": "Cupom Oficial",
+          "image": "/assets/products/hp-256r-g9.png"
         }
       ],
       "hasStoreVariations": true,
@@ -233,22 +236,28 @@
           "storeId": "amazon",
           "storeName": "Amazon",
           "url": "https://link.amazon/B05lGQGMI",
+          "modelName": "Dell Inspiron 15",
           "specsVariation": "Intel Core i5-1334U, 8GB RAM, 512GB SSD, Windows 11 Home, Tela 15.6\" FHD 120Hz",
-          "badge": "Entrega Prime"
+          "badge": "Entrega Prime",
+          "image": "/assets/products/dell-inspiron-15.png"
         },
         {
           "storeId": "mercadolivre",
           "storeName": "Mercado Livre",
           "url": "https://meli.la/2qKdxxU",
+          "modelName": "Dell Inspiron 15",
           "specsVariation": "Intel Core i5-1334U, 8GB RAM, 512GB SSD, Windows 11 Home, Tela 15.6\" FHD 120Hz",
-          "badge": "Envio Full"
+          "badge": "Envio Full",
+          "image": "/assets/products/dell-inspiron-15.png"
         },
         {
           "storeId": "shopee",
           "storeName": "Shopee",
           "url": "https://s.shopee.com.br/5VWbsG1MBl",
+          "modelName": "Dell Inspiron 15",
           "specsVariation": "Intel Core i5-1334U, 8GB RAM, 512GB SSD, Windows 11 Home, Tela 15.6\" FHD 120Hz",
-          "badge": "Cupom Oficial"
+          "badge": "Cupom Oficial",
+          "image": "/assets/products/dell-inspiron-15.png"
         }
       ],
       "hasStoreVariations": false,
@@ -296,22 +305,28 @@
           "storeId": "amazon",
           "storeName": "Amazon",
           "url": "https://link.amazon/B05rt15Fb",
+          "modelName": "IdeaPad Slim 3 15IRU10",
           "specsVariation": "Intel Core 3 100U, 8GB RAM LPDDR5, 256GB SSD NVMe, Tela 15.3\" WUXGA Antirreflexo",
-          "badge": "Mais Vendido"
+          "badge": "Mais Vendido",
+          "image": "/assets/products/lenovo-ideapad-slim-3-15iru10.jpg"
         },
         {
           "storeId": "mercadolivre",
           "storeName": "Mercado Livre",
           "url": "https://meli.la/28X5hUd",
+          "modelName": "IdeaPad Slim 3 15IRU10",
           "specsVariation": "Intel Core 3 100U, 8GB RAM LPDDR5, 256GB SSD NVMe, Tela 15.3\" WUXGA Antirreflexo",
-          "badge": "Frete Grátis"
+          "badge": "Frete Grátis",
+          "image": "/assets/products/lenovo-ideapad-slim-3-15iru10.jpg"
         },
         {
           "storeId": "shopee",
           "storeName": "Shopee",
           "url": "https://s.shopee.com.br/8VADSyi3DX",
+          "modelName": "IdeaPad Slim 3 15IRU10",
           "specsVariation": "Intel Core 3 100U, 8GB RAM LPDDR5, 256GB SSD NVMe, Tela 15.3\" WUXGA Antirreflexo",
-          "badge": "Garantia Shopee"
+          "badge": "Garantia Shopee",
+          "image": "/assets/products/lenovo-ideapad-slim-3-15iru10.jpg"
         }
       ],
       "hasStoreVariations": false,
@@ -359,22 +374,28 @@
           "storeId": "amazon",
           "storeName": "Amazon",
           "url": "https://link.amazon/B0bQCJqT2",
+          "modelName": "VAIO FE16",
           "specsVariation": "Não confirmado (verificar configuração de processador, RAM e SSD diretamente na oferta)",
-          "badge": "Consulte Loja"
+          "badge": "Consulte Loja",
+          "image": "/assets/products/vaio-fe16.jpg"
         },
         {
           "storeId": "mercadolivre",
           "storeName": "Mercado Livre",
           "url": "https://meli.la/2o5ACjx",
+          "modelName": "VAIO FE16",
           "specsVariation": "Não confirmado (verificar configuração de processador, RAM e SSD diretamente na oferta)",
-          "badge": "Consulte Loja"
+          "badge": "Consulte Loja",
+          "image": "/assets/products/vaio-fe16.jpg"
         },
         {
           "storeId": "shopee",
           "storeName": "Shopee",
           "url": "https://s.shopee.com.br/5fq27EmsOM",
+          "modelName": "VAIO FE16",
           "specsVariation": "Não confirmado (verificar configuração de processador, RAM e SSD diretamente na oferta)",
-          "badge": "Consulte Loja"
+          "badge": "Consulte Loja",
+          "image": "/assets/products/vaio-fe16.jpg"
         }
       ],
       "hasStoreVariations": true,
@@ -422,22 +443,28 @@
           "storeId": "amazon",
           "storeName": "Amazon",
           "url": "https://link.amazon/B057ALPyn",
+          "modelName": "Vivobook Go 15",
           "specsVariation": "Não confirmado (verificar capacidade de RAM e SSD diretamente no anúncio)",
-          "badge": "Consulte Loja"
+          "badge": "Consulte Loja",
+          "image": "/assets/products/asus-vivobook-go-15.png"
         },
         {
           "storeId": "mercadolivre",
           "storeName": "Mercado Livre",
           "url": "https://meli.la/2PLPDza",
+          "modelName": "Vivobook Go 15",
           "specsVariation": "Não confirmado (verificar capacidade de RAM e SSD diretamente no anúncio)",
-          "badge": "Consulte Loja"
+          "badge": "Consulte Loja",
+          "image": "/assets/products/asus-vivobook-go-15.png"
         },
         {
           "storeId": "shopee",
           "storeName": "Shopee",
           "url": "https://s.shopee.com.br/6AmIjCOhdN",
+          "modelName": "Vivobook Go 15",
           "specsVariation": "Não confirmado (verificar capacidade de RAM e SSD diretamente no anúncio)",
-          "badge": "Consulte Loja"
+          "badge": "Consulte Loja",
+          "image": "/assets/products/asus-vivobook-go-15.png"
         }
       ],
       "hasStoreVariations": true,
@@ -485,22 +512,28 @@
           "storeId": "amazon",
           "storeName": "Amazon",
           "url": "https://link.amazon/B03KlOvm2",
+          "modelName": "Galaxy Book4",
           "specsVariation": "Intel Core 5 1335U (10 núcleos), 8GB LPDDR4x, 512GB SSD NVMe, Windows 11 Home, Tela 15.6\" FHD IPS",
-          "badge": "Amazon Indica"
+          "badge": "Amazon Indica",
+          "image": "/assets/products/samsung-galaxy-book4.png"
         },
         {
           "storeId": "mercadolivre",
           "storeName": "Mercado Livre",
           "url": "https://meli.la/1WfEPG7",
+          "modelName": "Galaxy Book4",
           "specsVariation": "Intel Core 5 1335U (10 núcleos), 8GB LPDDR4x, 512GB SSD NVMe, Windows 11 Home, Tela 15.6\" FHD IPS",
-          "badge": "Loja Oficial Samsung"
+          "badge": "Loja Oficial Samsung",
+          "image": "/assets/products/samsung-galaxy-book4.png"
         },
         {
           "storeId": "shopee",
           "storeName": "Shopee",
           "url": "https://s.shopee.com.br/3qONxccIDW",
+          "modelName": "Galaxy Book4",
           "specsVariation": "Intel Core 5 1335U (10 núcleos), 8GB LPDDR4x, 512GB SSD NVMe, Windows 11 Home, Tela 15.6\" FHD IPS",
-          "badge": "Frete Grátis Cupom"
+          "badge": "Frete Grátis Cupom",
+          "image": "/assets/products/samsung-galaxy-book4.png"
         }
       ],
       "hasStoreVariations": false,
@@ -548,22 +581,28 @@
           "storeId": "amazon",
           "storeName": "Amazon",
           "url": "https://link.amazon/B056ZXwvh",
+          "modelName": "Aspire Go 15 (512GB / Win 11)",
           "specsVariation": "Intel Core i5-1334U, 8GB RAM LPDDR5, 512GB SSD NVMe PCIe 4.0, Windows 11 Home, Tela 15.3\" WUXGA IPS 16:10",
-          "badge": "512GB / Win 11"
+          "badge": "512GB / Win 11",
+          "image": "/assets/products/acer-aspire-go-15.jpg"
         },
         {
           "storeId": "mercadolivre",
           "storeName": "Mercado Livre",
           "url": "https://meli.la/2G4VsKg",
+          "modelName": "Aspire Go 15 (256GB / Linux)",
           "specsVariation": "Intel Core i5-1334U, 8GB RAM LPDDR5, 256GB SSD NVMe, Linux Gutta ou Windows 11, Tela 15.3\" WUXGA IPS",
-          "badge": "256GB / Linux ou Win"
+          "badge": "256GB / Linux ou Win",
+          "image": "/assets/products/acer-aspire-go-15.jpg"
         },
         {
           "storeId": "shopee",
           "storeName": "Shopee",
           "url": "https://s.shopee.com.br/3g4xmcwris",
+          "modelName": "Aspire Go 15 (512GB SSD)",
           "specsVariation": "Intel Core i5-1334U, 8GB RAM LPDDR5, 512GB SSD NVMe, Windows 11 Home / Linux, Tela 15.3\" WUXGA",
-          "badge": "512GB SSD"
+          "badge": "512GB SSD",
+          "image": "/assets/products/acer-aspire-go-15.jpg"
         }
       ],
       "hasStoreVariations": true,
@@ -611,22 +650,28 @@
           "storeId": "amazon",
           "storeName": "Amazon",
           "url": "https://link.amazon/B0DF8N5QJ1",
+          "modelName": "Nitro V 15 ANV15-41-R6J0",
           "specsVariation": "AMD Ryzen 7 7735HS, RTX 4050 6GB, 8GB RAM DDR5, 512GB SSD, Linux, Tela 15.6\" FHD 165Hz",
-          "badge": "Entrega Prime"
+          "badge": "Entrega Prime",
+          "image": "/assets/products/acer-nitro-v-15-anv15-41-r6j0.png"
         },
         {
           "storeId": "mercadolivre",
           "storeName": "Mercado Livre",
           "url": "https://meli.la/2qNV15R",
+          "modelName": "Nitro V 15 ANV15-41-R6J0",
           "specsVariation": "AMD Ryzen 7 7735HS, RTX 4050 6GB, 8GB RAM DDR5, 512GB SSD, Linux, Tela 15.6\" FHD 165Hz",
-          "badge": "Envio Full"
+          "badge": "Envio Full",
+          "image": "/assets/products/acer-nitro-v-15-anv15-41-r6j0.png"
         },
         {
           "storeId": "shopee",
           "storeName": "Shopee",
           "url": "https://s.shopee.com.br/5NV15R6J0",
+          "modelName": "Nitro V 15 ANV15-41-R6J0",
           "specsVariation": "AMD Ryzen 7 7735HS, RTX 4050 6GB, 8GB RAM DDR5, 512GB SSD, Linux, Tela 15.6\" FHD 165Hz",
-          "badge": "Loja Oficial"
+          "badge": "Loja Oficial",
+          "image": "/assets/products/acer-nitro-v-15-anv15-41-r6j0.png"
         }
       ],
       "hasStoreVariations": false,
@@ -675,22 +720,28 @@
           "storeId": "amazon",
           "storeName": "Amazon",
           "url": "https://link.amazon/B0cavVgt7",
+          "modelName": "Logitech M170",
           "specsVariation": "Mouse Sem Fio Logitech M170 Preto/Cinza, Receptor USB Nano 2.4GHz, Pilha AA Inclusa",
-          "badge": "Mais Vendido"
+          "badge": "Mais Vendido",
+          "image": "/assets/products/logitech-m170-wireless-mouse.webp"
         },
         {
           "storeId": "mercadolivre",
           "storeName": "Mercado Livre",
           "url": "https://meli.la/1FsBKp4",
+          "modelName": "Logitech M170",
           "specsVariation": "Mouse Sem Fio Logitech M170 Preto/Cinza, Receptor USB Nano 2.4GHz, Pilha AA Inclusa",
-          "badge": "Envio Full"
+          "badge": "Envio Full",
+          "image": "/assets/products/logitech-m170-wireless-mouse.webp"
         },
         {
           "storeId": "shopee",
           "storeName": "Shopee",
           "url": "https://s.shopee.com.br/1W0TDvUT3y",
+          "modelName": "Logitech M170",
           "specsVariation": "Mouse Sem Fio Logitech M170 Preto/Cinza, Receptor USB Nano 2.4GHz, Pilha AA Inclusa",
-          "badge": "Garantia Shopee"
+          "badge": "Garantia Shopee",
+          "image": "/assets/products/logitech-m170-wireless-mouse.webp"
         }
       ],
       "hasStoreVariations": false,

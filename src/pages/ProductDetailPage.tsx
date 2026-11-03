@@ -112,7 +112,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
                     {product.brand}
                   </span>
                   <span className="text-xs text-slate-400 font-medium mt-1">
-                    Foto oficial do produto não fornecida
+                    Imagem do produto indisponível
                   </span>
                 </div>
               ) : (
@@ -132,14 +132,15 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
               </button>
             </div>
 
-            {/* Store Photos Gallery Thumbnails */}
+            {/* Store Photos Gallery Tabs */}
             {storeOffers.some((s) => s.image) && (
               <div className="w-full mt-4 pt-3 border-t border-slate-100 flex flex-col gap-2">
-                <span className="text-[11px] font-black uppercase text-slate-500 tracking-wider">
-                  Fotos autênticas por modelo e loja:
+                <span className="text-[11px] font-bold uppercase text-slate-500 tracking-wider">
+                  Visualizar modelo:
                 </span>
-                <div className="flex items-center gap-2 overflow-x-auto pb-1">
+                <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
                   <button
+                    type="button"
                     onClick={() => { setSelectedImage(product.image); setImgError(false); }}
                     className={`flex items-center gap-1.5 px-2.5 py-1 rounded-xl text-[11px] font-bold transition-all border cursor-pointer ${
                       selectedImage === product.image
@@ -152,14 +153,20 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
                   {storeOffers.map((store) => store.image && (
                     <button
                       key={store.storeId}
+                      type="button"
                       onClick={() => { setSelectedImage(store.image!); setImgError(false); }}
-                      className={`flex items-center gap-1.5 px-2.5 py-1 rounded-xl text-[11px] font-bold transition-all border cursor-pointer shrink-0 ${
+                      className={`flex items-center gap-1.5 px-2.5 py-1 rounded-xl text-[11px] font-bold transition-all border cursor-pointer ${
                         selectedImage === store.image
                           ? 'bg-orange-50 text-orange-700 border-orange-500 ring-2 ring-orange-200'
                           : 'bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100'
                       }`}
                     >
-                      <img src={store.image} alt={store.name} className="w-4 h-4 object-contain rounded" />
+                      <img 
+                        src={store.image} 
+                        alt={store.name} 
+                        className="w-4 h-4 object-contain rounded shrink-0" 
+                        onError={(e) => { (e.currentTarget as HTMLElement).style.display = 'none'; }}
+                      />
                       <span>{store.shortName}: {store.modelName || 'Modelo'}</span>
                     </button>
                   ))}
@@ -263,22 +270,48 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
           </div>
         </div>
 
-        {/* Store-specific Hardware Variations Notice & Breakdown */}
-        {product.hasStoreVariations && (
-          <div className="bg-amber-50/70 border border-amber-300 rounded-3xl p-6 sm:p-8 shadow-sm space-y-4">
+        {/* Store Comparison and Breakdown Section */}
+        {product.stores && product.stores.length > 0 && (
+          <div className={`rounded-3xl p-6 sm:p-8 shadow-sm space-y-4 ${
+            product.hasStoreVariations 
+              ? 'bg-amber-50/70 border border-amber-300' 
+              : 'bg-white border border-slate-200'
+          }`}>
             <div className="flex items-start gap-3">
-              <div className="w-9 h-9 rounded-full bg-amber-200 text-amber-900 flex items-center justify-center shrink-0 mt-0.5">
-                <Info className="w-5 h-5 text-amber-800" />
+              <div className={`w-9 h-9 rounded-full flex items-center justify-center shrink-0 mt-0.5 ${
+                product.hasStoreVariations
+                  ? 'bg-amber-200 text-amber-900'
+                  : 'bg-emerald-100 text-emerald-800'
+              }`}>
+                {product.hasStoreVariations ? (
+                  <Info className="w-5 h-5 text-amber-800" />
+                ) : (
+                  <ShieldCheck className="w-5 h-5 text-emerald-700" />
+                )}
               </div>
               <div className="space-y-1">
-                <span className="inline-block px-2.5 py-0.5 rounded bg-amber-200 text-amber-950 text-[10px] font-black uppercase tracking-wider">
-                  Aviso Oficial de Conformidade
+                <span className={`inline-block px-2.5 py-0.5 rounded text-[10px] font-black uppercase tracking-wider ${
+                  product.hasStoreVariations
+                    ? 'bg-amber-200 text-amber-950'
+                    : 'bg-emerald-100 text-emerald-800'
+                }`}>
+                  {product.hasStoreVariations ? 'Aviso de Variações' : 'Disponibilidade Verificada'}
                 </span>
-                <h2 className="text-base sm:text-lg font-black text-amber-950">
-                  Modelos e configurações variam conforme a loja. Confira antes de comprar.
+                <h2 className={`text-base sm:text-lg font-black ${
+                  product.hasStoreVariations ? 'text-amber-950' : 'text-slate-900'
+                }`}>
+                  {product.hasStoreVariations 
+                    ? 'Modelos e configurações variam conforme a loja. Confira antes de comprar.' 
+                    : 'Ofertas verificadas nas lojas parceiras oficiais'}
                 </h2>
-                <p className="text-xs text-amber-900 leading-relaxed">
-                  {product.storeVariationsNote || "Os modelos e especificações técnicas variam dependendo da plataforma parceira. Não afirmamos que os anúncios são idênticos. Confira a configuração exata de cada anúncio antes de comprar:"}
+                <p className={`text-xs leading-relaxed ${
+                  product.hasStoreVariations ? 'text-amber-900' : 'text-slate-600'
+                }`}>
+                  {product.storeVariationsNote || (
+                    product.hasStoreVariations
+                      ? "Os modelos e especificações técnicas variam dependendo da plataforma parceira. Não afirmamos que os anúncios são idênticos. Confira a configuração exata de cada anúncio antes de comprar:"
+                      : "Configurações equivalentes verificadas na Amazon, Mercado Livre e Shopee com redirecionamento seguro e links oficiais patrocinados:"
+                  )}
                 </p>
               </div>
             </div>
@@ -287,24 +320,30 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
               {storeOffers.map((store) => (
                 <div
                   key={store.storeId}
-                  className="p-4 bg-white rounded-2xl border border-amber-200 shadow-xs flex flex-col justify-between space-y-3"
+                  className={`p-4 bg-white rounded-2xl border shadow-xs flex flex-col justify-between space-y-3 ${
+                    product.hasStoreVariations ? 'border-amber-200' : 'border-slate-200'
+                  }`}
                 >
                   <div className="space-y-2">
                     <div className="flex items-center justify-between">
                       <span className="text-xs font-black uppercase text-slate-900">
                         {store.name}
                       </span>
-                      <span className="text-[10px] font-bold bg-amber-100 text-amber-800 px-2 py-0.5 rounded">
+                      <span className={`text-[10px] font-bold px-2 py-0.5 rounded ${
+                        product.hasStoreVariations 
+                          ? 'bg-amber-100 text-amber-800' 
+                          : 'bg-slate-100 text-slate-700'
+                      }`}>
                         {store.badge}
                       </span>
                     </div>
 
-                    {/* Authentic Model Image Preview */}
+                    {/* Model Image Preview */}
                     {store.image && (
                       <div 
                         onClick={() => { setSelectedImage(store.image!); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
                         className="h-28 w-full bg-slate-50 rounded-xl border border-slate-200 flex items-center justify-center p-2 cursor-pointer hover:border-orange-500 transition-colors group"
-                        title={`Clique para ampliar foto oficial da ${store.shortName}`}
+                        title={`Visualizar modelo da ${store.shortName}`}
                       >
                         <img 
                           src={store.image} 
@@ -316,7 +355,11 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
                     )}
 
                     {store.modelName && (
-                      <div className="text-[11px] font-black text-amber-950 bg-amber-100/70 px-2.5 py-1 rounded-lg border border-amber-200">
+                      <div className={`text-[11px] font-black px-2.5 py-1 rounded-lg border ${
+                        product.hasStoreVariations
+                          ? 'text-amber-950 bg-amber-100/70 border-amber-200'
+                          : 'text-slate-800 bg-slate-100 border-slate-200'
+                      }`}>
                         Modelo: {store.modelName}
                       </div>
                     )}
