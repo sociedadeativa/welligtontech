@@ -2,13 +2,11 @@ import React, { useState } from 'react';
 import { 
   Flame, 
   ArrowRight, 
-  Copy, 
-  Check, 
   ChevronLeft, 
   ChevronRight, 
   Zap, 
   ShieldCheck,
-  Percent
+  BookOpen
 } from 'lucide-react';
 import { PageRoute } from '../types';
 
@@ -18,45 +16,35 @@ interface HeroSectionProps {
 
 export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigate }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [copiedCoupon, setCopiedCoupon] = useState(false);
 
   const slides = [
     {
-      badge: "ESPORTS & ACESSÓRIOS",
-      title: "Periféricos e Acessórios Profissionais",
-      subtitle: "Mouses ultraleves sem fio, teclados mecânicos e fones com cancelamento.",
+      badge: "PERIFÉRICOS & SETUP",
+      title: "Periféricos e Acessórios Selecionados",
+      subtitle: "Mouses de precisão, teclados mecânicos e headsets para produtividade e jogos.",
       buttonText: "Ver Periféricos",
       categoryParam: "perifericos",
-      coupon: "PERIFERICOS15",
       image: "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?auto=format&fit=crop&w=800&q=80"
     },
     {
-      badge: "HARDWARE DE ALTA PERFORMANCE",
-      title: "Placas de Vídeo & Processadores 2026",
-      subtitle: "GeForce RTX 4070 Super e AMD Ryzen 7 7800X3D com descontos reais no PIX.",
+      badge: "HARDWARE & PERFORMANCE",
+      title: "Processadores e Placas de Vídeo",
+      subtitle: "Análise técnica de componentes, eficiência energética e compatibilidade de plataformas.",
       buttonText: "Ver Hardware",
-      categoryParam: "placas-video",
-      coupon: "HARDWARE100",
+      categoryParam: "processadores",
       image: "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=800&q=80"
     },
     {
-      badge: "UPGRADE DE ARMAZENAMENTO",
-      title: "SSDs NVMe M.2 de Altíssima Velocidade",
-      subtitle: "Carregamentos instantâneos para Windows, jogos pesados e consoles PS5.",
-      buttonText: "Ver SSDs",
+      badge: "ARMAZENAMENTO RÁPIDO",
+      title: "SSDs NVMe e Memórias de Alto Desempenho",
+      subtitle: "Recomendações de armazenamento veloz e módulos de memória para upgrades estáveis.",
+      buttonText: "Ver Armazenamento",
       categoryParam: "ssd",
-      coupon: "NVME10",
       image: "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&fit=crop&w=800&q=80"
     }
   ];
 
   const slide = slides[currentSlide];
-
-  const handleCopyCoupon = (code: string) => {
-    navigator.clipboard.writeText(code);
-    setCopiedCoupon(true);
-    setTimeout(() => setCopiedCoupon(false), 2000);
-  };
 
   return (
     <section className="py-6 bg-[#070d1e]">
@@ -100,16 +88,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigate }) => {
                 </button>
 
                 <button
-                  onClick={() => handleCopyCoupon(slide.coupon)}
-                  className="flex items-center gap-2 bg-[#172346]/80 hover:bg-[#172346] text-orange-400 border border-orange-500/30 font-mono text-xs font-bold px-4 py-3 rounded-xl transition-all cursor-pointer backdrop-blur-sm"
-                  title="Copiar cupom"
+                  onClick={() => onNavigate('guias')}
+                  className="flex items-center gap-2 bg-[#172346]/80 hover:bg-[#172346] text-orange-400 border border-orange-500/30 font-sans text-xs font-bold px-4 py-3 rounded-xl transition-all cursor-pointer backdrop-blur-sm"
                 >
-                  <span>CUPOM: {slide.coupon}</span>
-                  {copiedCoupon ? (
-                    <Check className="w-4 h-4 text-emerald-400" />
-                  ) : (
-                    <Copy className="w-4 h-4 text-slate-400" />
-                  )}
+                  <BookOpen className="w-4 h-4 text-orange-400" />
+                  <span>Guias de Compra</span>
                 </button>
               </div>
             </div>
@@ -150,12 +133,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigate }) => {
 
           {/* Right Column Stacked Cards (Screenshot 4) */}
           <div className="lg:col-span-4 flex flex-col justify-between gap-4">
-            {/* Top Card: Comparador Inteligente */}
+            {/* Top Card: Curadoria Especializada */}
             <div className="flex-1 bg-[#09122a] border border-slate-800 rounded-3xl p-6 flex flex-col justify-between shadow-xl">
               <div>
                 <div className="flex items-center justify-between pb-3">
                   <span className="text-[10px] font-black tracking-wider uppercase text-orange-400">
-                    COMPARADOR INTELIGENTE
+                    CURADORIA ESPECIALIZADA
                   </span>
                   <div className="w-7 h-7 rounded-lg bg-orange-500/20 text-orange-400 flex items-center justify-center">
                     <Zap className="w-4 h-4" />
@@ -163,17 +146,17 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigate }) => {
                 </div>
 
                 <h3 className="text-base sm:text-lg font-black text-white leading-tight">
-                  Menor Preço em Tempo Real
+                  Custo-Benefício Real
                 </h3>
 
                 <p className="text-xs text-slate-400 mt-2 leading-relaxed">
-                  Varremos KaBuM!, Amazon, Terabyte e Mercado Livre para achar o menor valor à vista.
+                  Avaliamos especificações técnicas, compatibilidade e confiabilidade de componentes para recomendações honestas.
                 </p>
               </div>
 
               <div className="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs">
-                <span className="text-slate-400">Economia média:</span>
-                <strong className="text-emerald-400 font-bold font-mono">até 32% no PIX</strong>
+                <span className="text-slate-400">Critério editorial:</span>
+                <strong className="text-emerald-400 font-bold font-mono">100% Independente</strong>
               </div>
             </div>
 
@@ -190,17 +173,17 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigate }) => {
                 </div>
 
                 <h3 className="text-base sm:text-lg font-black text-slate-900 leading-tight">
-                  Links Verificados
+                  Conformidade e Transparência
                 </h3>
 
                 <p className="text-xs text-slate-600 mt-2 leading-relaxed">
-                  Sem pegadinhas ou cupons falsos. Redirecionamento oficial com <strong className="text-slate-900 font-mono">rel="sponsored"</strong>.
+                  Links com identificação clara através de <strong className="text-slate-900 font-mono">rel="sponsored"</strong> sem nenhum acréscimo de preço ao consumidor.
                 </p>
               </div>
 
               <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-xs">
-                <span className="text-slate-500">Lojas homologadas</span>
-                <strong className="text-slate-900 font-bold">5 parceiros oficiais</strong>
+                <span className="text-slate-500">Divulgação de Afiliados:</span>
+                <strong className="text-slate-900 font-bold">Diretrizes Oficiais</strong>
               </div>
             </div>
           </div>

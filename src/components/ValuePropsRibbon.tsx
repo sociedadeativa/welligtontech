@@ -13,10 +13,10 @@ export const ValuePropsRibbon: React.FC = () => {
             </div>
             <div>
               <strong className="text-xs sm:text-sm font-black text-white block">
-                Menor Preço Real
+                Curadoria Especializada
               </strong>
               <span className="text-[11px] text-slate-400">
-                Varredura contínua de lojas
+                Foco no custo-benefício real
               </span>
             </div>
           </div>
@@ -28,10 +28,10 @@ export const ValuePropsRibbon: React.FC = () => {
             </div>
             <div>
               <strong className="text-xs sm:text-sm font-black text-white block">
-                Lojas Homologadas
+                Marcas Reconhecidas
               </strong>
               <span className="text-[11px] text-slate-400">
-                Apenas parceiros confiáveis
+                Garantia e suporte no Brasil
               </span>
             </div>
           </div>
@@ -43,10 +43,10 @@ export const ValuePropsRibbon: React.FC = () => {
             </div>
             <div>
               <strong className="text-xs sm:text-sm font-black text-white block">
-                Links Seguros
+                Transparência Total
               </strong>
               <span className="text-[11px] text-slate-400">
-                Redirecionamento oficial direto
+                Links com rel="sponsored"
               </span>
             </div>
           </div>
@@ -61,7 +61,7 @@ export const ValuePropsRibbon: React.FC = () => {
                 100% Gratuito
               </strong>
               <span className="text-[11px] text-slate-400">
-                Sem taxas ou cobranças
+                Sem custos para o leitor
               </span>
             </div>
           </div>

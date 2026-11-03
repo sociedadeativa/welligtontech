@@ -78,7 +78,7 @@ export const FavoritesModal: React.FC<FavoritesModalProps> = ({
                     {product.name}
                   </h4>
                   <span className="text-xs font-mono font-black text-slate-950 block mt-0.5">
-                    {formatBRL(product.currentPrice)} no PIX
+                    {formatBRL(product.currentPrice)}
                   </span>
                 </div>
 

@@ -60,13 +60,13 @@ export const CategoryPage: React.FC<CategoryPageProps> = ({
               {currentCat.name}
             </h1>
             <p className="text-xs text-slate-500 max-w-2xl leading-relaxed">
-              Confira os modelos recomendados com o melhor custo-benefício e preços verificados em lojas oficiais brasileiras.
+              Confira as recomendações de modelos selecionados por nossa curadoria com foco em custo-benefício.
             </p>
           </div>
 
           <div className="flex items-center gap-3">
             <span className="bg-slate-100 border border-slate-200 text-slate-700 text-xs font-bold px-3 py-1.5 rounded-xl">
-              {catProducts.length} itens disponíveis
+              {catProducts.length > 0 ? `${catProducts.length} itens disponíveis` : 'Em atualização'}
             </span>
             <button
               onClick={() => onNavigate('guias')}
@@ -77,18 +77,38 @@ export const CategoryPage: React.FC<CategoryPageProps> = ({
           </div>
         </div>
 
-        {/* Products Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-          {catProducts.map((product) => (
-            <ProductCard
-              key={product.id}
-              product={product}
-              isFavorite={favorites.includes(product.id)}
-              onToggleFavorite={onToggleFavorite}
-              onSelectProduct={onSelectProduct}
-            />
-          ))}
-        </div>
+        {/* Products Grid or Clean Empty State */}
+        {catProducts.length === 0 ? (
+          <div className="py-16 px-6 text-center space-y-3 bg-white border border-slate-200 rounded-2xl shadow-xs">
+            <Sparkles className="w-10 h-10 text-orange-500 mx-auto" />
+            <h3 className="text-base font-bold text-slate-900">
+              Recomendações em atualização
+            </h3>
+            <p className="text-xs text-slate-500 max-w-md mx-auto leading-relaxed">
+              Estamos atualizando as ofertas e recomendações para o departamento de {currentCat.name}. Volte em breve para conferir os modelos selecionados!
+            </p>
+            <div className="pt-2">
+              <button
+                onClick={() => onNavigate('ofertas')}
+                className="px-4 py-2 bg-orange-600 text-white font-bold rounded-xl text-xs hover:bg-orange-500 transition-colors cursor-pointer"
+              >
+                Explorar Outras Categorias
+              </button>
+            </div>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+            {catProducts.map((product) => (
+              <ProductCard
+                key={product.id}
+                product={product}
+                isFavorite={favorites.includes(product.id)}
+                onToggleFavorite={onToggleFavorite}
+                onSelectProduct={onSelectProduct}
+              />
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

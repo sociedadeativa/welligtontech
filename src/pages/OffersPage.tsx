@@ -67,7 +67,7 @@ export const OffersPage: React.FC<OffersPageProps> = ({
     }
 
     result.sort((a, b) => {
-      if (sortBy === 'discount') return b.discountPercentage - a.discountPercentage;
+      if (sortBy === 'discount') return (b.discountPercentage || 0) - (a.discountPercentage || 0);
       if (sortBy === 'priceAsc') return a.currentPrice - b.currentPrice;
       if (sortBy === 'priceDesc') return b.currentPrice - a.currentPrice;
       return 0;
@@ -99,13 +99,13 @@ export const OffersPage: React.FC<OffersPageProps> = ({
               </h1>
             </div>
             <p className="text-xs text-slate-500 mt-1">
-              Preços verificados nas maiores lojas de informática do Brasil com descontos no PIX.
+              Curadoria independente de hardware, componentes e tecnologia com foco em custo-benefício.
             </p>
           </div>
 
           <div className="bg-white border border-slate-200 p-2.5 rounded-xl text-xs text-slate-600 flex items-center gap-2 shadow-xs">
             <Info className="w-4 h-4 text-orange-500 flex-shrink-0" />
-            <span>Links patrocinados com <strong className="text-slate-900 font-mono">rel="sponsored"</strong></span>
+            <span>Links com identificação transparente <strong className="text-slate-900 font-mono">rel="sponsored"</strong></span>
           </div>
         </div>
 
@@ -200,18 +200,24 @@ export const OffersPage: React.FC<OffersPageProps> = ({
 
         {/* Product Cards Grid */}
         {filteredProducts.length === 0 ? (
-          <div className="py-20 text-center space-y-3 bg-white border border-slate-200 rounded-2xl">
+          <div className="py-20 text-center space-y-3 bg-white border border-slate-200 rounded-2xl p-6 shadow-xs">
             <Search className="w-10 h-10 text-slate-400 mx-auto" />
-            <h3 className="text-base font-bold text-slate-800">Nenhum produto encontrado</h3>
-            <p className="text-xs text-slate-500 max-w-sm mx-auto">
-              Tente redefinir seus filtros de busca ou procurar por outros termos.
+            <h3 className="text-base font-bold text-slate-900">
+              {products.length === 0 ? 'Catálogo de ofertas em atualização' : 'Nenhum produto encontrado'}
+            </h3>
+            <p className="text-xs text-slate-500 max-w-sm mx-auto leading-relaxed">
+              {products.length === 0 
+                ? 'Nossa curadoria está avaliando e selecionando novas ofertas e oportunidades de hardware. Volte em breve para conferir as recomendações!'
+                : 'Tente redefinir seus filtros de busca ou procurar por outros termos.'}
             </p>
-            <button
-              onClick={resetFilters}
-              className="px-4 py-2 bg-orange-600 text-white font-bold rounded-xl text-xs hover:bg-orange-500 transition-colors cursor-pointer"
-            >
-              Redefinir Filtros
-            </button>
+            {products.length > 0 && (
+              <button
+                onClick={resetFilters}
+                className="px-4 py-2 bg-orange-600 text-white font-bold rounded-xl text-xs hover:bg-orange-500 transition-colors cursor-pointer"
+              >
+                Redefinir Filtros
+              </button>
+            )}
           </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">

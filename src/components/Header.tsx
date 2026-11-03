@@ -39,15 +39,12 @@ export const Header: React.FC<HeaderProps> = ({
 
   return (
     <header className="sticky top-0 z-50 bg-[#09122a] border-b border-slate-800 text-white shadow-xl">
-      {/* Top Demo & Compliance Notice Bar (matching Screenshot 4) */}
+      {/* Top Compliance & Quick Links Bar */}
       <div className="bg-[#050a17] text-xs py-1.5 px-4 border-b border-slate-800/80 text-slate-300">
         <div className="max-w-7xl mx-auto flex items-center justify-between flex-wrap gap-2">
           <div className="flex items-center gap-2">
-            <span className="bg-orange-600 text-slate-950 text-[10px] uppercase tracking-wider px-2 py-0.5 rounded font-black">
-              DEMONSTRAÇÃO
-            </span>
             <span className="text-slate-300 text-xs">
-              WelligtonTech: Dados ilustrativos para teste. Links patrocinados com <strong className="text-orange-400 font-mono">rel="sponsored"</strong>.
+              WelligtonTech: Curadoria independente de tecnologia e informática. Recomendações e links com <strong className="text-orange-400 font-mono">rel="sponsored"</strong>.
             </span>
           </div>
 

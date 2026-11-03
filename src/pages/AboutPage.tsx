@@ -63,15 +63,15 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
             <ul className="space-y-2 text-xs">
               <li className="flex items-start gap-2">
                 <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
-                <span><strong>Verificação de Preço Histórico:</strong> Comparamos o valor com a média dos últimos 30 a 90 dias antes de publicar.</span>
+                <span><strong>Avaliação de Custo-Benefício:</strong> Analisamos se o valor cobrado faz sentido perante as especificações técnicas oferecidas.</span>
               </li>
               <li className="flex items-start gap-2">
                 <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
-                <span><strong>Lojas Oficiais:</strong> Apenas parceiros com excelente reputação no Reclame Aqui e canais oficiais de distribuição no Brasil (KaBuM!, Amazon, TerabyteShop, Pichau).</span>
+                <span><strong>Varejistas Consolidados:</strong> Damos preferência a opções disponíveis em grandes redes e lojas consolidadas do comércio eletrônico brasileiro.</span>
               </li>
               <li className="flex items-start gap-2">
                 <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
-                <span><strong>Garantia e RMA:</strong> Damos preferência a marcas com assistência e suporte técnico acessível no Brasil.</span>
+                <span><strong>Garantia e RMA:</strong> Priorizamos fabricantes com assistência e suporte técnico acessível em território nacional.</span>
               </li>
             </ul>
           </div>

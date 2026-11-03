@@ -53,12 +53,12 @@ export const BrandsPage: React.FC<BrandsPageProps> = ({
                   {b.categoryLabel}
                 </p>
                 <span className="text-[11px] font-bold text-orange-600 mt-2 block">
-                  {b.offersCount} ofertas ativas
+                  Ver catálogo
                 </span>
               </div>
 
               <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-slate-400 group-hover:text-orange-600">
-                <span>Ver ofertas</span>
+                <span>Ver produtos</span>
                 <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </div>
             </div>
@@ -70,17 +70,26 @@ export const BrandsPage: React.FC<BrandsPageProps> = ({
           <h2 className="text-xl font-black text-slate-900">
             Destaques das Principais Marcas
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {products.slice(0, 8).map((product) => (
-              <ProductCard
-                key={product.id}
-                product={product}
-                isFavorite={favorites.includes(product.id)}
-                onToggleFavorite={onToggleFavorite}
-                onSelectProduct={onSelectProduct}
-              />
-            ))}
-          </div>
+          {products.length === 0 ? (
+            <div className="py-12 px-6 text-center text-slate-600 space-y-3 bg-white rounded-2xl border border-slate-200 shadow-xs">
+              <h3 className="text-sm font-bold text-slate-900">Catálogo de ofertas em atualização</h3>
+              <p className="text-xs text-slate-500 max-w-md mx-auto">
+                Estamos selecionando os melhores produtos das marcas recomendadas. Em breve novas ofertas estarão disponíveis.
+              </p>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {products.slice(0, 8).map((product) => (
+                <ProductCard
+                  key={product.id}
+                  product={product}
+                  isFavorite={favorites.includes(product.id)}
+                  onToggleFavorite={onToggleFavorite}
+                  onSelectProduct={onSelectProduct}
+                />
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </div>

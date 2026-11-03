@@ -1,5 +1,5 @@
-import React, { useRef, useState, useEffect } from 'react';
-import { Flame, Clock, ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
+import React, { useRef } from 'react';
+import { Flame, ChevronLeft, ChevronRight, ArrowRight, Sparkles } from 'lucide-react';
 import { ProductCard } from './ProductCard';
 import { Product, PageRoute } from '../types';
 
@@ -19,19 +19,6 @@ export const EsquentaBanner: React.FC<EsquentaBannerProps> = ({
   onNavigate
 }) => {
   const scrollRef = useRef<HTMLDivElement>(null);
-  const [timeLeft, setTimeLeft] = useState({ hours: 7, minutes: 42, seconds: 15 });
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setTimeLeft((prev) => {
-        if (prev.seconds > 0) return { ...prev, seconds: prev.seconds - 1 };
-        if (prev.minutes > 0) return { ...prev, minutes: prev.minutes - 1, seconds: 59 };
-        if (prev.hours > 0) return { ...prev, hours: prev.hours - 1, minutes: 59, seconds: 59 };
-        return { hours: 12, minutes: 0, seconds: 0 };
-      });
-    }, 1000);
-    return () => clearInterval(timer);
-  }, []);
 
   const scroll = (direction: 'left' | 'right') => {
     if (scrollRef.current) {
@@ -43,13 +30,13 @@ export const EsquentaBanner: React.FC<EsquentaBannerProps> = ({
     }
   };
 
-  const esquentaProducts = products.filter((p) => p.isEsquenta || p.discountPercentage >= 20);
+  const esquentaProducts = products.filter((p) => p.isEsquenta || (p.discountPercentage && p.discountPercentage >= 20));
 
   return (
     <section className="py-6 bg-[#070d1e]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="rounded-3xl bg-gradient-to-r from-orange-600 via-orange-500 to-amber-600 p-6 sm:p-8 shadow-2xl relative overflow-hidden">
-          {/* Header Row (Screenshot 4) */}
+          {/* Header Row */}
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6">
             <div className="space-y-1">
               <div className="flex items-center gap-2.5 flex-wrap">
@@ -57,66 +44,80 @@ export const EsquentaBanner: React.FC<EsquentaBannerProps> = ({
                   <Flame className="w-5 h-5 fill-white" />
                 </div>
                 <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight uppercase">
-                  ESQUENTA DE OFERTAS
+                  DESTAQUES & OFERTAS
                 </h2>
-                <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/25 text-white font-mono text-xs font-bold backdrop-blur-xs">
-                  <Clock className="w-3.5 h-3.5" />
-                  <span>
-                    Termina em {String(timeLeft.hours).padStart(2, '0')}:{String(timeLeft.minutes).padStart(2, '0')}:{String(timeLeft.seconds).padStart(2, '0')}
-                  </span>
+                <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/25 text-white text-xs font-bold backdrop-blur-xs">
+                  <Sparkles className="w-3.5 h-3.5" />
+                  <span>Curadoria Especial</span>
                 </div>
               </div>
 
               <p className="text-white/90 text-xs sm:text-sm font-medium">
-                Descontos agressivos à vista no PIX com frete grátis e cupons ativos
+                Seleção técnica de componentes e eletrônicos com foco em custo-benefício.
               </p>
             </div>
 
             <div className="flex items-center gap-2">
-              <button
-                onClick={() => scroll('left')}
-                className="w-9 h-9 rounded-full bg-white/20 hover:bg-white/30 text-white flex items-center justify-center transition-colors cursor-pointer"
-                aria-label="Anterior"
-              >
-                <ChevronLeft className="w-5 h-5" />
-              </button>
-              <button
-                onClick={() => scroll('right')}
-                className="w-9 h-9 rounded-full bg-white/20 hover:bg-white/30 text-white flex items-center justify-center transition-colors cursor-pointer"
-                aria-label="Próximo"
-              >
-                <ChevronRight className="w-5 h-5" />
-              </button>
+              {esquentaProducts.length > 0 && (
+                <>
+                  <button
+                    onClick={() => scroll('left')}
+                    className="w-9 h-9 rounded-full bg-white/20 hover:bg-white/30 text-white flex items-center justify-center transition-colors cursor-pointer"
+                    aria-label="Anterior"
+                  >
+                    <ChevronLeft className="w-5 h-5" />
+                  </button>
+                  <button
+                    onClick={() => scroll('right')}
+                    className="w-9 h-9 rounded-full bg-white/20 hover:bg-white/30 text-white flex items-center justify-center transition-colors cursor-pointer"
+                    aria-label="Próximo"
+                  >
+                    <ChevronRight className="w-5 h-5" />
+                  </button>
+                </>
+              )}
 
               <button
                 onClick={() => onNavigate('ofertas')}
                 className="flex items-center gap-1.5 bg-white text-orange-600 hover:bg-slate-100 font-black px-4 py-2 rounded-xl text-xs transition-all shadow-md ml-2 cursor-pointer"
               >
-                <span>Ver todas</span>
+                <span>Ver catálogo</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </button>
             </div>
           </div>
 
-          {/* Horizontal Product Cards Row */}
-          <div
-            ref={scrollRef}
-            className="flex items-stretch gap-4 overflow-x-auto no-scrollbar py-2 scroll-smooth"
-          >
-            {esquentaProducts.map((product) => (
-              <div
-                key={product.id}
-                className="min-w-[270px] max-w-[285px] flex-shrink-0"
-              >
-                <ProductCard
-                  product={product}
-                  isFavorite={favorites.includes(product.id)}
-                  onToggleFavorite={onToggleFavorite}
-                  onSelectProduct={onSelectProduct}
-                />
+          {/* Product Cards Row or Professional Empty State */}
+          {esquentaProducts.length === 0 ? (
+            <div className="py-12 px-6 text-center text-white space-y-3 bg-white/10 rounded-2xl border border-white/15 backdrop-blur-xs">
+              <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center mx-auto text-white">
+                <Flame className="w-6 h-6 fill-white" />
               </div>
-            ))}
-          </div>
+              <h3 className="text-lg font-black tracking-tight">Novas ofertas em atualização</h3>
+              <p className="text-xs sm:text-sm text-white/85 max-w-md mx-auto leading-relaxed">
+                Nossa curadoria está selecionando novas oportunidades de hardware com excelente custo-benefício. Volte em breve para conferir os destaques recomendados!
+              </p>
+            </div>
+          ) : (
+            <div
+              ref={scrollRef}
+              className="flex items-stretch gap-4 overflow-x-auto no-scrollbar py-2 scroll-smooth"
+            >
+              {esquentaProducts.map((product) => (
+                <div
+                  key={product.id}
+                  className="min-w-[270px] max-w-[285px] flex-shrink-0"
+                >
+                  <ProductCard
+                    product={product}
+                    isFavorite={favorites.includes(product.id)}
+                    onToggleFavorite={onToggleFavorite}
+                    onSelectProduct={onSelectProduct}
+                  />
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </section>

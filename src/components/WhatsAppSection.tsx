@@ -30,30 +30,30 @@ export const WhatsAppSection: React.FC = () => {
               </span>
 
               <h2 className="text-2xl sm:text-4xl font-black text-white tracking-tight leading-tight">
-                Receba as melhores ofertas <span className="text-orange-500">direto no seu celular</span>
+                Acompanhe as novidades da WelligtonTech <span className="text-orange-500">nos canais oficiais</span>
               </h2>
 
               <p className="text-slate-300 text-xs sm:text-sm leading-relaxed max-w-xl">
-                As promoções mais agressivas de hardware e tecnologia duram poucos minutos. Participe dos nossos canais e seja avisado no exato instante da queda de preço.
+                Acompanhe nossas atualizações para receber seleções de hardware, guias de montagem e dicas de upgrades para o seu computador.
               </p>
 
               {/* 4 Checklist Bullets */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 text-xs text-slate-200">
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />
-                  <span>Bugs de preço e cupons relâmpago</span>
+                  <span>Destaques de lançamentos e hardware</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />
-                  <span>Links 100% seguros de lojas oficiais</span>
+                  <span>Links transparentes com rel="sponsored"</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />
-                  <span>Zero spam: apenas descontos reais</span>
+                  <span>Curadoria técnica focada em custo-benefício</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />
-                  <span>Comparativos e avaliações sinceras</span>
+                  <span>Comparativos e análises técnicas sinceras</span>
                 </div>
               </div>
             </div>

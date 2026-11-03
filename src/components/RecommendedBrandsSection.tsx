@@ -53,8 +53,8 @@ export const RecommendedBrandsSection: React.FC<RecommendedBrandsSectionProps> =
               <p className="text-[11px] text-slate-500 mt-0.5 line-clamp-1">
                 {brand.categoryLabel}
               </p>
-              <span className="text-[10px] font-bold text-slate-400 mt-2 block">
-                {brand.offersCount} ofertas
+              <span className="text-[10px] font-bold text-orange-600 mt-2 block">
+                Ver catálogo
               </span>
             </button>
           ))}
