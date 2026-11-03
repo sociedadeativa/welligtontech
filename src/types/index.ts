@@ -55,6 +55,7 @@ export interface StoreOfferItem {
   modelName?: string;
   specsVariation?: string;
   badge?: string;
+  image?: string;
 }
 
 export interface Product {

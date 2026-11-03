@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="600" height="450">
+  <defs>
+    <linearGradient id="posBg14Shopee" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#F8FAFC"/>
+    </linearGradient>
+    <linearGradient id="laptopBody14Shopee" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#374151"/>
+      <stop offset="100%" stop-color="#1F2937"/>
+    </linearGradient>
+    <linearGradient id="screenGrad14Shopee" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="100%" stop-color="#1E293B"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="450" fill="url(#posBg14Shopee)"/>
+  <rect x="2" y="2" width="596" height="446" rx="16" fill="none" stroke="#E2E8F0" stroke-width="2"/>
+  <rect x="36" y="32" width="90" height="26" rx="6" fill="#EA580C"/>
+  <text x="81" y="49" fill="#FFFFFF" font-family="sans-serif" font-size="11" font-weight="900" letter-spacing="1" text-anchor="middle">POSITIVO</text>
+  <rect x="350" y="32" width="214" height="26" rx="6" fill="#FFF1F2" stroke="#F43F5E" stroke-width="1"/>
+  <text x="457" y="49" fill="#BE123C" font-family="sans-serif" font-size="10" font-weight="700" text-anchor="middle">SHOPEE • VISION C14 LINUX</text>
+
+  <g transform="translate(145, 95)">
+    <rect x="20" y="20" width="270" height="170" rx="10" fill="url(#laptopBody14Shopee)"/>
+    <rect x="30" y="30" width="250" height="150" rx="4" fill="url(#screenGrad14Shopee)"/>
+    
+    <!-- Lumina Bar & Webcam -->
+    <rect x="110" y="23" width="32" height="3" rx="1.5" fill="#FFFFFF"/>
+    <circle cx="155" cy="24.5" r="2.5" fill="#000000" stroke="#4B5563" stroke-width="0.8"/>
+    <rect x="168" y="23" width="32" height="3" rx="1.5" fill="#FFFFFF"/>
+    
+    <!-- Linux Badge on Screen -->
+    <rect x="42" y="44" width="70" height="14" rx="3" fill="#EE4D2D" opacity="0.9"/>
+    <text x="47" y="54" fill="#FFFFFF" font-family="sans-serif" font-size="8" font-weight="bold">LINUX OS</text>
+    <rect x="42" y="64" width="120" height="7" rx="2" fill="#94A3B8" opacity="0.5"/>
+    <rect x="42" y="76" width="90" height="7" rx="2" fill="#64748B" opacity="0.4"/>
+    
+    <text x="155" y="115" fill="#EA580C" font-family="sans-serif" font-weight="900" font-size="14" text-anchor="middle">POSITIVO</text>
+    <text x="155" y="132" fill="#94A3B8" font-family="sans-serif" font-weight="700" font-size="10" text-anchor="middle">Vision C14 • Celeron • Linux</text>
+    
+    <polygon points="0,200 310,200 290,190 20,190" fill="#4B5563"/>
+    <rect x="0" y="200" width="310" height="12" rx="4" fill="#1F2937"/>
+    <rect x="125" y="201" width="60" height="3" rx="1.5" fill="#64748B"/>
+  </g>
+  
+  <text x="300" y="375" fill="#0F172A" font-family="sans-serif" font-size="13" font-weight="800" text-anchor="middle">Positivo Vision C14 (Oferta Shopee)</text>
+  <text x="300" y="398" fill="#64748B" font-family="sans-serif" font-size="11" font-weight="500" text-anchor="middle">Intel Celeron | 4GB RAM | 128GB eMMC | Tela 14" HD | Sistema Linux</text>
+</svg>
