@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { 
   ArrowLeft, 
   ExternalLink, 
@@ -7,7 +7,9 @@ import {
   Heart, 
   TrendingDown, 
   Zap,
-  Info
+  Info,
+  Laptop,
+  Mouse
 } from 'lucide-react';
 import { Product, PageRoute } from '../types';
 
@@ -26,6 +28,8 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
   onBack,
   onNavigate
 }) => {
+  const [imgError, setImgError] = useState(false);
+
   const formatBRL = (val: number) => {
     return val.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
   };
@@ -83,15 +87,32 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
         {/* Main Product Card */}
         <div className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* Image */}
-          <div className="lg:col-span-5 flex flex-col items-center justify-center p-6 bg-slate-50 rounded-2xl border border-slate-100 relative">
-            <img
-              src={product.image}
-              alt={product.name}
-              className="max-h-80 w-full object-cover rounded-xl"
-            />
+          <div className="lg:col-span-5 flex flex-col items-center justify-center p-6 bg-white rounded-2xl border border-slate-200 relative min-h-[300px]">
+            {imgError ? (
+              <div className="w-full h-64 flex flex-col items-center justify-center bg-slate-50 rounded-xl p-6 text-center border border-dashed border-slate-200">
+                {product.category === 'perifericos' ? (
+                  <Mouse className="w-16 h-16 text-slate-400 mb-2" />
+                ) : (
+                  <Laptop className="w-16 h-16 text-slate-400 mb-2" />
+                )}
+                <span className="text-sm font-black uppercase text-slate-600 tracking-wider">
+                  {product.brand}
+                </span>
+                <span className="text-xs text-slate-400 font-medium mt-1">
+                  Foto oficial do produto não fornecida
+                </span>
+              </div>
+            ) : (
+              <img
+                src={product.image}
+                alt={product.name}
+                className="max-h-80 w-full object-contain rounded-xl p-2"
+                onError={() => setImgError(true)}
+              />
+            )}
             <button
               onClick={() => onToggleFavorite(product.id)}
-              className="absolute top-4 right-4 p-2.5 rounded-full bg-white text-slate-400 hover:text-rose-500 shadow-sm transition-colors cursor-pointer"
+              className="absolute top-4 right-4 p-2.5 rounded-full bg-white text-slate-400 hover:text-rose-500 shadow-sm transition-colors cursor-pointer border border-slate-100"
               title={isFavorite ? "Remover dos favoritos" : "Salvar nos favoritos"}
             >
               <Heart className={`w-5 h-5 ${isFavorite ? 'text-rose-500 fill-rose-500' : ''}`} />

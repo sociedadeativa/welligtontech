@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { 
   Heart, 
   ExternalLink, 
@@ -6,7 +6,10 @@ import {
   Share2, 
   Eye, 
   CheckCircle2,
-  ShieldCheck
+  ShieldCheck,
+  Laptop,
+  Mouse,
+  Package
 } from 'lucide-react';
 import { Product } from '../types';
 
@@ -23,6 +26,8 @@ export const ProductCard: React.FC<ProductCardProps> = ({
   onToggleFavorite,
   onSelectProduct
 }) => {
+  const [imgError, setImgError] = useState(false);
+
   const formatBRL = (val: number) => {
     return val.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
   };
@@ -74,17 +79,34 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           </div>
         </div>
 
-        {/* Product Image Area */}
+        {/* Product Image Area with object-contain & fallback */}
         <div 
           onClick={() => onSelectProduct(product)}
-          className="relative px-4 py-2 flex items-center justify-center bg-slate-50/60 cursor-pointer overflow-hidden"
+          className="relative px-3 py-2 h-44 flex items-center justify-center bg-white cursor-pointer overflow-hidden border-b border-slate-100"
         >
-          <img
-            src={product.image}
-            alt={product.name}
-            className="w-full h-40 object-cover rounded-xl group-hover:scale-105 transition-transform duration-300"
-            loading="lazy"
-          />
+          {imgError ? (
+            <div className="w-full h-full flex flex-col items-center justify-center bg-slate-50 rounded-xl p-3 text-center border border-dashed border-slate-200">
+              {product.category === 'perifericos' ? (
+                <Mouse className="w-10 h-10 text-slate-400 mb-1" />
+              ) : (
+                <Laptop className="w-10 h-10 text-slate-400 mb-1" />
+              )}
+              <span className="text-[10px] font-black uppercase text-slate-500 tracking-wider">
+                {product.brand}
+              </span>
+              <span className="text-[9px] text-slate-400 font-medium line-clamp-1">
+                Foto não fornecida
+              </span>
+            </div>
+          ) : (
+            <img
+              src={product.image}
+              alt={product.name}
+              className="w-full h-full object-contain p-1 rounded-xl group-hover:scale-105 transition-transform duration-300"
+              loading="lazy"
+              onError={() => setImgError(true)}
+            />
+          )}
         </div>
 
         {/* Badge Ribbon (e.g. purple pill ESQUENTA) */}

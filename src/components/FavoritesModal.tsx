@@ -64,7 +64,7 @@ export const FavoritesModal: React.FC<FavoritesModalProps> = ({
                 <img
                   src={product.image}
                   alt={product.name}
-                  className="w-14 h-14 object-cover rounded-lg flex-shrink-0"
+                  className="w-14 h-14 object-contain bg-white border border-slate-200 p-1 rounded-lg flex-shrink-0"
                 />
 
                 <div 
