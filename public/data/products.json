@@ -1,35 +1,157 @@
 {
   "disclaimer": "ATENÇÃO: Portal demonstrativo WelligtonTech com curadoria de ofertas e links de afiliados oficiais das lojas Amazon, Mercado Livre e Shopee. Todos os links patrocinados utilizam rel=\"sponsored\" e rel=\"noopener noreferrer\". Verifique variações de especificações em cada loja antes de finalizar sua compra.",
   "categories": [
-    { "id": "notebooks", "name": "Notebooks", "icon": "Laptop" },
-    { "id": "pcs", "name": "PCs", "icon": "Monitor" },
-    { "id": "processadores", "name": "Processadores", "icon": "Cpu" },
-    { "id": "placas-mae", "name": "Placas-mãe", "icon": "Grid" },
-    { "id": "placas-video", "name": "Placas de Vídeo", "icon": "Tv" },
-    { "id": "memoria-ram", "name": "Memória RAM", "icon": "HardDrive" },
-    { "id": "ssd", "name": "SSD", "icon": "Database" },
-    { "id": "monitores", "name": "Monitores", "icon": "MonitorCheck" },
-    { "id": "gaming", "name": "Gaming", "icon": "Gamepad2" },
-    { "id": "perifericos", "name": "Periféricos", "icon": "Mouse" },
-    { "id": "smartphones", "name": "Smartphones", "icon": "Smartphone" },
-    { "id": "acessorios", "name": "Acessórios", "icon": "Headphones" },
-    { "id": "monte-seu-pc", "name": "Monte seu PC", "icon": "Wrench" }
+    {
+      "id": "notebooks",
+      "name": "Notebooks",
+      "icon": "Laptop"
+    },
+    {
+      "id": "pcs",
+      "name": "PCs",
+      "icon": "Monitor"
+    },
+    {
+      "id": "processadores",
+      "name": "Processadores",
+      "icon": "Cpu"
+    },
+    {
+      "id": "placas-mae",
+      "name": "Placas-mãe",
+      "icon": "Grid"
+    },
+    {
+      "id": "placas-video",
+      "name": "Placas de Vídeo",
+      "icon": "Tv"
+    },
+    {
+      "id": "memoria-ram",
+      "name": "Memória RAM",
+      "icon": "HardDrive"
+    },
+    {
+      "id": "ssd",
+      "name": "SSD",
+      "icon": "Database"
+    },
+    {
+      "id": "monitores",
+      "name": "Monitores",
+      "icon": "MonitorCheck"
+    },
+    {
+      "id": "gaming",
+      "name": "Gaming",
+      "icon": "Gamepad2"
+    },
+    {
+      "id": "perifericos",
+      "name": "Periféricos",
+      "icon": "Mouse"
+    },
+    {
+      "id": "smartphones",
+      "name": "Smartphones",
+      "icon": "Smartphone"
+    },
+    {
+      "id": "acessorios",
+      "name": "Acessórios",
+      "icon": "Headphones"
+    },
+    {
+      "id": "monte-seu-pc",
+      "name": "Monte seu PC",
+      "icon": "Wrench"
+    }
   ],
   "brands": [
-    { "id": "dell", "name": "DELL", "categoryLabel": "Notebooks & Produtividade", "offersCount": 8 },
-    { "id": "lenovo", "name": "LENOVO", "categoryLabel": "Notebooks & Ultrafinos", "offersCount": 9 },
-    { "id": "vaio", "name": "VAIO", "categoryLabel": "Notebooks Premium", "offersCount": 6 },
-    { "id": "asus", "name": "ASUS", "categoryLabel": "Notebooks & Hardware", "offersCount": 18 },
-    { "id": "samsung", "name": "SAMSUNG", "categoryLabel": "Notebooks & Galaxy", "offersCount": 14 },
-    { "id": "acer", "name": "ACER", "categoryLabel": "Notebooks & Aspire", "offersCount": 10 },
-    { "id": "hp", "name": "HP", "categoryLabel": "Notebooks & Produtividade", "offersCount": 3 },
-    { "id": "positivo", "name": "POSITIVO", "categoryLabel": "Notebooks & Linha Vision", "offersCount": 3 },
-    { "id": "amd", "name": "AMD", "categoryLabel": "CPUs & GPUs", "offersCount": 14 },
-    { "id": "intel", "name": "intel", "categoryLabel": "Processadores & Mini PCs", "offersCount": 12 },
-    { "id": "msi", "name": "msi", "categoryLabel": "Placas-mãe & Fontes", "offersCount": 16 },
-    { "id": "corsair", "name": "CORSAIR", "categoryLabel": "Memórias & Periféricos", "offersCount": 15 },
-    { "id": "logitech", "name": "logitech G", "categoryLabel": "Periféricos eSports", "offersCount": 22 },
-    { "id": "kingston", "name": "Kingston", "categoryLabel": "SSDs & RAM", "offersCount": 17 }
+    {
+      "id": "dell",
+      "name": "DELL",
+      "categoryLabel": "Notebooks & Produtividade",
+      "offersCount": 8
+    },
+    {
+      "id": "lenovo",
+      "name": "LENOVO",
+      "categoryLabel": "Notebooks & Ultrafinos",
+      "offersCount": 9
+    },
+    {
+      "id": "vaio",
+      "name": "VAIO",
+      "categoryLabel": "Notebooks Premium",
+      "offersCount": 6
+    },
+    {
+      "id": "asus",
+      "name": "ASUS",
+      "categoryLabel": "Notebooks & Hardware",
+      "offersCount": 18
+    },
+    {
+      "id": "samsung",
+      "name": "SAMSUNG",
+      "categoryLabel": "Notebooks & Galaxy",
+      "offersCount": 14
+    },
+    {
+      "id": "acer",
+      "name": "ACER",
+      "categoryLabel": "Notebooks & Aspire",
+      "offersCount": 10
+    },
+    {
+      "id": "hp",
+      "name": "HP",
+      "categoryLabel": "Notebooks & Produtividade",
+      "offersCount": 3
+    },
+    {
+      "id": "positivo",
+      "name": "POSITIVO",
+      "categoryLabel": "Notebooks & Linha Vision",
+      "offersCount": 3
+    },
+    {
+      "id": "amd",
+      "name": "AMD",
+      "categoryLabel": "CPUs & GPUs",
+      "offersCount": 14
+    },
+    {
+      "id": "intel",
+      "name": "intel",
+      "categoryLabel": "Processadores & Mini PCs",
+      "offersCount": 12
+    },
+    {
+      "id": "msi",
+      "name": "msi",
+      "categoryLabel": "Placas-mãe & Fontes",
+      "offersCount": 16
+    },
+    {
+      "id": "corsair",
+      "name": "CORSAIR",
+      "categoryLabel": "Memórias & Periféricos",
+      "offersCount": 15
+    },
+    {
+      "id": "logitech",
+      "name": "logitech G",
+      "categoryLabel": "Periféricos eSports",
+      "offersCount": 22
+    },
+    {
+      "id": "kingston",
+      "name": "Kingston",
+      "categoryLabel": "SSDs & RAM",
+      "offersCount": 17
+    }
   ],
   "guides": [
     {
@@ -83,10 +205,13 @@
       "brand": "HP",
       "store": "Amazon / ML / Shopee",
       "storeDotColor": "#0096d6",
-      "currentPrice": 2499.00,
-      "previousPrice": 3199.00,
-      "discountPercentage": 22,
-      "installments": { "count": 10, "value": 274.90 },
+      "currentPrice": 2815.2,
+      "previousPrice": null,
+      "discountPercentage": null,
+      "installments": {
+        "count": 10,
+        "value": 281.52
+      },
       "image": "/assets/products/hp-256r-g9.png",
       "affiliateUrl": "https://link.amazon/B0d7W8nGD",
       "amazonUrl": "https://link.amazon/B0d7W8nGD",
@@ -99,8 +224,15 @@
           "url": "https://link.amazon/B0d7W8nGD",
           "modelName": "HP 256R G9",
           "specsVariation": "Modelo HP 256R G9 • Intel Core i5 13th Gen, 16GB RAM, 256GB SSD, Windows 11 Home",
-          "badge": "Mais Vendido",
-          "image": "/assets/products/hp-256r-g9.png"
+          "badge": "Mais Vendido Amazon",
+          "image": "/assets/products/hp-256r-g9.png",
+          "currentPrice": 3999,
+          "previousPrice": null,
+          "discountPercentage": null,
+          "installments": {
+            "count": 10,
+            "value": 399.9
+          }
         },
         {
           "storeId": "mercadolivre",
@@ -108,8 +240,15 @@
           "url": "https://meli.la/217RBAQ",
           "modelName": "HP 200 G2i",
           "specsVariation": "Modelo HP 200 G2i • Intel Core 5 120U, 8GB DDR5 RAM, 256GB SSD, Windows 11 Home (Modelo diferente: HP 200 G2i)",
-          "badge": "Envio Full",
-          "image": "/assets/products/hp-placeholder.svg"
+          "badge": "Envio Full Mercado Livre",
+          "image": "/assets/products/hp-placeholder.svg",
+          "currentPrice": 3610,
+          "previousPrice": null,
+          "discountPercentage": null,
+          "installments": {
+            "count": 10,
+            "value": 361
+          }
         },
         {
           "storeId": "shopee",
@@ -117,8 +256,15 @@
           "url": "https://s.shopee.com.br/70LQ0vb3mJ",
           "modelName": "HP 256R G9",
           "specsVariation": "Modelo HP 256R G9 • Intel Core i3 13th Gen, 8GB RAM, 256GB SSD, Windows 11",
-          "badge": "Cupom Oficial",
-          "image": "/assets/products/hp-256r-g9.png"
+          "badge": "Cupom Oficial Shopee",
+          "image": "/assets/products/hp-256r-g9.png",
+          "currentPrice": 2815.2,
+          "previousPrice": null,
+          "discountPercentage": null,
+          "installments": {
+            "count": 10,
+            "value": 281.52
+          }
         }
       ],
       "hasStoreVariations": true,
@@ -152,10 +298,10 @@
       "brand": "POSITIVO",
       "store": "Amazon / ML / Shopee",
       "storeDotColor": "#ea580c",
-      "currentPrice": 1399.00,
-      "previousPrice": 1899.00,
-      "discountPercentage": 26,
-      "installments": { "count": 10, "value": 139.90 },
+      "currentPrice": null,
+      "previousPrice": null,
+      "discountPercentage": null,
+      "installments": null,
       "image": "/assets/products/positivo-vision-c15m.jpg",
       "affiliateUrl": "https://link.amazon/B0b9XiN5I",
       "amazonUrl": "https://link.amazon/B0b9XiN5I",
@@ -168,8 +314,12 @@
           "url": "https://link.amazon/B0b9XiN5I",
           "modelName": "Positivo Vision C15M",
           "specsVariation": "Modelo Positivo Vision C15M • Intel Celeron N4500, 4GB RAM, 128GB eMMC, Tela 15.6\" Full HD IPS, Windows 11 Home",
-          "badge": "Mais Vendido",
-          "image": "/assets/products/positivo-vision-c15m.jpg"
+          "badge": "Mais Vendido Amazon",
+          "image": "/assets/products/positivo-vision-c15m.jpg",
+          "currentPrice": null,
+          "previousPrice": null,
+          "discountPercentage": null,
+          "installments": null
         },
         {
           "storeId": "mercadolivre",
@@ -177,8 +327,12 @@
           "url": "https://meli.la/2927TLR",
           "modelName": "Positivo Vision C14 Lumina BAR",
           "specsVariation": "Modelo Positivo Vision C14 Lumina BAR • Intel Celeron N4020, 4GB RAM, 128GB eMMC, Tela 14\" HD, Lumina BAR (LED para webcam), Windows 11",
-          "badge": "Envio Full",
-          "image": "/assets/products/positivo-vision-c14-lumina.jpg"
+          "badge": "Envio Full Mercado Livre",
+          "image": "/assets/products/positivo-vision-c14-lumina.jpg",
+          "currentPrice": null,
+          "previousPrice": null,
+          "discountPercentage": null,
+          "installments": null
         },
         {
           "storeId": "shopee",
@@ -186,8 +340,12 @@
           "url": "https://s.shopee.com.br/9APubOL1Zu",
           "modelName": "Positivo Vision C14",
           "specsVariation": "Modelo Positivo Vision C14 • Intel Celeron, 4GB RAM, 128GB eMMC, Tela 14\" HD, Linux",
-          "badge": "Cupom Oficial",
-          "image": "/assets/products/positivo-vision-c14.jpg"
+          "badge": "Cupom Oficial Shopee",
+          "image": "/assets/products/positivo-vision-c14.jpg",
+          "currentPrice": null,
+          "previousPrice": null,
+          "discountPercentage": null,
+          "installments": null
         }
       ],
       "hasStoreVariations": true,
@@ -222,10 +380,10 @@
       "brand": "DELL",
       "store": "Amazon / ML / Shopee",
       "storeDotColor": "#0284c7",
-      "currentPrice": 2899.00,
-      "previousPrice": 3499.00,
-      "discountPercentage": 17,
-      "installments": { "count": 10, "value": 318.89 },
+      "currentPrice": null,
+      "previousPrice": null,
+      "discountPercentage": null,
+      "installments": null,
       "image": "/assets/products/dell-inspiron-15.png",
       "affiliateUrl": "https://link.amazon/B05lGQGMI",
       "amazonUrl": "https://link.amazon/B05lGQGMI",
@@ -236,28 +394,40 @@
           "storeId": "amazon",
           "storeName": "Amazon",
           "url": "https://link.amazon/B05lGQGMI",
-          "modelName": "Dell Inspiron 15",
+          "modelName": "Dell Inspiron 15 (15-I1300-A30P)",
           "specsVariation": "Intel Core i5-1334U, 8GB RAM, 512GB SSD, Windows 11 Home, Tela 15.6\" FHD 120Hz",
           "badge": "Entrega Prime",
-          "image": "/assets/products/dell-inspiron-15.png"
+          "image": "/assets/products/dell-inspiron-15.png",
+          "currentPrice": null,
+          "previousPrice": null,
+          "discountPercentage": null,
+          "installments": null
         },
         {
           "storeId": "mercadolivre",
           "storeName": "Mercado Livre",
           "url": "https://meli.la/2qKdxxU",
-          "modelName": "Dell Inspiron 15",
+          "modelName": "Dell Inspiron 15 (15-I1300-A30P)",
           "specsVariation": "Intel Core i5-1334U, 8GB RAM, 512GB SSD, Windows 11 Home, Tela 15.6\" FHD 120Hz",
-          "badge": "Envio Full",
-          "image": "/assets/products/dell-inspiron-15.png"
+          "badge": "Envio Full Mercado Livre",
+          "image": "/assets/products/dell-inspiron-15.png",
+          "currentPrice": null,
+          "previousPrice": null,
+          "discountPercentage": null,
+          "installments": null
         },
         {
           "storeId": "shopee",
           "storeName": "Shopee",
           "url": "https://s.shopee.com.br/5VWbsG1MBl",
-          "modelName": "Dell Inspiron 15",
+          "modelName": "Dell Inspiron 15 (15-I1300-A30P)",
           "specsVariation": "Intel Core i5-1334U, 8GB RAM, 512GB SSD, Windows 11 Home, Tela 15.6\" FHD 120Hz",
-          "badge": "Cupom Oficial",
-          "image": "/assets/products/dell-inspiron-15.png"
+          "badge": "Cupom Oficial Shopee",
+          "image": "/assets/products/dell-inspiron-15.png",
+          "currentPrice": null,
+          "previousPrice": null,
+          "discountPercentage": null,
+          "installments": null
         }
       ],
       "hasStoreVariations": false,
@@ -291,10 +461,10 @@
       "brand": "LENOVO",
       "store": "Amazon / ML / Shopee",
       "storeDotColor": "#0284c7",
-      "currentPrice": 2499.00,
-      "previousPrice": 2999.00,
-      "discountPercentage": 16,
-      "installments": { "count": 10, "value": 274.90 },
+      "currentPrice": null,
+      "previousPrice": null,
+      "discountPercentage": null,
+      "installments": null,
       "image": "/assets/products/lenovo-ideapad-slim-3-15iru10.jpg",
       "affiliateUrl": "https://link.amazon/B05rt15Fb",
       "amazonUrl": "https://link.amazon/B05rt15Fb",
@@ -307,8 +477,12 @@
           "url": "https://link.amazon/B05rt15Fb",
           "modelName": "IdeaPad Slim 3 15IRU10",
           "specsVariation": "Intel Core 3 100U, 8GB RAM LPDDR5, 256GB SSD NVMe, Tela 15.3\" WUXGA Antirreflexo",
-          "badge": "Mais Vendido",
-          "image": "/assets/products/lenovo-ideapad-slim-3-15iru10.jpg"
+          "badge": "Mais Vendido Amazon",
+          "image": "/assets/products/lenovo-ideapad-slim-3-15iru10.jpg",
+          "currentPrice": null,
+          "previousPrice": null,
+          "discountPercentage": null,
+          "installments": null
         },
         {
           "storeId": "mercadolivre",
@@ -316,8 +490,12 @@
           "url": "https://meli.la/28X5hUd",
           "modelName": "IdeaPad Slim 3 15IRU10",
           "specsVariation": "Intel Core 3 100U, 8GB RAM LPDDR5, 256GB SSD NVMe, Tela 15.3\" WUXGA Antirreflexo",
-          "badge": "Frete Grátis",
-          "image": "/assets/products/lenovo-ideapad-slim-3-15iru10.jpg"
+          "badge": "Frete Grátis Mercado Livre",
+          "image": "/assets/products/lenovo-ideapad-slim-3-15iru10.jpg",
+          "currentPrice": null,
+          "previousPrice": null,
+          "discountPercentage": null,
+          "installments": null
         },
         {
           "storeId": "shopee",
@@ -326,7 +504,11 @@
           "modelName": "IdeaPad Slim 3 15IRU10",
           "specsVariation": "Intel Core 3 100U, 8GB RAM LPDDR5, 256GB SSD NVMe, Tela 15.3\" WUXGA Antirreflexo",
           "badge": "Garantia Shopee",
-          "image": "/assets/products/lenovo-ideapad-slim-3-15iru10.jpg"
+          "image": "/assets/products/lenovo-ideapad-slim-3-15iru10.jpg",
+          "currentPrice": null,
+          "previousPrice": null,
+          "discountPercentage": null,
+          "installments": null
         }
       ],
       "hasStoreVariations": false,
@@ -360,10 +542,10 @@
       "brand": "VAIO",
       "store": "Amazon / ML / Shopee",
       "storeDotColor": "#0284c7",
-      "currentPrice": 2799.00,
-      "previousPrice": 3599.00,
-      "discountPercentage": 22,
-      "installments": { "count": 10, "value": 307.89 },
+      "currentPrice": null,
+      "previousPrice": null,
+      "discountPercentage": null,
+      "installments": null,
       "image": "/assets/products/vaio-fe16.jpg",
       "affiliateUrl": "https://link.amazon/B0bQCJqT2",
       "amazonUrl": "https://link.amazon/B0bQCJqT2",
@@ -376,8 +558,12 @@
           "url": "https://link.amazon/B0bQCJqT2",
           "modelName": "VAIO FE16",
           "specsVariation": "Não confirmado (verificar configuração de processador, RAM e SSD diretamente na oferta)",
-          "badge": "Consulte Loja",
-          "image": "/assets/products/vaio-fe16.jpg"
+          "badge": "Oferta Oficial Amazon",
+          "image": "/assets/products/vaio-fe16.jpg",
+          "currentPrice": null,
+          "previousPrice": null,
+          "discountPercentage": null,
+          "installments": null
         },
         {
           "storeId": "mercadolivre",
@@ -385,8 +571,12 @@
           "url": "https://meli.la/2o5ACjx",
           "modelName": "VAIO FE16",
           "specsVariation": "Não confirmado (verificar configuração de processador, RAM e SSD diretamente na oferta)",
-          "badge": "Consulte Loja",
-          "image": "/assets/products/vaio-fe16.jpg"
+          "badge": "Consulte Preço",
+          "image": "/assets/products/vaio-fe16.jpg",
+          "currentPrice": null,
+          "previousPrice": null,
+          "discountPercentage": null,
+          "installments": null
         },
         {
           "storeId": "shopee",
@@ -394,8 +584,12 @@
           "url": "https://s.shopee.com.br/5fq27EmsOM",
           "modelName": "VAIO FE16",
           "specsVariation": "Não confirmado (verificar configuração de processador, RAM e SSD diretamente na oferta)",
-          "badge": "Consulte Loja",
-          "image": "/assets/products/vaio-fe16.jpg"
+          "badge": "Loja Oficial Shopee",
+          "image": "/assets/products/vaio-fe16.jpg",
+          "currentPrice": null,
+          "previousPrice": null,
+          "discountPercentage": null,
+          "installments": null
         }
       ],
       "hasStoreVariations": true,
@@ -429,10 +623,10 @@
       "brand": "ASUS",
       "store": "Amazon / ML / Shopee",
       "storeDotColor": "#0284c7",
-      "currentPrice": 2399.00,
-      "previousPrice": 2999.00,
-      "discountPercentage": 20,
-      "installments": { "count": 10, "value": 263.89 },
+      "currentPrice": null,
+      "previousPrice": null,
+      "discountPercentage": null,
+      "installments": null,
       "image": "/assets/products/asus-vivobook-go-15.png",
       "affiliateUrl": "https://link.amazon/B057ALPyn",
       "amazonUrl": "https://link.amazon/B057ALPyn",
@@ -445,8 +639,12 @@
           "url": "https://link.amazon/B057ALPyn",
           "modelName": "Vivobook Go 15",
           "specsVariation": "Não confirmado (verificar capacidade de RAM e SSD diretamente no anúncio)",
-          "badge": "Consulte Loja",
-          "image": "/assets/products/asus-vivobook-go-15.png"
+          "badge": "Oferta Oficial Amazon",
+          "image": "/assets/products/asus-vivobook-go-15.png",
+          "currentPrice": null,
+          "previousPrice": null,
+          "discountPercentage": null,
+          "installments": null
         },
         {
           "storeId": "mercadolivre",
@@ -454,8 +652,12 @@
           "url": "https://meli.la/2PLPDza",
           "modelName": "Vivobook Go 15",
           "specsVariation": "Não confirmado (verificar capacidade de RAM e SSD diretamente no anúncio)",
-          "badge": "Consulte Loja",
-          "image": "/assets/products/asus-vivobook-go-15.png"
+          "badge": "Envio Full Mercado Livre",
+          "image": "/assets/products/asus-vivobook-go-15.png",
+          "currentPrice": null,
+          "previousPrice": null,
+          "discountPercentage": null,
+          "installments": null
         },
         {
           "storeId": "shopee",
@@ -463,8 +665,12 @@
           "url": "https://s.shopee.com.br/6AmIjCOhdN",
           "modelName": "Vivobook Go 15",
           "specsVariation": "Não confirmado (verificar capacidade de RAM e SSD diretamente no anúncio)",
-          "badge": "Consulte Loja",
-          "image": "/assets/products/asus-vivobook-go-15.png"
+          "badge": "Consulte Preço",
+          "image": "/assets/products/asus-vivobook-go-15.png",
+          "currentPrice": null,
+          "previousPrice": null,
+          "discountPercentage": null,
+          "installments": null
         }
       ],
       "hasStoreVariations": true,
@@ -498,10 +704,10 @@
       "brand": "SAMSUNG",
       "store": "Amazon / ML / Shopee",
       "storeDotColor": "#0284c7",
-      "currentPrice": 3199.00,
-      "previousPrice": 3999.00,
-      "discountPercentage": 20,
-      "installments": { "count": 10, "value": 351.90 },
+      "currentPrice": null,
+      "previousPrice": null,
+      "discountPercentage": null,
+      "installments": null,
       "image": "/assets/products/samsung-galaxy-book4.png",
       "affiliateUrl": "https://link.amazon/B03KlOvm2",
       "amazonUrl": "https://link.amazon/B03KlOvm2",
@@ -515,7 +721,11 @@
           "modelName": "Galaxy Book4",
           "specsVariation": "Intel Core 5 1335U (10 núcleos), 8GB LPDDR4x, 512GB SSD NVMe, Windows 11 Home, Tela 15.6\" FHD IPS",
           "badge": "Amazon Indica",
-          "image": "/assets/products/samsung-galaxy-book4.png"
+          "image": "/assets/products/samsung-galaxy-book4.png",
+          "currentPrice": null,
+          "previousPrice": null,
+          "discountPercentage": null,
+          "installments": null
         },
         {
           "storeId": "mercadolivre",
@@ -524,7 +734,11 @@
           "modelName": "Galaxy Book4",
           "specsVariation": "Intel Core 5 1335U (10 núcleos), 8GB LPDDR4x, 512GB SSD NVMe, Windows 11 Home, Tela 15.6\" FHD IPS",
           "badge": "Loja Oficial Samsung",
-          "image": "/assets/products/samsung-galaxy-book4.png"
+          "image": "/assets/products/samsung-galaxy-book4.png",
+          "currentPrice": null,
+          "previousPrice": null,
+          "discountPercentage": null,
+          "installments": null
         },
         {
           "storeId": "shopee",
@@ -533,7 +747,11 @@
           "modelName": "Galaxy Book4",
           "specsVariation": "Intel Core 5 1335U (10 núcleos), 8GB LPDDR4x, 512GB SSD NVMe, Windows 11 Home, Tela 15.6\" FHD IPS",
           "badge": "Frete Grátis Cupom",
-          "image": "/assets/products/samsung-galaxy-book4.png"
+          "image": "/assets/products/samsung-galaxy-book4.png",
+          "currentPrice": null,
+          "previousPrice": null,
+          "discountPercentage": null,
+          "installments": null
         }
       ],
       "hasStoreVariations": false,
@@ -567,10 +785,10 @@
       "brand": "ACER",
       "store": "Amazon / ML / Shopee",
       "storeDotColor": "#0284c7",
-      "currentPrice": 2449.00,
-      "previousPrice": 3099.00,
-      "discountPercentage": 21,
-      "installments": { "count": 10, "value": 269.39 },
+      "currentPrice": null,
+      "previousPrice": null,
+      "discountPercentage": null,
+      "installments": null,
       "image": "/assets/products/acer-aspire-go-15.jpg",
       "affiliateUrl": "https://link.amazon/B056ZXwvh",
       "amazonUrl": "https://link.amazon/B056ZXwvh",
@@ -583,8 +801,12 @@
           "url": "https://link.amazon/B056ZXwvh",
           "modelName": "Aspire Go 15 (512GB / Win 11)",
           "specsVariation": "Intel Core i5-1334U, 8GB RAM LPDDR5, 512GB SSD NVMe PCIe 4.0, Windows 11 Home, Tela 15.3\" WUXGA IPS 16:10",
-          "badge": "512GB / Win 11",
-          "image": "/assets/products/acer-aspire-go-15.jpg"
+          "badge": "512GB / Win 11 Amazon",
+          "image": "/assets/products/acer-aspire-go-15.jpg",
+          "currentPrice": null,
+          "previousPrice": null,
+          "discountPercentage": null,
+          "installments": null
         },
         {
           "storeId": "mercadolivre",
@@ -592,8 +814,12 @@
           "url": "https://meli.la/2G4VsKg",
           "modelName": "Aspire Go 15 (256GB / Linux)",
           "specsVariation": "Intel Core i5-1334U, 8GB RAM LPDDR5, 256GB SSD NVMe, Linux Gutta ou Windows 11, Tela 15.3\" WUXGA IPS",
-          "badge": "256GB / Linux ou Win",
-          "image": "/assets/products/acer-aspire-go-15.jpg"
+          "badge": "256GB / Linux Mercado Livre",
+          "image": "/assets/products/acer-aspire-go-15.jpg",
+          "currentPrice": null,
+          "previousPrice": null,
+          "discountPercentage": null,
+          "installments": null
         },
         {
           "storeId": "shopee",
@@ -601,8 +827,12 @@
           "url": "https://s.shopee.com.br/3g4xmcwris",
           "modelName": "Aspire Go 15 (512GB SSD)",
           "specsVariation": "Intel Core i5-1334U, 8GB RAM LPDDR5, 512GB SSD NVMe, Windows 11 Home / Linux, Tela 15.3\" WUXGA",
-          "badge": "512GB SSD",
-          "image": "/assets/products/acer-aspire-go-15.jpg"
+          "badge": "512GB SSD Shopee",
+          "image": "/assets/products/acer-aspire-go-15.jpg",
+          "currentPrice": null,
+          "previousPrice": null,
+          "discountPercentage": null,
+          "installments": null
         }
       ],
       "hasStoreVariations": true,
@@ -636,10 +866,10 @@
       "brand": "ACER",
       "store": "Amazon / ML / Shopee",
       "storeDotColor": "#0284c7",
-      "currentPrice": 4899.00,
-      "previousPrice": 5999.00,
-      "discountPercentage": 18,
-      "installments": { "count": 10, "value": 538.89 },
+      "currentPrice": null,
+      "previousPrice": null,
+      "discountPercentage": null,
+      "installments": null,
       "image": "/assets/products/acer-nitro-v-15-anv15-41-r6j0.png",
       "affiliateUrl": "https://link.amazon/B0DF8N5QJ1",
       "amazonUrl": "https://link.amazon/B0DF8N5QJ1",
@@ -653,7 +883,11 @@
           "modelName": "Nitro V 15 ANV15-41-R6J0",
           "specsVariation": "AMD Ryzen 7 7735HS, RTX 4050 6GB, 8GB RAM DDR5, 512GB SSD, Linux, Tela 15.6\" FHD 165Hz",
           "badge": "Entrega Prime",
-          "image": "/assets/products/acer-nitro-v-15-anv15-41-r6j0.png"
+          "image": "/assets/products/acer-nitro-v-15-anv15-41-r6j0.png",
+          "currentPrice": null,
+          "previousPrice": null,
+          "discountPercentage": null,
+          "installments": null
         },
         {
           "storeId": "mercadolivre",
@@ -661,8 +895,12 @@
           "url": "https://meli.la/2qNV15R",
           "modelName": "Nitro V 15 ANV15-41-R6J0",
           "specsVariation": "AMD Ryzen 7 7735HS, RTX 4050 6GB, 8GB RAM DDR5, 512GB SSD, Linux, Tela 15.6\" FHD 165Hz",
-          "badge": "Envio Full",
-          "image": "/assets/products/acer-nitro-v-15-anv15-41-r6j0.png"
+          "badge": "Envio Full Mercado Livre",
+          "image": "/assets/products/acer-nitro-v-15-anv15-41-r6j0.png",
+          "currentPrice": null,
+          "previousPrice": null,
+          "discountPercentage": null,
+          "installments": null
         },
         {
           "storeId": "shopee",
@@ -670,8 +908,12 @@
           "url": "https://s.shopee.com.br/5NV15R6J0",
           "modelName": "Nitro V 15 ANV15-41-R6J0",
           "specsVariation": "AMD Ryzen 7 7735HS, RTX 4050 6GB, 8GB RAM DDR5, 512GB SSD, Linux, Tela 15.6\" FHD 165Hz",
-          "badge": "Loja Oficial",
-          "image": "/assets/products/acer-nitro-v-15-anv15-41-r6j0.png"
+          "badge": "Loja Oficial Shopee",
+          "image": "/assets/products/acer-nitro-v-15-anv15-41-r6j0.png",
+          "currentPrice": null,
+          "previousPrice": null,
+          "discountPercentage": null,
+          "installments": null
         }
       ],
       "hasStoreVariations": false,
@@ -706,10 +948,10 @@
       "brand": "LOGITECH",
       "store": "Amazon / ML / Shopee",
       "storeDotColor": "#0284c7",
-      "currentPrice": 59.90,
-      "previousPrice": 89.90,
-      "discountPercentage": 33,
-      "installments": { "count": 3, "value": 19.97 },
+      "currentPrice": null,
+      "previousPrice": null,
+      "discountPercentage": null,
+      "installments": null,
       "image": "/assets/products/logitech-m170-wireless-mouse.webp",
       "affiliateUrl": "https://link.amazon/B0cavVgt7",
       "amazonUrl": "https://link.amazon/B0cavVgt7",
@@ -722,8 +964,12 @@
           "url": "https://link.amazon/B0cavVgt7",
           "modelName": "Logitech M170",
           "specsVariation": "Mouse Sem Fio Logitech M170 Preto/Cinza, Receptor USB Nano 2.4GHz, Pilha AA Inclusa",
-          "badge": "Mais Vendido",
-          "image": "/assets/products/logitech-m170-wireless-mouse.webp"
+          "badge": "Mais Vendido Amazon",
+          "image": "/assets/products/logitech-m170-wireless-mouse.webp",
+          "currentPrice": null,
+          "previousPrice": null,
+          "discountPercentage": null,
+          "installments": null
         },
         {
           "storeId": "mercadolivre",
@@ -731,8 +977,12 @@
           "url": "https://meli.la/1FsBKp4",
           "modelName": "Logitech M170",
           "specsVariation": "Mouse Sem Fio Logitech M170 Preto/Cinza, Receptor USB Nano 2.4GHz, Pilha AA Inclusa",
-          "badge": "Envio Full",
-          "image": "/assets/products/logitech-m170-wireless-mouse.webp"
+          "badge": "Envio Full Mercado Livre",
+          "image": "/assets/products/logitech-m170-wireless-mouse.webp",
+          "currentPrice": null,
+          "previousPrice": null,
+          "discountPercentage": null,
+          "installments": null
         },
         {
           "storeId": "shopee",
@@ -741,7 +991,11 @@
           "modelName": "Logitech M170",
           "specsVariation": "Mouse Sem Fio Logitech M170 Preto/Cinza, Receptor USB Nano 2.4GHz, Pilha AA Inclusa",
           "badge": "Garantia Shopee",
-          "image": "/assets/products/logitech-m170-wireless-mouse.webp"
+          "image": "/assets/products/logitech-m170-wireless-mouse.webp",
+          "currentPrice": null,
+          "previousPrice": null,
+          "discountPercentage": null,
+          "installments": null
         }
       ],
       "hasStoreVariations": false,

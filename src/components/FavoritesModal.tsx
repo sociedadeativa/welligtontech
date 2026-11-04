@@ -19,7 +19,8 @@ export const FavoritesModal: React.FC<FavoritesModalProps> = ({
 }) => {
   if (!isOpen) return null;
 
-  const formatBRL = (val: number) => {
+  const formatBRL = (val: number | null | undefined) => {
+    if (val === null || val === undefined) return '';
     return val.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
   };
 
@@ -78,7 +79,7 @@ export const FavoritesModal: React.FC<FavoritesModalProps> = ({
                     {product.name}
                   </h4>
                   <span className="text-xs font-mono font-black text-slate-950 block mt-0.5">
-                    {formatBRL(product.currentPrice)}
+                    {product.currentPrice !== null && product.currentPrice !== undefined ? formatBRL(product.currentPrice) : 'Consulte na loja'}
                   </span>
                 </div>
 

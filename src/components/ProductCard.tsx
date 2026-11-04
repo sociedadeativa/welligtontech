@@ -28,7 +28,8 @@ export const ProductCard: React.FC<ProductCardProps> = ({
 }) => {
   const [imgError, setImgError] = useState(false);
 
-  const formatBRL = (val: number) => {
+  const formatBRL = (val: number | null | undefined) => {
+    if (val === null || val === undefined) return '';
     return val.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
   };
 
@@ -148,24 +149,57 @@ export const ProductCard: React.FC<ProductCardProps> = ({
 
         {/* Pricing Block */}
         <div className="px-3.5 pt-1.5">
-          <div className="flex items-center gap-1.5 h-4">
-            <span className="text-[11px] text-slate-400 line-through">
-              De {formatBRL(product.previousPrice)}
-            </span>
-            <span className="text-[10px] font-black text-emerald-800 bg-emerald-100 px-1.5 py-0.2 rounded">
-              -{product.discountPercentage}%
-            </span>
-          </div>
+          {product.currentPrice !== null && product.currentPrice !== undefined ? (
+            <>
+              <div className="flex items-center gap-1.5 h-4">
+                {product.previousPrice && product.previousPrice > product.currentPrice ? (
+                  <>
+                    <span className="text-[11px] text-slate-400 line-through">
+                      De {formatBRL(product.previousPrice)}
+                    </span>
+                    <span className="text-[10px] font-black text-emerald-800 bg-emerald-100 px-1.5 py-0.2 rounded">
+                      -{Math.round(((product.previousPrice - product.currentPrice) / product.previousPrice) * 100)}%
+                    </span>
+                  </>
+                ) : (
+                  <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
+                    Oferta Verificada
+                  </span>
+                )}
+              </div>
 
-          <div className="mt-0.5 h-6 flex items-baseline">
-            <span className="text-lg font-black text-slate-950 font-mono tracking-tight">
-              {formatBRL(product.currentPrice)}
-            </span>
-          </div>
+              <div className="mt-0.5 h-6 flex items-baseline">
+                <span className="text-lg font-black text-slate-950 font-mono tracking-tight">
+                  {formatBRL(product.currentPrice)}
+                </span>
+              </div>
 
-          <p className="text-[10px] text-slate-500 font-medium leading-tight mt-0.5 h-4 truncate">
-            À vista no <strong className="text-slate-800 font-bold">PIX</strong> ou {product.installments.count}x de {formatBRL(product.installments.value)}
-          </p>
+              <p className="text-[10px] text-slate-500 font-medium leading-tight mt-0.5 h-4 truncate">
+                {product.installments
+                  ? `ou ${product.installments.count}x de ${formatBRL(product.installments.value)}`
+                  : 'Consulte condições de parcelamento'}
+              </p>
+            </>
+          ) : (
+            <>
+              <div className="flex items-center gap-1.5 h-4">
+                <span className="text-[10px] font-bold text-amber-700 bg-amber-100/80 px-1.5 py-0.2 rounded">
+                  Sob consulta
+                </span>
+              </div>
+
+              <div className="mt-0.5 h-6 flex items-baseline">
+                <span className="text-sm font-black text-slate-800 tracking-tight">
+                  Consulte o preço na loja
+                </span>
+              </div>
+
+              <p className="text-[10px] text-slate-400 font-medium leading-tight mt-0.5 h-4 truncate">
+                Preços e estoque no site parceiro
+              </p>
+            </>
+          )}
+        </div>
 
           {/* Standardized Store variation notice slot */}
           <div className="h-6 mt-1.5">
@@ -192,7 +226,6 @@ export const ProductCard: React.FC<ProductCardProps> = ({
             </span>
           </div>
         </div>
-      </div>
 
       {/* Action Area: Details Button + 3 Dedicated Store Buttons */}
       <div className="p-3 pt-2 space-y-2 mt-auto border-t border-slate-100/80 bg-white z-10">

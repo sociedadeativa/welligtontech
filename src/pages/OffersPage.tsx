@@ -67,9 +67,16 @@ export const OffersPage: React.FC<OffersPageProps> = ({
     }
 
     result.sort((a, b) => {
-      if (sortBy === 'discount') return (b.discountPercentage || 0) - (a.discountPercentage || 0);
-      if (sortBy === 'priceAsc') return a.currentPrice - b.currentPrice;
-      if (sortBy === 'priceDesc') return b.currentPrice - a.currentPrice;
+      const discountA = (a.previousPrice && a.currentPrice && a.previousPrice > a.currentPrice)
+        ? ((a.previousPrice - a.currentPrice) / a.previousPrice) * 100
+        : (a.discountPercentage || 0);
+      const discountB = (b.previousPrice && b.currentPrice && b.previousPrice > b.currentPrice)
+        ? ((b.previousPrice - b.currentPrice) / b.previousPrice) * 100
+        : (b.discountPercentage || 0);
+
+      if (sortBy === 'discount') return discountB - discountA;
+      if (sortBy === 'priceAsc') return (a.currentPrice ?? Infinity) - (b.currentPrice ?? Infinity);
+      if (sortBy === 'priceDesc') return (b.currentPrice ?? -Infinity) - (a.currentPrice ?? -Infinity);
       return 0;
     });
 

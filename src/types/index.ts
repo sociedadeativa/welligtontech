@@ -56,6 +56,13 @@ export interface StoreOfferItem {
   specsVariation?: string;
   badge?: string;
   image?: string;
+  currentPrice?: number | null;
+  previousPrice?: number | null;
+  discountPercentage?: number | null;
+  installments?: {
+    count: number;
+    value: number;
+  } | null;
 }
 
 export interface Product {
@@ -67,13 +74,13 @@ export interface Product {
   brand: string;
   store: string;
   storeDotColor?: string;
-  currentPrice: number;
-  previousPrice: number;
-  discountPercentage: number;
+  currentPrice: number | null;
+  previousPrice: number | null;
+  discountPercentage: number | null;
   installments: {
     count: number;
     value: number;
-  };
+  } | null;
   image: string;
   affiliateUrl: string;
   amazonUrl: string;
