@@ -380,10 +380,13 @@
       "brand": "DELL",
       "store": "Amazon / ML / Shopee",
       "storeDotColor": "#0284c7",
-      "currentPrice": null,
-      "previousPrice": null,
+      "currentPrice": 3999.0,
+      "previousPrice": 4500.0,
       "discountPercentage": null,
-      "installments": null,
+      "installments": {
+        "count": 12,
+        "value": 333.25
+      },
       "image": "/assets/products/dell-inspiron-15.png",
       "affiliateUrl": "https://link.amazon/B05lGQGMI",
       "amazonUrl": "https://link.amazon/B05lGQGMI",
@@ -394,35 +397,41 @@
           "storeId": "amazon",
           "storeName": "Amazon",
           "url": "https://link.amazon/B05lGQGMI",
-          "modelName": "Dell Inspiron 15 (15-I1300-A30P)",
-          "specsVariation": "Intel Core i5-1334U, 8GB RAM, 512GB SSD, Windows 11 Home, Tela 15.6\" FHD 120Hz",
+          "modelName": "Dell Inspiron 15 15-I1300-A30P",
+          "specsVariation": "Intel Core i5-1334U, 8GB RAM, 512GB SSD, Windows 11 Home, 15.6\" FHD 120Hz",
           "badge": "Entrega Prime",
           "image": "/assets/products/dell-inspiron-15.png",
-          "currentPrice": null,
-          "previousPrice": null,
+          "currentPrice": 3999.0,
+          "previousPrice": 4500.0,
           "discountPercentage": null,
-          "installments": null
+          "installments": {
+            "count": 12,
+            "value": 333.25
+          }
         },
         {
           "storeId": "mercadolivre",
           "storeName": "Mercado Livre",
           "url": "https://meli.la/2qKdxxU",
-          "modelName": "Dell Inspiron 15 (15-I1300-A30P)",
-          "specsVariation": "Intel Core i5-1334U, 8GB RAM, 512GB SSD, Windows 11 Home, Tela 15.6\" FHD 120Hz",
+          "modelName": "Dell Inspiron 15 i15-i1300-a30p",
+          "specsVariation": "Intel Core i5-1334U, 8GB RAM, 512GB SSD, Windows 11, 15.6\"",
           "badge": "Envio Full Mercado Livre",
           "image": "/assets/products/dell-inspiron-15.png",
-          "currentPrice": null,
+          "currentPrice": 4970.0,
           "previousPrice": null,
           "discountPercentage": null,
-          "installments": null
+          "installments": {
+            "count": 10,
+            "value": 497.0
+          }
         },
         {
           "storeId": "shopee",
           "storeName": "Shopee",
           "url": "https://s.shopee.com.br/5VWbsG1MBl",
-          "modelName": "Dell Inspiron 15 (15-I1300-A30P)",
-          "specsVariation": "Intel Core i5-1334U, 8GB RAM, 512GB SSD, Windows 11 Home, Tela 15.6\" FHD 120Hz",
-          "badge": "Cupom Oficial Shopee",
+          "modelName": "Oferta Indisponível (Sem Inspiron 15)",
+          "specsVariation": "Oferta não homologada para a linha Dell Inspiron 15. Não associar com outros modelos.",
+          "badge": "Indisponível",
           "image": "/assets/products/dell-inspiron-15.png",
           "currentPrice": null,
           "previousPrice": null,
@@ -430,8 +439,8 @@
           "installments": null
         }
       ],
-      "hasStoreVariations": false,
-      "storeVariationsNote": "Configurações equivalentes entre lojas verificadas (i5-1334U, 8GB RAM, 512GB SSD, Windows 11 Home, Tela 120Hz).",
+      "hasStoreVariations": true,
+      "storeVariationsNote": "A Amazon disponibiliza o modelo Dell Inspiron 15 15-I1300-A30P por R$ 3.999,00 em até 12x sem juros de R$ 333,25. No Mercado Livre, o Dell Inspiron 15 i15-i1300-a30p está disponível por R$ 4.970,00 em até 10x sem juros de R$ 497,00. A Shopee não possui oferta homologada para a linha Inspiron 15 nesta campanha.",
       "rating": 4.9,
       "reviewCount": 184,
       "badge": "ESQUENTA",
