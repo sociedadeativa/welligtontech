@@ -62,6 +62,7 @@ export interface StoreOfferItem {
   installments?: {
     count: number;
     value: number;
+    interestFree?: boolean;
   } | null;
 }
 
@@ -80,6 +81,7 @@ export interface Product {
   installments: {
     count: number;
     value: number;
+    interestFree?: boolean;
   } | null;
   image: string;
   affiliateUrl: string;

@@ -85,7 +85,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
         storeId: 'shopee' as const,
         name: 'Shopee',
         shortName: 'Shopee',
-        url: product.shopeeUrl || product.affiliateUrl,
+        url: product.stores?.find((s) => s.storeId === 'shopee')?.url || product.shopeeUrl || product.affiliateUrl,
         badge: product.stores?.find((s) => s.storeId === 'shopee')?.badge || 'Loja Oficial',
         modelName: product.stores?.find((s) => s.storeId === 'shopee')?.modelName,
         specsVariation: product.stores?.find((s) => s.storeId === 'shopee')?.specsVariation,
@@ -318,7 +318,8 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
 
                     {activeOffer.installments ? (
                       <p className="text-xs text-slate-500">
-                        ou em até {activeOffer.installments.count}x de {formatBRL(activeOffer.installments.value)} sem juros no cartão
+                        ou em até {activeOffer.installments.count}x de {formatBRL(activeOffer.installments.value)}
+                        {activeOffer.installments.interestFree === false ? ' no cartão' : ' sem juros no cartão'}
                       </p>
                     ) : (
                       <p className="text-xs text-slate-500">

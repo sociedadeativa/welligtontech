@@ -391,7 +391,7 @@
       "affiliateUrl": "https://link.amazon/B05lGQGMI",
       "amazonUrl": "https://link.amazon/B05lGQGMI",
       "mercadoLivreUrl": "https://meli.la/2qKdxxU",
-      "shopeeUrl": "https://s.shopee.com.br/5VWbsG1MBl",
+      "shopeeUrl": "https://s.shopee.com.br/6AmKMKUvz1",
       "stores": [
         {
           "storeId": "amazon",
@@ -428,19 +428,23 @@
         {
           "storeId": "shopee",
           "storeName": "Shopee",
-          "url": "https://s.shopee.com.br/5VWbsG1MBl",
-          "modelName": "Oferta Indisponível (Sem Inspiron 15)",
-          "specsVariation": "Oferta não homologada para a linha Dell Inspiron 15. Não associar com outros modelos.",
-          "badge": "Indisponível",
+          "url": "https://s.shopee.com.br/6AmKMKUvz1",
+          "modelName": "Dell Inspiron 15",
+          "specsVariation": "Modelo Dell Inspiron 15 • Intel Core i5-1334U, 8GB RAM, 512GB SSD, Tela 15.6\" Full HD. Preço de R$ 4.100,58 exclusivo no Pix com cupom oficial da loja. Preço regular em outros meios de pagamento: R$ 4.557,15 (ou 12x de R$ 371,43 com acréscimo).",
+          "badge": "Preço Pix com Cupom",
           "image": "/assets/products/dell-inspiron-15.png",
-          "currentPrice": null,
-          "previousPrice": null,
+          "currentPrice": 4100.58,
+          "previousPrice": 4557.15,
           "discountPercentage": null,
-          "installments": null
+          "installments": {
+            "count": 12,
+            "value": 371.43,
+            "interestFree": false
+          }
         }
       ],
       "hasStoreVariations": true,
-      "storeVariationsNote": "A Amazon disponibiliza o modelo Dell Inspiron 15 15-I1300-A30P por R$ 3.999,00 em até 12x sem juros de R$ 333,25. No Mercado Livre, o Dell Inspiron 15 i15-i1300-a30p está disponível por R$ 4.970,00 em até 10x sem juros de R$ 497,00. A Shopee não possui oferta homologada para a linha Inspiron 15 nesta campanha.",
+      "storeVariationsNote": "Ofertas verificadas do Dell Inspiron 15 (Core i5-1334U, 8GB RAM, 512GB SSD, Tela 15.6\" FHD): Amazon por R$ 3.999,00 (12x sem juros de R$ 333,25); Mercado Livre por R$ 4.970,00 (10x sem juros de R$ 497,00); Shopee por R$ 4.100,58 no Pix com cupom (preço regular de R$ 4.557,15 ou 12x de R$ 371,43).",
       "rating": 4.9,
       "reviewCount": 184,
       "badge": "ESQUENTA",
