@@ -298,7 +298,7 @@
       "brand": "POSITIVO",
       "store": "Amazon / ML / Shopee",
       "storeDotColor": "#ea580c",
-      "currentPrice": null,
+      "currentPrice": 1570.35,
       "previousPrice": null,
       "discountPercentage": null,
       "installments": null,
@@ -316,7 +316,7 @@
           "specsVariation": "Modelo Positivo Vision C15M • Intel Celeron N4500, 4GB RAM, 128GB eMMC, Tela 15.6\" Full HD IPS, Windows 11 Home",
           "badge": "Mais Vendido Amazon",
           "image": "/assets/products/positivo-vision-c15m.jpg",
-          "currentPrice": null,
+          "currentPrice": 1879.1,
           "previousPrice": null,
           "discountPercentage": null,
           "installments": null
@@ -329,7 +329,7 @@
           "specsVariation": "Modelo Positivo Vision C14 Lumina BAR • Intel Celeron N4020, 4GB RAM, 128GB eMMC, Tela 14\" HD, Lumina BAR (LED para webcam), Windows 11",
           "badge": "Envio Full Mercado Livre",
           "image": "/assets/products/positivo-vision-c14-lumina.jpg",
-          "currentPrice": null,
+          "currentPrice": 1739.9,
           "previousPrice": null,
           "discountPercentage": null,
           "installments": null
@@ -342,7 +342,7 @@
           "specsVariation": "Modelo Positivo Vision C14 • Intel Celeron, 4GB RAM, 128GB eMMC, Tela 14\" HD, Linux",
           "badge": "Cupom Oficial Shopee",
           "image": "/assets/products/positivo-vision-c14.jpg",
-          "currentPrice": null,
+          "currentPrice": 1570.35,
           "previousPrice": null,
           "discountPercentage": null,
           "installments": null
@@ -359,9 +359,9 @@
         "Modelos por Loja": "Amazon: Positivo Vision C15M | ML: Positivo Vision C14 Lumina BAR | Shopee: Positivo Vision C14",
         "Processador": "Amazon: Intel Celeron N4500 | ML: Intel Celeron N4020 | Shopee: Intel Celeron",
         "Memória RAM": "4GB RAM",
-        "Armazenamento": "128GB eMMC (expansível via slot SATA)",
-        "Tela": "Amazon: 15.6\" Full HD IPS Antirreflexo | ML e Shopee: 14\" HD Antirreflexo",
-        "Sistema Operacional": "Amazon e ML: Windows 11 Home | Shopee: Linux",
+        "Armazenamento": "128GB eMMC",
+        "Tela": "Amazon: 15.6\" Full HD IPS | ML: 14\" HD Lumina BAR | Shopee: 14\" HD",
+        "Sistema Operacional": "Amazon: Windows 11 Home | ML: Windows 11 | Shopee: Linux",
         "Diferencial de Iluminação": "Tecnologia Lumina Bar (barras LED ajustáveis na webcam)",
         "Conectividade": "Wi-Fi, Bluetooth, USB 3.0, USB-C, Mini HDMI / HDMI, Áudio combo"
       },
