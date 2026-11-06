@@ -13,7 +13,10 @@ export const CONTACT_CONFIG = {
   businessEmailMailto: "mailto:welligtonbrave@gmail.com",
 
   // Canal editorial
-  editorialEmail: "contato@welligtontech.com.br",
+  editorialEmail: "welligtonbrave@gmail.com",
+
+  // Endpoint do serviço FormSubmit para envio real de e-mails
+  formSubmitEndpoint: "https://formsubmit.co/ajax/welligtonbrave@gmail.com",
 
   telegramUrl: "https://t.me",
   businessHours: "Segunda a Sexta, das 09h às 18h (Horário de Brasília)",

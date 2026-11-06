@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Send, Check, MapPin, ExternalLink, ArrowUpRight } from 'lucide-react';
+import { Mail, Send, Check, MapPin, AlertCircle, Loader2 } from 'lucide-react';
 import { InstagramIcon as Instagram } from '../components/InstagramIcon';
 import { CONTACT_CONFIG } from '../config/contactConfig';
 
@@ -8,18 +8,74 @@ export const ContactPage: React.FC = () => {
   const [email, setEmail] = useState('');
   const [subject, setSubject] = useState('Dúvida sobre Hardware');
   const [message, setMessage] = useState('');
-  const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (name && email && message) {
-      setSubmitted(true);
-      setTimeout(() => {
+    setErrorMessage(null);
+
+    const trimmedName = name.trim();
+    const trimmedEmail = email.trim();
+    const trimmedMessage = message.trim();
+
+    // Validação dos campos obrigatórios
+    if (!trimmedName) {
+      setErrorMessage('Por favor, informe seu nome completo.');
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!trimmedEmail || !emailRegex.test(trimmedEmail)) {
+      setErrorMessage('Por favor, informe um endereço de e-mail válido.');
+      return;
+    }
+
+    if (!trimmedMessage) {
+      setErrorMessage('Por favor, digite sua mensagem antes de enviar.');
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch(CONTACT_CONFIG.formSubmitEndpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+          name: trimmedName,
+          email: trimmedEmail,
+          _replyto: trimmedEmail,
+          _subject: `Nova mensagem pelo site WelligtonTech - ${subject}`,
+          assunto: subject,
+          message: trimmedMessage,
+        }),
+      });
+
+      const data = await response.json().catch(() => null);
+
+      if (response.ok && (data?.success === 'true' || data?.success === true || response.status === 200)) {
+        setSubmitSuccess(true);
+        // Limpa os campos apenas após a confirmação de sucesso
         setName('');
         setEmail('');
         setMessage('');
-        setSubmitted(false);
-      }, 3500);
+        setSubject('Dúvida sobre Hardware');
+      } else {
+        const errorText = data?.message || 'Falha ao processar o envio pelo serviço de mensagens. Seus dados foram preservados. Tente novamente ou use nossos canais diretos.';
+        setErrorMessage(errorText);
+      }
+    } catch (err) {
+      console.error('Erro ao enviar mensagem:', err);
+      setErrorMessage(
+        'Não foi possível conectar ao serviço de envio no momento. Seus dados foram preservados. Por favor, tente novamente em alguns instantes ou entre em contato pelo nosso Instagram oficial ou e-mail.'
+      );
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -98,18 +154,28 @@ export const ContactPage: React.FC = () => {
                 </a>
 
                 {/* 3. E-mail Editorial */}
-                <div className="flex items-start gap-3 p-3 bg-slate-50 rounded-xl border border-slate-200">
-                  <Mail className="w-4 h-4 text-slate-500 flex-shrink-0 mt-0.5" />
-                  <div>
-                    <span className="font-bold text-slate-900 block">E-mail Editorial</span>
-                    <a
-                      href={`mailto:${CONTACT_CONFIG.editorialEmail}`}
-                      className="text-slate-600 hover:text-orange-600 font-mono underline block mt-0.5"
-                    >
-                      {CONTACT_CONFIG.editorialEmail}
-                    </a>
+                <a
+                  href={`mailto:${CONTACT_CONFIG.editorialEmail}`}
+                  className="flex items-start gap-3 p-3.5 bg-slate-50 hover:bg-slate-100/80 rounded-2xl border border-slate-200 hover:border-slate-300 transition-all group cursor-pointer shadow-xs"
+                >
+                  <div className="w-8 h-8 rounded-xl bg-slate-200 text-slate-700 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                    <Mail className="w-4 h-4 text-slate-700" />
                   </div>
-                </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center justify-between gap-1">
+                      <span className="font-extrabold text-slate-900 block">E-mail Editorial</span>
+                      <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-slate-200 text-slate-700">
+                        Editorial
+                      </span>
+                    </div>
+                    <span className="text-slate-700 hover:text-orange-600 font-mono font-bold block mt-0.5 underline break-all">
+                      {CONTACT_CONFIG.editorialEmail}
+                    </span>
+                    <p className="text-[11px] text-slate-500 mt-0.5 leading-snug">
+                      Sugestões de pautas, correções e análise editorial.
+                    </p>
+                  </div>
+                </a>
 
                 {/* 4. Localização */}
                 <div className="flex items-start gap-3 p-3 bg-slate-50 rounded-xl border border-slate-200">
@@ -130,58 +196,91 @@ export const ContactPage: React.FC = () => {
           {/* Form Card */}
           <div className="md:col-span-7">
             <div className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-sm">
-              {submitted ? (
-                <div className="py-12 text-center space-y-3">
-                  <div className="w-14 h-14 bg-emerald-100 text-emerald-600 border border-emerald-300 rounded-full flex items-center justify-center mx-auto">
+              {submitSuccess ? (
+                <div className="py-10 text-center space-y-4">
+                  <div className="w-14 h-14 bg-emerald-100 text-emerald-600 border border-emerald-300 rounded-full flex items-center justify-center mx-auto shadow-sm">
                     <Check className="w-7 h-7" />
                   </div>
-                  <h3 className="text-lg font-black text-emerald-700">Mensagem Enviada!</h3>
-                  <p className="text-xs text-slate-600 max-w-sm mx-auto">
-                    Agradecemos o contato. Nossa equipe responderá no e-mail informado o mais breve possível.
-                  </p>
+                  <div className="space-y-1">
+                    <h3 className="text-lg font-black text-emerald-800">Mensagem Enviada com Sucesso!</h3>
+                    <p className="text-xs text-slate-600 max-w-sm mx-auto leading-relaxed">
+                      Sua mensagem foi enviada para <strong>{CONTACT_CONFIG.businessEmail}</strong>. Responderemos no endereço de e-mail informado o mais breve possível.
+                    </p>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setSubmitSuccess(false);
+                      setErrorMessage(null);
+                    }}
+                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition-colors cursor-pointer"
+                  >
+                    Enviar outra mensagem
+                  </button>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
-                  <h3 className="text-base font-black text-slate-900">
-                    Envie sua Mensagem
-                  </h3>
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-base font-black text-slate-900">
+                      Envie sua Mensagem
+                    </h3>
+                    <span className="text-[10px] text-slate-400 font-medium">
+                      Campos com * são obrigatórios
+                    </span>
+                  </div>
+
+                  {errorMessage && (
+                    <div className="p-3.5 bg-rose-50 border border-rose-200 rounded-xl flex items-start gap-2.5 text-xs text-rose-800">
+                      <AlertCircle className="w-4 h-4 text-rose-600 shrink-0 mt-0.5" />
+                      <div className="flex-1 leading-relaxed">
+                        <strong className="block font-bold">Atenção:</strong>
+                        <span>{errorMessage}</span>
+                      </div>
+                    </div>
+                  )}
 
                   <div>
                     <label className="block text-xs font-bold text-slate-700 mb-1">
-                      Seu Nome Completo
+                      Seu Nome Completo *
                     </label>
                     <input
                       type="text"
+                      name="name"
+                      disabled={isSubmitting}
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                       placeholder="Ex: Carlos Eduardo"
-                      className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-800 focus:outline-none focus:border-orange-500"
+                      className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-800 focus:outline-none focus:border-orange-500 disabled:bg-slate-100 disabled:cursor-not-allowed"
                       required
                     />
                   </div>
 
                   <div>
                     <label className="block text-xs font-bold text-slate-700 mb-1">
-                      Seu E-mail
+                      Seu E-mail *
                     </label>
                     <input
                       type="email"
+                      name="email"
+                      disabled={isSubmitting}
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="Ex: carlos@gmail.com"
-                      className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-800 focus:outline-none focus:border-orange-500"
+                      className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-800 focus:outline-none focus:border-orange-500 disabled:bg-slate-100 disabled:cursor-not-allowed"
                       required
                     />
                   </div>
 
                   <div>
                     <label className="block text-xs font-bold text-slate-700 mb-1">
-                      Assunto
+                      Assunto *
                     </label>
                     <select
+                      name="subject"
+                      disabled={isSubmitting}
                       value={subject}
                       onChange={(e) => setSubject(e.target.value)}
-                      className="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-800 focus:outline-none focus:border-orange-500 font-medium"
+                      className="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-800 focus:outline-none focus:border-orange-500 font-medium disabled:bg-slate-100 disabled:cursor-not-allowed"
                     >
                       <option value="Dúvida sobre Hardware">Dúvida sobre Hardware ou Setup</option>
                       <option value="Sugestão de Oferta">Sugestão de Oferta / Erro de Preço</option>
@@ -192,24 +291,36 @@ export const ContactPage: React.FC = () => {
 
                   <div>
                     <label className="block text-xs font-bold text-slate-700 mb-1">
-                      Mensagem
+                      Mensagem *
                     </label>
                     <textarea
+                      name="message"
                       rows={4}
+                      disabled={isSubmitting}
                       value={message}
                       onChange={(e) => setMessage(e.target.value)}
                       placeholder="Como podemos te ajudar hoje?"
-                      className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-800 focus:outline-none focus:border-orange-500 resize-none"
+                      className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-800 focus:outline-none focus:border-orange-500 resize-none disabled:bg-slate-100 disabled:cursor-not-allowed"
                       required
                     />
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-500 hover:to-orange-600 text-white font-black py-3 px-6 rounded-xl text-xs transition-all shadow-md shadow-orange-600/20 cursor-pointer"
+                    disabled={isSubmitting}
+                    className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-500 hover:to-orange-600 disabled:from-slate-400 disabled:to-slate-400 text-white font-black py-3 px-6 rounded-xl text-xs transition-all shadow-md shadow-orange-600/20 disabled:shadow-none cursor-pointer disabled:cursor-not-allowed"
                   >
-                    <Send className="w-4 h-4" />
-                    <span>Enviar Mensagem</span>
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="w-4 h-4 animate-spin" />
+                        <span>Enviando Mensagem...</span>
+                      </>
+                    ) : (
+                      <>
+                        <Send className="w-4 h-4" />
+                        <span>Enviar Mensagem</span>
+                      </>
+                    )}
                   </button>
                 </form>
               )}
