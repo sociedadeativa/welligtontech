@@ -11,10 +11,12 @@ export const ContactPage: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [pendingActivationMessage, setPendingActivationMessage] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setErrorMessage(null);
+    setPendingActivationMessage(null);
 
     const trimmedName = name.trim();
     const trimmedEmail = email.trim();
@@ -58,22 +60,53 @@ export const ContactPage: React.FC = () => {
 
       const data = await response.json().catch(() => null);
 
-      if (response.ok && (data?.success === 'true' || data?.success === true || response.status === 200)) {
+      // Registra apenas status HTTP, indicador de sucesso e mensagem do serviço (sem dados pessoais)
+      console.log('[FormSubmit Response]', {
+        httpStatus: response.status,
+        success: data?.success,
+        message: data?.message,
+      });
+
+      // Validação estrita: exige explicitamente true ou "true" e status de rede válido
+      const isSuccess = response.ok && (data?.success === true || data?.success === 'true');
+
+      if (isSuccess) {
         setSubmitSuccess(true);
-        // Limpa os campos apenas após a confirmação de sucesso
+        setErrorMessage(null);
+        setPendingActivationMessage(null);
+        // Limpa os campos apenas após a confirmação genuína de entrega
         setName('');
         setEmail('');
         setMessage('');
         setSubject('Dúvida sobre Hardware');
       } else {
-        const errorText = data?.message || 'Falha ao processar o envio pelo serviço de mensagens. Seus dados foram preservados. Tente novamente ou use nossos canais diretos.';
-        setErrorMessage(errorText);
+        // Identifica estado de ativação pendente retornado pelo FormSubmit
+        const serviceMsg = typeof data?.message === 'string' ? data.message : '';
+        const isActivationPending =
+          serviceMsg.toLowerCase().includes('activation') ||
+          serviceMsg.toLowerCase().includes('activate') ||
+          serviceMsg.toLowerCase().includes('ativar') ||
+          serviceMsg.toLowerCase().includes('ativação');
+
+        if (isActivationPending) {
+          setPendingActivationMessage(serviceMsg);
+          setErrorMessage(null);
+        } else {
+          const errorText =
+            serviceMsg ||
+            'Falha ao processar o envio pelo serviço de mensagens. Seus dados foram preservados. Tente novamente ou use nossos canais diretos.';
+          setErrorMessage(errorText);
+          setPendingActivationMessage(null);
+        }
+        // Todos os campos (nome, email, assunto, mensagem) são preservados intactos
       }
     } catch (err) {
-      console.error('Erro ao enviar mensagem:', err);
+      // Registra apenas mensagem de erro de rede, sem dados pessoais
+      console.error('[FormSubmit Network Failure]', err instanceof Error ? err.message : 'Falha na requisição');
       setErrorMessage(
         'Não foi possível conectar ao serviço de envio no momento. Seus dados foram preservados. Por favor, tente novamente em alguns instantes ou entre em contato pelo nosso Instagram oficial ou e-mail.'
       );
+      setPendingActivationMessage(null);
     } finally {
       setIsSubmitting(false);
     }
@@ -212,6 +245,7 @@ export const ContactPage: React.FC = () => {
                     onClick={() => {
                       setSubmitSuccess(false);
                       setErrorMessage(null);
+                      setPendingActivationMessage(null);
                     }}
                     className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition-colors cursor-pointer"
                   >
@@ -228,6 +262,23 @@ export const ContactPage: React.FC = () => {
                       Campos com * são obrigatórios
                     </span>
                   </div>
+
+                  {pendingActivationMessage && (
+                    <div className="p-4 bg-amber-50 border border-amber-300 rounded-2xl flex items-start gap-3 text-xs text-amber-900 shadow-xs">
+                      <AlertCircle className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
+                      <div className="flex-1 space-y-2 leading-relaxed">
+                        <strong className="block font-black text-amber-950 text-sm">
+                          Ativação de E-mail Pendente
+                        </strong>
+                        <p className="text-amber-800 font-mono text-[11px] bg-amber-100/80 p-2.5 rounded-xl border border-amber-200 break-words">
+                          {pendingActivationMessage}
+                        </p>
+                        <p className="text-[11px] text-amber-900">
+                          O serviço FormSubmit requer a ativação única do endereço <strong>{CONTACT_CONFIG.businessEmail}</strong>. Por favor, verifique a caixa de entrada (incluindo as pastas <strong>Spam / Lixo Eletrônico</strong> ou <strong>Promoções</strong>) e clique no link de ativação enviado. Seus dados preenchidos abaixo permanecem salvos para reenvio.
+                        </p>
+                      </div>
+                    </div>
+                  )}
 
                   {errorMessage && (
                     <div className="p-3.5 bg-rose-50 border border-rose-200 rounded-xl flex items-start gap-2.5 text-xs text-rose-800">
