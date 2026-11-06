@@ -23,8 +23,20 @@ export const App: React.FC = () => {
   const [guides, setGuides] = useState<BuyingGuide[]>([]);
   const [loading, setLoading] = useState(true);
 
-  // Routing state
-  const [currentRoute, setCurrentRoute] = useState<PageRoute>('home');
+  // Routing state - sincroniza rota inicial caso o usuário retorne de redirecionamento (ex: FormSubmit)
+  const [currentRoute, setCurrentRoute] = useState<PageRoute>(() => {
+    try {
+      if (typeof window !== 'undefined') {
+        const params = new URLSearchParams(window.location.search);
+        if (params.get('enviado') === 'sucesso' || params.get('contato') === 'sucesso' || window.location.hash === '#contato') {
+          return 'contato';
+        }
+      }
+    } catch {
+      // fallback padrão
+    }
+    return 'home';
+  });
   const [routeParam, setRouteParam] = useState<string>('');
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 

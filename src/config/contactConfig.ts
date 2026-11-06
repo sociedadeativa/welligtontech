@@ -15,8 +15,8 @@ export const CONTACT_CONFIG = {
   // Canal editorial
   editorialEmail: "welligtonbrave@gmail.com",
 
-  // Endpoint do serviço FormSubmit para envio real de e-mails
-  formSubmitEndpoint: "https://formsubmit.co/ajax/welligtonbrave@gmail.com",
+  // Endpoint do serviço FormSubmit para envio nativo de formulário POST
+  formSubmitEndpoint: "https://formsubmit.co/welligtonbrave@gmail.com",
 
   telegramUrl: "https://t.me",
   businessHours: "Segunda a Sexta, das 09h às 18h (Horário de Brasília)",

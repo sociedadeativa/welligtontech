@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Mail, Send, Check, MapPin, AlertCircle, Loader2 } from 'lucide-react';
 import { InstagramIcon as Instagram } from '../components/InstagramIcon';
 import { CONTACT_CONFIG } from '../config/contactConfig';
@@ -9,14 +9,33 @@ export const ContactPage: React.FC = () => {
   const [subject, setSubject] = useState('Dúvida sobre Hardware');
   const [message, setMessage] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitSuccess, setSubmitSuccess] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
-  const [pendingActivationMessage, setPendingActivationMessage] = useState<string | null>(null);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  // Inicializa o estado de sucesso verificando se o visitante retornou do redirecionamento do FormSubmit (_next)
+  const [submitSuccess, setSubmitSuccess] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      return params.get('enviado') === 'sucesso' || params.get('contato') === 'sucesso';
+    }
+    return false;
+  });
+
+  // URL de retorno (_next) após o processamento pelo FormSubmit
+  const [nextUrl, setNextUrl] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return `${window.location.origin}${window.location.pathname}?enviado=sucesso`;
+    }
+    return '';
+  });
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setNextUrl(`${window.location.origin}${window.location.pathname}?enviado=sucesso`);
+    }
+  }, []);
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     setErrorMessage(null);
-    setPendingActivationMessage(null);
 
     const trimmedName = name.trim();
     const trimmedEmail = email.trim();
@@ -24,92 +43,27 @@ export const ContactPage: React.FC = () => {
 
     // Validação dos campos obrigatórios
     if (!trimmedName) {
+      e.preventDefault();
       setErrorMessage('Por favor, informe seu nome completo.');
       return;
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!trimmedEmail || !emailRegex.test(trimmedEmail)) {
+      e.preventDefault();
       setErrorMessage('Por favor, informe um endereço de e-mail válido.');
       return;
     }
 
     if (!trimmedMessage) {
+      e.preventDefault();
       setErrorMessage('Por favor, digite sua mensagem antes de enviar.');
       return;
     }
 
+    // Validação concluída: o envio nativo POST é realizado pelo navegador para https://formsubmit.co/welligtonbrave@gmail.com
+    // NÃO executamos e.preventDefault() para que a requisição ocorra sem interceptação JS/CORS.
     setIsSubmitting(true);
-
-    try {
-      const response = await fetch(CONTACT_CONFIG.formSubmitEndpoint, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-        },
-        body: JSON.stringify({
-          name: trimmedName,
-          email: trimmedEmail,
-          _replyto: trimmedEmail,
-          _subject: `Nova mensagem pelo site WelligtonTech - ${subject}`,
-          assunto: subject,
-          message: trimmedMessage,
-        }),
-      });
-
-      const data = await response.json().catch(() => null);
-
-      // Registra apenas status HTTP, indicador de sucesso e mensagem do serviço (sem dados pessoais)
-      console.log('[FormSubmit Response]', {
-        httpStatus: response.status,
-        success: data?.success,
-        message: data?.message,
-      });
-
-      // Validação estrita: exige explicitamente true ou "true" e status de rede válido
-      const isSuccess = response.ok && (data?.success === true || data?.success === 'true');
-
-      if (isSuccess) {
-        setSubmitSuccess(true);
-        setErrorMessage(null);
-        setPendingActivationMessage(null);
-        // Limpa os campos apenas após a confirmação genuína de entrega
-        setName('');
-        setEmail('');
-        setMessage('');
-        setSubject('Dúvida sobre Hardware');
-      } else {
-        // Identifica estado de ativação pendente retornado pelo FormSubmit
-        const serviceMsg = typeof data?.message === 'string' ? data.message : '';
-        const isActivationPending =
-          serviceMsg.toLowerCase().includes('activation') ||
-          serviceMsg.toLowerCase().includes('activate') ||
-          serviceMsg.toLowerCase().includes('ativar') ||
-          serviceMsg.toLowerCase().includes('ativação');
-
-        if (isActivationPending) {
-          setPendingActivationMessage(serviceMsg);
-          setErrorMessage(null);
-        } else {
-          const errorText =
-            serviceMsg ||
-            'Falha ao processar o envio pelo serviço de mensagens. Seus dados foram preservados. Tente novamente ou use nossos canais diretos.';
-          setErrorMessage(errorText);
-          setPendingActivationMessage(null);
-        }
-        // Todos os campos (nome, email, assunto, mensagem) são preservados intactos
-      }
-    } catch (err) {
-      // Registra apenas mensagem de erro de rede, sem dados pessoais
-      console.error('[FormSubmit Network Failure]', err instanceof Error ? err.message : 'Falha na requisição');
-      setErrorMessage(
-        'Não foi possível conectar ao serviço de envio no momento. Seus dados foram preservados. Por favor, tente novamente em alguns instantes ou entre em contato pelo nosso Instagram oficial ou e-mail.'
-      );
-      setPendingActivationMessage(null);
-    } finally {
-      setIsSubmitting(false);
-    }
   };
 
   return (
@@ -245,7 +199,12 @@ export const ContactPage: React.FC = () => {
                     onClick={() => {
                       setSubmitSuccess(false);
                       setErrorMessage(null);
-                      setPendingActivationMessage(null);
+                      if (typeof window !== 'undefined' && window.history.replaceState) {
+                        const url = new URL(window.location.href);
+                        url.searchParams.delete('enviado');
+                        url.searchParams.delete('contato');
+                        window.history.replaceState({}, '', url.pathname + url.search);
+                      }
                     }}
                     className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition-colors cursor-pointer"
                   >
@@ -253,7 +212,21 @@ export const ContactPage: React.FC = () => {
                   </button>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-4">
+                <form
+                  action={CONTACT_CONFIG.formSubmitEndpoint}
+                  method="POST"
+                  onSubmit={handleSubmit}
+                  className="space-y-4"
+                >
+                  {/* Campos ocultos do FormSubmit */}
+                  <input
+                    type="hidden"
+                    name="_subject"
+                    value={`Nova mensagem pelo site WelligtonTech - ${subject}`}
+                  />
+                  <input type="hidden" name="_replyto" value={email} />
+                  <input type="hidden" name="_next" value={nextUrl} />
+
                   <div className="flex items-center justify-between">
                     <h3 className="text-base font-black text-slate-900">
                       Envie sua Mensagem
@@ -262,23 +235,6 @@ export const ContactPage: React.FC = () => {
                       Campos com * são obrigatórios
                     </span>
                   </div>
-
-                  {pendingActivationMessage && (
-                    <div className="p-4 bg-amber-50 border border-amber-300 rounded-2xl flex items-start gap-3 text-xs text-amber-900 shadow-xs">
-                      <AlertCircle className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
-                      <div className="flex-1 space-y-2 leading-relaxed">
-                        <strong className="block font-black text-amber-950 text-sm">
-                          Ativação de E-mail Pendente
-                        </strong>
-                        <p className="text-amber-800 font-mono text-[11px] bg-amber-100/80 p-2.5 rounded-xl border border-amber-200 break-words">
-                          {pendingActivationMessage}
-                        </p>
-                        <p className="text-[11px] text-amber-900">
-                          O serviço FormSubmit requer a ativação única do endereço <strong>{CONTACT_CONFIG.businessEmail}</strong>. Por favor, verifique a caixa de entrada (incluindo as pastas <strong>Spam / Lixo Eletrônico</strong> ou <strong>Promoções</strong>) e clique no link de ativação enviado. Seus dados preenchidos abaixo permanecem salvos para reenvio.
-                        </p>
-                      </div>
-                    </div>
-                  )}
 
                   {errorMessage && (
                     <div className="p-3.5 bg-rose-50 border border-rose-200 rounded-xl flex items-start gap-2.5 text-xs text-rose-800">
@@ -297,11 +253,10 @@ export const ContactPage: React.FC = () => {
                     <input
                       type="text"
                       name="name"
-                      disabled={isSubmitting}
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                       placeholder="Ex: Carlos Eduardo"
-                      className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-800 focus:outline-none focus:border-orange-500 disabled:bg-slate-100 disabled:cursor-not-allowed"
+                      className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-800 focus:outline-none focus:border-orange-500"
                       required
                     />
                   </div>
@@ -313,11 +268,10 @@ export const ContactPage: React.FC = () => {
                     <input
                       type="email"
                       name="email"
-                      disabled={isSubmitting}
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="Ex: carlos@gmail.com"
-                      className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-800 focus:outline-none focus:border-orange-500 disabled:bg-slate-100 disabled:cursor-not-allowed"
+                      className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-800 focus:outline-none focus:border-orange-500"
                       required
                     />
                   </div>
@@ -327,11 +281,10 @@ export const ContactPage: React.FC = () => {
                       Assunto *
                     </label>
                     <select
-                      name="subject"
-                      disabled={isSubmitting}
+                      name="assunto"
                       value={subject}
                       onChange={(e) => setSubject(e.target.value)}
-                      className="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-800 focus:outline-none focus:border-orange-500 font-medium disabled:bg-slate-100 disabled:cursor-not-allowed"
+                      className="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-800 focus:outline-none focus:border-orange-500 font-medium"
                     >
                       <option value="Dúvida sobre Hardware">Dúvida sobre Hardware ou Setup</option>
                       <option value="Sugestão de Oferta">Sugestão de Oferta / Erro de Preço</option>
@@ -347,11 +300,10 @@ export const ContactPage: React.FC = () => {
                     <textarea
                       name="message"
                       rows={4}
-                      disabled={isSubmitting}
                       value={message}
                       onChange={(e) => setMessage(e.target.value)}
                       placeholder="Como podemos te ajudar hoje?"
-                      className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-800 focus:outline-none focus:border-orange-500 resize-none disabled:bg-slate-100 disabled:cursor-not-allowed"
+                      className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-800 focus:outline-none focus:border-orange-500 resize-none"
                       required
                     />
                   </div>
@@ -373,6 +325,10 @@ export const ContactPage: React.FC = () => {
                       </>
                     )}
                   </button>
+
+                  <p className="text-[10px] text-slate-400 text-center leading-relaxed">
+                    Envio seguro processado por FormSubmit. Se for o seu primeiro envio, uma mensagem de ativação será enviada pelo serviço para o administrador.
+                  </p>
                 </form>
               )}
             </div>
