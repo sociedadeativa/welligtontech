@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   Flame, 
   ArrowRight, 
@@ -16,6 +16,10 @@ interface HeroSectionProps {
 
 export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigate }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const [isDocumentVisible, setIsDocumentVisible] = useState(
+    () => (typeof document !== 'undefined' ? document.visibilityState === 'visible' : true)
+  );
 
   const slides = [
     {
@@ -44,6 +48,28 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigate }) => {
     }
   ];
 
+  // Pause autoplay when browser tab is hidden and resume when visible
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      setIsDocumentVisible(document.visibilityState === 'visible');
+    };
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+    };
+  }, []);
+
+  // Autoplay timer advancing every 5s with loop, paused during hover/focus/tab-hidden
+  useEffect(() => {
+    if (isPaused || !isDocumentVisible) return;
+
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 5000);
+
+    return () => clearInterval(timer);
+  }, [isPaused, isDocumentVisible, slides.length]);
+
   const slide = slides[currentSlide];
 
   return (
@@ -51,19 +77,43 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigate }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch">
           {/* Left Main Slider Card (Screenshot 4) */}
-          <div className="lg:col-span-8 relative rounded-3xl overflow-hidden bg-[#0d162f] border border-slate-800 shadow-2xl flex flex-col justify-between min-h-[360px] p-6 sm:p-10">
-            {/* Background Image with Gradient Overlay */}
+          <div 
+            className="lg:col-span-8 relative rounded-3xl overflow-hidden bg-[#0d162f] border border-slate-800 shadow-2xl flex flex-col justify-between min-h-[360px] p-6 sm:p-10"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+            onFocus={() => setIsPaused(true)}
+            onBlur={(e) => {
+              if (!e.currentTarget.contains(e.relatedTarget as Node)) {
+                setIsPaused(false);
+              }
+            }}
+            onTouchStart={() => setIsPaused(true)}
+            onTouchEnd={() => setIsPaused(false)}
+          >
+            {/* Background Images with Crossfade */}
             <div className="absolute inset-0 z-0">
-              <img
-                src={slide.image}
-                alt={slide.title}
-                className="w-full h-full object-cover object-right opacity-30 sm:opacity-40"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-[#0d162f] via-[#0d162f]/90 to-transparent" />
+              {slides.map((s, idx) => (
+                <div
+                  key={idx}
+                  className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
+                    idx === currentSlide ? 'opacity-100 z-1' : 'opacity-0 z-0 pointer-events-none'
+                  }`}
+                >
+                  <img
+                    src={s.image}
+                    alt={s.title}
+                    className="w-full h-full object-cover object-right opacity-30 sm:opacity-40"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#0d162f] via-[#0d162f]/90 to-transparent" />
+                </div>
+              ))}
             </div>
 
             {/* Slider Content */}
-            <div className="relative z-10 max-w-lg space-y-3.5 my-auto">
+            <div 
+              key={currentSlide}
+              className="relative z-10 max-w-lg space-y-3.5 my-auto animate-in fade-in duration-500"
+            >
               <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-600 text-white text-[11px] font-black uppercase tracking-wider">
                 <Flame className="w-3.5 h-3.5 fill-white" />
                 <span>{slide.badge}</span>
