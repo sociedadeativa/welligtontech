@@ -479,10 +479,14 @@
       "brand": "LENOVO",
       "store": "Amazon / ML / Shopee",
       "storeDotColor": "#0284c7",
-      "currentPrice": null,
-      "previousPrice": null,
+      "currentPrice": 2879.04,
+      "previousPrice": 3199.0,
       "discountPercentage": null,
-      "installments": null,
+      "installments": {
+        "count": 10,
+        "value": 299.9,
+        "interestFree": true
+      },
       "image": "/assets/products/lenovo-ideapad-slim-3-15iru10.jpg?v=20261106",
       "affiliateUrl": "https://link.amazon/B05rt15Fb",
       "amazonUrl": "https://link.amazon/B05rt15Fb",
@@ -494,43 +498,55 @@
           "storeName": "Amazon",
           "url": "https://link.amazon/B05rt15Fb",
           "modelName": "IdeaPad Slim 3 15IRU10",
-          "specsVariation": "Intel Core 3 100U, 8GB RAM LPDDR5, 256GB SSD NVMe, Tela 15.3\" WUXGA Antirreflexo",
+          "specsVariation": "Modelo Lenovo IdeaPad Slim 3 15IRU10 • Intel Core 3 100U, 8GB DDR5 RAM, 256GB SSD, Tela 15.3\" WUXGA, Luna Grey, Windows 11 Home Single Language",
           "badge": "Mais Vendido Amazon",
           "image": "/assets/products/lenovo-ideapad-slim-3-15iru10.jpg?v=20261106",
-          "currentPrice": null,
-          "previousPrice": null,
+          "currentPrice": 2977.34,
+          "previousPrice": 3499.0,
           "discountPercentage": null,
-          "installments": null
+          "installments": {
+            "count": 12,
+            "value": 261.18,
+            "interestFree": true
+          }
         },
         {
           "storeId": "mercadolivre",
           "storeName": "Mercado Livre",
           "url": "https://meli.la/28X5hUd",
           "modelName": "IdeaPad Slim 3 15IRU10",
-          "specsVariation": "Intel Core 3 100U, 8GB RAM LPDDR5, 256GB SSD NVMe, Tela 15.3\" WUXGA Antirreflexo",
+          "specsVariation": "Modelo Lenovo IdeaPad Slim 3 15IRU10 • Intel Core 3 100U, 8GB RAM, 256GB SSD, Tela 15.3\" WUXGA, Luna Grey, Linux",
           "badge": "Frete Grátis Mercado Livre",
           "image": "/assets/products/lenovo-ideapad-slim-3-15iru10.jpg?v=20261106",
-          "currentPrice": null,
-          "previousPrice": null,
+          "currentPrice": 2879.04,
+          "previousPrice": 3199.0,
           "discountPercentage": null,
-          "installments": null
+          "installments": {
+            "count": 10,
+            "value": 299.9,
+            "interestFree": true
+          }
         },
         {
           "storeId": "shopee",
           "storeName": "Shopee",
           "url": "https://s.shopee.com.br/8VADSyi3DX",
           "modelName": "IdeaPad Slim 3 15IRU10",
-          "specsVariation": "Intel Core 3 100U, 8GB RAM LPDDR5, 256GB SSD NVMe, Tela 15.3\" WUXGA Antirreflexo",
-          "badge": "Garantia Shopee",
+          "specsVariation": "Modelo Lenovo IdeaPad Slim 3 15IRU10 • Intel Core 3 100U, 8GB RAM, 256GB SSD, Tela 15.3\" WUXGA, Luna Grey, Windows 11. Preço de R$ 3.127,08 exclusivo no Pix com cupom (preço regular de R$ 3.499,00 sem cupom ou em 12x de R$ 283,25 com acréscimo).",
+          "badge": "Preço Pix com Cupom",
           "image": "/assets/products/lenovo-ideapad-slim-3-15iru10.jpg?v=20261106",
-          "currentPrice": null,
-          "previousPrice": null,
+          "currentPrice": 3127.08,
+          "previousPrice": 3499.0,
           "discountPercentage": null,
-          "installments": null
+          "installments": {
+            "count": 12,
+            "value": 283.25,
+            "interestFree": false
+          }
         }
       ],
-      "hasStoreVariations": false,
-      "storeVariationsNote": "Configuração verificada nas 3 lojas: Intel Core 3 100U (Série 1), 8GB RAM LPDDR5, SSD 256GB NVMe e tela ampla 15.3\" WUXGA.",
+      "hasStoreVariations": true,
+      "storeVariationsNote": "Atenção: Os anúncios deste notebook possuem variações de sistema operacional e condições comerciais conforme a loja parceira. Na Amazon: Windows 11 Home Single Language (R$ 2.977,34 ou 12x de R$ 261,18 sem juros). No Mercado Livre: sistema operacional Linux (R$ 2.879,04 ou 10x de R$ 299,90 sem juros). Na Shopee: Windows 11 (R$ 3.127,08 no Pix com cupom, preço regular de R$ 3.499,00 ou 12x de R$ 283,25 com acréscimo). Confira o sistema operacional e a forma de pagamento desejados antes de comprar.",
       "rating": 4.8,
       "reviewCount": 112,
       "badge": "MENOR PREÇO",
@@ -538,14 +554,14 @@
       "remainingUnits": 14,
       "specs": {
         "Processador": "Intel Core 3 100U (6 núcleos / 8 threads, até 4.70 GHz)",
-        "Memória RAM": "8GB LPDDR5 5200MHz",
+        "Memória RAM": "Amazon: 8GB DDR5 | Mercado Livre: 8GB | Shopee: 8GB",
         "Armazenamento": "256GB SSD M.2 PCIe 4.0 NVMe",
         "Tela": "15.3\" WUXGA (1920 x 1200) IPS Antirreflexo, 300 nits, 16:10",
-        "Sistema Operacional": "Windows 11 Home",
-        "Design": "Chassi ultrafino Slim 3, certificado de durabilidade militar",
+        "Sistema Operacional": "Amazon: Windows 11 Home Single Language | ML: Linux | Shopee: Windows 11",
+        "Design": "Chassi ultrafino Slim 3 no acabamento Luna Grey, certificado de durabilidade militar",
         "Conectividade": "Wi-Fi 6, Bluetooth 5.2, USB-C (Power Delivery & DisplayPort), HDMI"
       },
-      "description": "O Lenovo IdeaPad Slim 3 15IRU10 entrega o novo processador Intel Core 3 da geração 100U com tela imersiva 15.3\" em proporção 16:10 WUXGA, memória veloz LPDDR5 e corpo compacto ideal para mobilidade profissional.",
+      "description": "O Lenovo IdeaPad Slim 3 15IRU10 entrega o novo processador Intel Core 3 100U com tela imersiva 15.3\" em proporção 16:10 WUXGA, acabamento elegante Luna Grey e SSD de 256GB. Importante: os anúncios parceiros apresentam variações de sistema operacional e condições de pagamento — Amazon com Windows 11 Home Single Language, Mercado Livre com Linux e Shopee com Windows 11 no Pix com cupom.",
       "isEsquenta": true,
       "isMostSearched": true,
       "isBestSeller": true,
