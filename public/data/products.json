@@ -1048,12 +1048,12 @@
       "store": "Amazon / ML / Shopee",
       "storeDotColor": "#0284c7",
       "currentPrice": 991.85,
-      "previousPrice": 1399.00,
+      "previousPrice": null,
       "discountPercentage": null,
       "installments": {
-        "count": 12,
-        "value": 84.50,
-        "interestFree": true
+        "count": 10,
+        "value": 104.41,
+        "interestFree": false
       },
       "image": "/assets/products/samsung-galaxy-tab-a11.jpg",
       "affiliateUrl": "https://meli.la/21Um4kD",
@@ -1290,11 +1290,7 @@
       "currentPrice": 824.50,
       "previousPrice": 970.00,
       "discountPercentage": null,
-      "installments": {
-        "count": 10,
-        "value": 90.61,
-        "interestFree": true
-      },
+      "installments": null,
       "image": "/assets/products/positivo-vision-tab-10.jpg",
       "affiliateUrl": "https://meli.la/18bZ2C4",
       "amazonUrl": "https://link.amazon/B02pBRBwg",
