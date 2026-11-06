@@ -11,6 +11,7 @@ import {
   Gamepad2, 
   Mouse, 
   Smartphone, 
+  Tablet,
   Headphones, 
   Wrench 
 } from 'lucide-react';
@@ -31,6 +32,7 @@ export const CategoryBar: React.FC<CategoryBarProps> = ({
     switch (id) {
       case 'notebooks': return Laptop;
       case 'pcs': return Monitor;
+      case 'tablets': return Tablet;
       case 'processadores': return Cpu;
       case 'placas-mae': return Grid;
       case 'placas-video': return Tv;

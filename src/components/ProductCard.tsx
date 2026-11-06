@@ -9,6 +9,7 @@ import {
   ShieldCheck,
   Laptop,
   Mouse,
+  Tablet,
   Package
 } from 'lucide-react';
 import { Product } from '../types';
@@ -89,6 +90,8 @@ export const ProductCard: React.FC<ProductCardProps> = ({
             <div className="w-full h-full flex flex-col items-center justify-center bg-slate-50 rounded-xl p-3 text-center border border-dashed border-slate-200">
               {product.category === 'perifericos' ? (
                 <Mouse className="w-10 h-10 text-slate-400 mb-1" />
+              ) : product.category === 'tablets' ? (
+                <Tablet className="w-10 h-10 text-slate-400 mb-1" />
               ) : (
                 <Laptop className="w-10 h-10 text-slate-400 mb-1" />
               )}
@@ -238,52 +241,71 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           <span>Ver Ficha & Comparativo</span>
         </button>
 
-        {/* 3 Dedicated Store Affiliate Buttons (Amazon, Mercado Livre, Shopee) */}
+        {/* Dedicated Store Affiliate Buttons */}
         <div>
           <div className="flex items-center justify-between text-[10px] font-bold text-slate-500 mb-1 px-0.5 h-4">
             <span>Comprar na loja oficial:</span>
             <span className="text-[9px] text-slate-400 font-normal">rel="sponsored"</span>
           </div>
-          <div className="grid grid-cols-3 gap-1.5 h-8">
-            {/* Amazon Button */}
-            <a
-              href={product.amazonUrl || product.affiliateUrl}
-              target="_blank"
-              rel="sponsored noopener noreferrer"
-              onClick={(e) => e.stopPropagation()}
-              className="flex items-center justify-center gap-0.5 bg-slate-900 hover:bg-slate-800 text-amber-400 py-1.5 px-1 rounded-lg text-[10px] font-black tracking-tight transition-all shadow-xs active:scale-95 text-center cursor-pointer group/btn h-8 relative z-20"
-              title="Abrir oferta na Amazon (Abre em nova aba com rel=sponsored)"
-            >
-              <span>Amazon</span>
-              <ExternalLink className="w-2.5 h-2.5 opacity-80 group-hover/btn:opacity-100 shrink-0" />
-            </a>
+          {(() => {
+            const list = [];
+            const hasAmazon = product.stores ? product.stores.some((s) => s.storeId === 'amazon') : !!product.amazonUrl;
+            if (hasAmazon) {
+              list.push({
+                id: 'amazon',
+                name: 'Amazon',
+                url: product.stores?.find((s) => s.storeId === 'amazon')?.url || product.amazonUrl || product.affiliateUrl,
+                btnClass: 'bg-slate-900 hover:bg-slate-800 text-amber-400'
+              });
+            }
+            const hasML = product.stores ? product.stores.some((s) => s.storeId === 'mercadolivre') : !!product.mercadoLivreUrl;
+            if (hasML) {
+              list.push({
+                id: 'mercadolivre',
+                name: 'M. Livre',
+                url: product.stores?.find((s) => s.storeId === 'mercadolivre')?.url || product.mercadoLivreUrl || product.affiliateUrl,
+                btnClass: 'bg-[#FFE600] hover:bg-[#F5DC00] text-[#2D3277] font-black'
+              });
+            }
+            const hasShopee = product.stores ? product.stores.some((s) => s.storeId === 'shopee') : !!product.shopeeUrl;
+            if (hasShopee) {
+              list.push({
+                id: 'shopee',
+                name: 'Shopee',
+                url: product.stores?.find((s) => s.storeId === 'shopee')?.url || product.shopeeUrl || product.affiliateUrl,
+                btnClass: 'bg-[#EE4D2D] hover:bg-[#DE3C1C] text-white'
+              });
+            }
+            if (list.length === 0) {
+              list.push({
+                id: 'loja',
+                name: 'Ver Oferta',
+                url: product.affiliateUrl,
+                btnClass: 'bg-orange-600 hover:bg-orange-700 text-white'
+              });
+            }
 
-            {/* Mercado Livre Button */}
-            <a
-              href={product.mercadoLivreUrl || product.affiliateUrl}
-              target="_blank"
-              rel="sponsored noopener noreferrer"
-              onClick={(e) => e.stopPropagation()}
-              className="flex items-center justify-center gap-0.5 bg-[#FFE600] hover:bg-[#F5DC00] text-[#2D3277] py-1.5 px-1 rounded-lg text-[10px] font-black tracking-tight transition-all shadow-xs active:scale-95 text-center cursor-pointer group/btn h-8 relative z-20"
-              title="Abrir oferta no Mercado Livre (Abre em nova aba com rel=sponsored)"
-            >
-              <span className="truncate">M. Livre</span>
-              <ExternalLink className="w-2.5 h-2.5 opacity-80 group-hover/btn:opacity-100 shrink-0" />
-            </a>
+            const gridCols = list.length === 1 ? 'grid-cols-1' : list.length === 2 ? 'grid-cols-2' : 'grid-cols-3';
 
-            {/* Shopee Button */}
-            <a
-              href={product.shopeeUrl || product.affiliateUrl}
-              target="_blank"
-              rel="sponsored noopener noreferrer"
-              onClick={(e) => e.stopPropagation()}
-              className="flex items-center justify-center gap-0.5 bg-[#EE4D2D] hover:bg-[#DE3C1C] text-white py-1.5 px-1 rounded-lg text-[10px] font-black tracking-tight transition-all shadow-xs active:scale-95 text-center cursor-pointer group/btn h-8 relative z-20"
-              title="Abrir oferta na Shopee (Abre em nova aba com rel=sponsored)"
-            >
-              <span>Shopee</span>
-              <ExternalLink className="w-2.5 h-2.5 opacity-80 group-hover/btn:opacity-100 shrink-0" />
-            </a>
-          </div>
+            return (
+              <div className={`grid ${gridCols} gap-1.5 h-8`}>
+                {list.map((st) => (
+                  <a
+                    key={st.id}
+                    href={st.url}
+                    target="_blank"
+                    rel="sponsored noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className={`flex items-center justify-center gap-0.5 ${st.btnClass} py-1.5 px-1 rounded-lg text-[10px] font-black tracking-tight transition-all shadow-xs active:scale-95 text-center cursor-pointer group/btn h-8 relative z-20`}
+                    title={`Abrir oferta na ${st.name} (Abre em nova aba com rel=sponsored)`}
+                  >
+                    <span className="truncate">{st.name}</span>
+                    <ExternalLink className="w-2.5 h-2.5 opacity-80 group-hover/btn:opacity-100 shrink-0" />
+                  </a>
+                ))}
+              </div>
+            );
+          })()}
         </div>
       </div>
     </div>

@@ -9,6 +9,7 @@ import {
   Info,
   Laptop,
   Mouse,
+  Tablet,
   CheckCircle2
 } from 'lucide-react';
 import { Product, PageRoute } from '../types';
@@ -50,12 +51,12 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
   };
 
   const storeOffers = useMemo(() => {
-    return [
+    const rawOffers = [
       {
         storeId: 'amazon' as const,
         name: 'Amazon Brasil',
         shortName: 'Amazon',
-        url: product.amazonUrl || product.affiliateUrl,
+        url: product.stores?.find((s) => s.storeId === 'amazon')?.url || product.amazonUrl || product.affiliateUrl,
         badge: product.stores?.find((s) => s.storeId === 'amazon')?.badge || 'Oferta Oficial',
         modelName: product.stores?.find((s) => s.storeId === 'amazon')?.modelName,
         specsVariation: product.stores?.find((s) => s.storeId === 'amazon')?.specsVariation,
@@ -64,13 +65,14 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
         previousPrice: product.stores?.find((s) => s.storeId === 'amazon')?.previousPrice,
         discountPercentage: product.stores?.find((s) => s.storeId === 'amazon')?.discountPercentage,
         installments: product.stores?.find((s) => s.storeId === 'amazon')?.installments,
-        btnClass: 'bg-slate-900 hover:bg-slate-800 text-amber-400 border border-slate-700 shadow-sm'
+        btnClass: 'bg-slate-900 hover:bg-slate-800 text-amber-400 border border-slate-700 shadow-sm',
+        isAvailable: product.stores ? product.stores.some((s) => s.storeId === 'amazon') : !!product.amazonUrl
       },
       {
         storeId: 'mercadolivre' as const,
         name: 'Mercado Livre',
         shortName: 'Mercado Livre',
-        url: product.mercadoLivreUrl || product.affiliateUrl,
+        url: product.stores?.find((s) => s.storeId === 'mercadolivre')?.url || product.mercadoLivreUrl || product.affiliateUrl,
         badge: product.stores?.find((s) => s.storeId === 'mercadolivre')?.badge || 'Envio Oficial',
         modelName: product.stores?.find((s) => s.storeId === 'mercadolivre')?.modelName,
         specsVariation: product.stores?.find((s) => s.storeId === 'mercadolivre')?.specsVariation,
@@ -79,7 +81,8 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
         previousPrice: product.stores?.find((s) => s.storeId === 'mercadolivre')?.previousPrice,
         discountPercentage: product.stores?.find((s) => s.storeId === 'mercadolivre')?.discountPercentage,
         installments: product.stores?.find((s) => s.storeId === 'mercadolivre')?.installments,
-        btnClass: 'bg-[#FFE600] hover:bg-[#F5DC00] text-[#2D3277] border border-yellow-400 font-black shadow-sm'
+        btnClass: 'bg-[#FFE600] hover:bg-[#F5DC00] text-[#2D3277] border border-yellow-400 font-black shadow-sm',
+        isAvailable: product.stores ? product.stores.some((s) => s.storeId === 'mercadolivre') : !!product.mercadoLivreUrl
       },
       {
         storeId: 'shopee' as const,
@@ -94,9 +97,13 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
         previousPrice: product.stores?.find((s) => s.storeId === 'shopee')?.previousPrice,
         discountPercentage: product.stores?.find((s) => s.storeId === 'shopee')?.discountPercentage,
         installments: product.stores?.find((s) => s.storeId === 'shopee')?.installments,
-        btnClass: 'bg-[#EE4D2D] hover:bg-[#DE3C1C] text-white border border-[#EE4D2D] shadow-sm'
+        btnClass: 'bg-[#EE4D2D] hover:bg-[#DE3C1C] text-white border border-[#EE4D2D] shadow-sm',
+        isAvailable: product.stores ? product.stores.some((s) => s.storeId === 'shopee') : !!product.shopeeUrl
       }
     ];
+
+    const available = rawOffers.filter((o) => o.isAvailable);
+    return available.length > 0 ? available : rawOffers;
   }, [product]);
 
   const activeOffer = useMemo(() => {
@@ -142,6 +149,8 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
                 <div className="w-full h-64 flex flex-col items-center justify-center bg-slate-50 rounded-xl p-6 text-center border border-dashed border-slate-200">
                   {product.category === 'perifericos' ? (
                     <Mouse className="w-16 h-16 text-slate-400 mb-2" />
+                  ) : product.category === 'tablets' ? (
+                    <Tablet className="w-16 h-16 text-slate-400 mb-2" />
                   ) : (
                     <Laptop className="w-16 h-16 text-slate-400 mb-2" />
                   )}
@@ -250,7 +259,9 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
                     Preço e oferta variam por loja
                   </span>
                 </div>
-                <div className="grid grid-cols-3 gap-2">
+                <div className={`grid gap-2 ${
+                  storeOffers.length === 1 ? 'grid-cols-1' : storeOffers.length === 2 ? 'grid-cols-2' : 'grid-cols-3'
+                }`}>
                   {storeOffers.map((store) => {
                     const isSelected = store.storeId === selectedStoreId;
                     return (

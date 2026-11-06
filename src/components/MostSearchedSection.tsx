@@ -24,6 +24,7 @@ export const MostSearchedSection: React.FC<MostSearchedSectionProps> = ({
     { id: 'hardware', label: 'HARDWARE' },
     { id: 'computadores', label: 'COMPUTADORES' },
     { id: 'notebooks', label: 'NOTEBOOKS' },
+    { id: 'tablets', label: 'TABLETS' },
     { id: 'smartphones', label: 'CELULAR & SMARTPHONE' },
     { id: 'perifericos', label: 'PERIFÉRICOS' },
     { id: 'monitores', label: 'MONITORES' },
@@ -48,6 +49,7 @@ export const MostSearchedSection: React.FC<MostSearchedSectionProps> = ({
     }
     if (activeFilter === 'computadores') return ['pcs'].includes(p.category);
     if (activeFilter === 'notebooks') return p.category === 'notebooks';
+    if (activeFilter === 'tablets') return p.category === 'tablets';
     if (activeFilter === 'smartphones') return p.category === 'smartphones';
     if (activeFilter === 'perifericos') return ['perifericos', 'acessorios'].includes(p.category);
     if (activeFilter === 'monitores') return p.category === 'monitores';

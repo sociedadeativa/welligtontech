@@ -57,6 +57,11 @@
       "icon": "Smartphone"
     },
     {
+      "id": "tablets",
+      "name": "Tablets",
+      "icon": "Tablet"
+    },
+    {
       "id": "acessorios",
       "name": "Acessórios",
       "icon": "Headphones"
@@ -1032,6 +1037,339 @@
       "isMostSearched": true,
       "isBestSeller": true,
       "isRecentlyAdded": false
+    },
+    {
+      "id": "samsung-galaxy-tab-a11",
+      "name": "Samsung Galaxy Tab A11 (8.7\", 4GB RAM, 64GB, Prata)",
+      "slug": "samsung-galaxy-tab-a11-8-7-4gb-64gb-prata",
+      "category": "tablets",
+      "categoryLabel": "Tablets",
+      "brand": "SAMSUNG",
+      "store": "Amazon / ML / Shopee",
+      "storeDotColor": "#0284c7",
+      "currentPrice": 991.85,
+      "previousPrice": 1399.00,
+      "discountPercentage": null,
+      "installments": {
+        "count": 12,
+        "value": 84.50,
+        "interestFree": true
+      },
+      "image": "/assets/products/samsung-galaxy-tab-a11.jpg",
+      "affiliateUrl": "https://meli.la/21Um4kD",
+      "amazonUrl": "https://link.amazon/B01VgAtcq",
+      "mercadoLivreUrl": "https://meli.la/21Um4kD",
+      "shopeeUrl": "https://s.shopee.com.br/6VPD0bTJaH",
+      "stores": [
+        {
+          "storeId": "amazon",
+          "storeName": "Amazon",
+          "url": "https://link.amazon/B01VgAtcq",
+          "modelName": "Samsung Galaxy Tab A11",
+          "specsVariation": "Samsung Galaxy Tab A11 • 4GB RAM, 64GB Armazenamento, Tela 8.7\", Cor Prata. 12x de R$ 84,50 sem juros.",
+          "badge": "Entrega Prime Amazon",
+          "image": "/assets/products/samsung-galaxy-tab-a11.jpg",
+          "currentPrice": 1014.00,
+          "previousPrice": 1399.00,
+          "discountPercentage": null,
+          "installments": {
+            "count": 12,
+            "value": 84.50,
+            "interestFree": true
+          }
+        },
+        {
+          "storeId": "mercadolivre",
+          "storeName": "Mercado Livre",
+          "url": "https://meli.la/21Um4kD",
+          "modelName": "Samsung Galaxy Tab A11",
+          "specsVariation": "Samsung Galaxy Tab A11 • 4GB RAM, 64GB Armazenamento, Tela 8.7\", Cor Prata. Parcelamento em 10x de R$ 104,41 no cartão.",
+          "badge": "Envio Full Mercado Livre",
+          "image": "/assets/products/samsung-galaxy-tab-a11.jpg",
+          "currentPrice": 991.85,
+          "previousPrice": null,
+          "discountPercentage": null,
+          "installments": {
+            "count": 10,
+            "value": 104.41,
+            "interestFree": false
+          }
+        },
+        {
+          "storeId": "shopee",
+          "storeName": "Shopee",
+          "url": "https://s.shopee.com.br/6VPD0bTJaH",
+          "modelName": "Samsung Galaxy Tab A11",
+          "specsVariation": "Samsung Galaxy Tab A11 • 4GB RAM, 64GB Armazenamento, Tela 8.7\", Cor Prata. Preço de R$ 1.012,97 no Pix com cupom. Preço regular em outros meios de pagamento: R$ 1.159,00 (ou 12x de R$ 91,75).",
+          "badge": "Preço Pix com Cupom",
+          "image": "/assets/products/samsung-galaxy-tab-a11.jpg",
+          "currentPrice": 1012.97,
+          "previousPrice": 1159.00,
+          "discountPercentage": null,
+          "installments": {
+            "count": 12,
+            "value": 91.75,
+            "interestFree": false
+          }
+        }
+      ],
+      "hasStoreVariations": true,
+      "storeVariationsNote": "Ofertas verificadas do Samsung Galaxy Tab A11 (8.7\", 4GB RAM, 64GB, Prata): No Mercado Livre por R$ 991,85 (10x de R$ 104,41); na Amazon por R$ 1.014,00 em até 12x sem juros de R$ 84,50 (referência de R$ 1.399,00); na Shopee por R$ 1.012,97 no Pix com cupom (preço regular de R$ 1.159,00 ou 12x de R$ 91,75).",
+      "rating": 4.8,
+      "reviewCount": 94,
+      "badge": "DESTAQUE",
+      "badgeColor": "blue",
+      "remainingUnits": 11,
+      "specs": {
+        "Tela": "8.7\" WXGA+ (1340 x 800) fluida",
+        "Armazenamento": "64GB interno (expansível via MicroSD)",
+        "Memória RAM": "4GB RAM",
+        "Cor": "Prata (Silver)",
+        "Conectividade": "Wi-Fi Dual Band, Bluetooth 5.3, USB-C",
+        "Sistema Operacional": "Android com interface One UI"
+      },
+      "description": "Tablet Samsung Galaxy Tab A11 com tela compacta e imersiva de 8.7 polegadas, 4GB de RAM e 64GB de memória interna. Acabamento prateado refinado e leve, ideal para estudos, navegação e consumo de mídia portátil.",
+      "isEsquenta": false,
+      "isMostSearched": true,
+      "isBestSeller": false,
+      "isRecentlyAdded": true
+    },
+    {
+      "id": "lenovo-tab-k11",
+      "name": "Lenovo Tab K11 (11\", 4GB RAM, 128GB, Wi-Fi, Android 13, Prata)",
+      "slug": "lenovo-tab-k11-11-4gb-128gb-wifi-android-13-prata",
+      "category": "tablets",
+      "categoryLabel": "Tablets",
+      "brand": "LENOVO",
+      "store": "Mercado Livre",
+      "storeDotColor": "#FFE600",
+      "currentPrice": 1499.00,
+      "previousPrice": null,
+      "discountPercentage": null,
+      "installments": {
+        "count": 10,
+        "value": 149.90,
+        "interestFree": true
+      },
+      "image": "/assets/products/lenovo-tab-k11.jpg",
+      "affiliateUrl": "https://meli.la/128moVZ",
+      "amazonUrl": "",
+      "mercadoLivreUrl": "https://meli.la/128moVZ",
+      "shopeeUrl": "",
+      "stores": [
+        {
+          "storeId": "mercadolivre",
+          "storeName": "Mercado Livre",
+          "url": "https://meli.la/128moVZ",
+          "modelName": "Lenovo Tab K11",
+          "specsVariation": "Lenovo Tab K11 • 4GB RAM, 128GB Armazenamento, Wi-Fi, Android 13, Tela 11\" WUXGA, Prata. 10x de R$ 149,90 sem juros.",
+          "badge": "Envio Full Mercado Livre",
+          "image": "/assets/products/lenovo-tab-k11.jpg",
+          "currentPrice": 1499.00,
+          "previousPrice": null,
+          "discountPercentage": null,
+          "installments": {
+            "count": 10,
+            "value": 149.90,
+            "interestFree": true
+          }
+        }
+      ],
+      "hasStoreVariations": false,
+      "storeVariationsNote": "Oferta exclusiva verificada no Mercado Livre por R$ 1.499,00 em até 10x de R$ 149,90 sem juros. Produto independente da linha Lenovo Idea Tab.",
+      "rating": 4.9,
+      "reviewCount": 67,
+      "badge": "EXCLUSIVO ML",
+      "badgeColor": "amber",
+      "remainingUnits": 8,
+      "specs": {
+        "Tela": "11\" WUXGA (1920 x 1200) IPS, 90Hz, 400 nits",
+        "Armazenamento": "128GB (expansível via MicroSD até 1TB)",
+        "Memória RAM": "4GB RAM LPDDR4x",
+        "Processador": "MediaTek Helio G88 (Octa-Core)",
+        "Áudio": "Quatro alto-falantes com Dolby Atmos",
+        "Cor": "Prata (Luna Grey / Silver)",
+        "Conectividade": "Wi-Fi Dual Band, Bluetooth 5.1, USB-C",
+        "Sistema Operacional": "Android 13"
+      },
+      "description": "O Lenovo Tab K11 conta com tela ampla de 11 polegadas de alta definição (1920x1200) a 90Hz e sistema de som quádruplo otimizado por Dolby Atmos. Equipado com 4GB de RAM, 128GB de armazenamento e bateria de 7040mAh de longa duração.",
+      "isEsquenta": false,
+      "isMostSearched": true,
+      "isBestSeller": false,
+      "isRecentlyAdded": true
+    },
+    {
+      "id": "lenovo-idea-tab",
+      "name": "Lenovo Idea Tab 11\" (128GB, Android 15, Wi-Fi)",
+      "slug": "lenovo-idea-tab-11-128gb-android-15-wifi",
+      "category": "tablets",
+      "categoryLabel": "Tablets",
+      "brand": "LENOVO",
+      "store": "Amazon / Shopee",
+      "storeDotColor": "#ea580c",
+      "currentPrice": 1599.00,
+      "previousPrice": null,
+      "discountPercentage": null,
+      "installments": {
+        "count": 10,
+        "value": 159.90,
+        "interestFree": true
+      },
+      "image": "/assets/products/lenovo-idea-tab.jpg",
+      "affiliateUrl": "https://link.amazon/B01Z9WUiY",
+      "amazonUrl": "https://link.amazon/B01Z9WUiY",
+      "mercadoLivreUrl": "",
+      "shopeeUrl": "https://s.shopee.com.br/7KyK0mjWf8",
+      "stores": [
+        {
+          "storeId": "amazon",
+          "storeName": "Amazon",
+          "url": "https://link.amazon/B01Z9WUiY",
+          "modelName": "Lenovo Idea Tab 11\" 90Hz (com caneta e capa folio)",
+          "specsVariation": "Modelo Lenovo Idea Tab • Octa-Core, 4GB RAM, 128GB Armazenamento, Wi-Fi 5, Android 15, Tela 11\" 90Hz. Acompanha caneta stylus e capa folio. R$ 1.599,00 em 10x de R$ 159,90 sem juros.",
+          "badge": "Acompanha Caneta + Capa Folio",
+          "image": "/assets/products/lenovo-idea-tab.jpg",
+          "currentPrice": 1599.00,
+          "previousPrice": null,
+          "discountPercentage": null,
+          "installments": {
+            "count": 10,
+            "value": 159.90,
+            "interestFree": true
+          }
+        },
+        {
+          "storeId": "shopee",
+          "storeName": "Shopee",
+          "url": "https://s.shopee.com.br/7KyK0mjWf8",
+          "modelName": "Lenovo Idea Tab (com capa teclado e caneta)",
+          "specsVariation": "Modelo Lenovo Idea Tab • Processador MediaTek Dimensity 6300, 8GB RAM, 128GB Armazenamento, Tela 11\", Android 15. Acompanha capa com teclado integrado e caneta stylus. Preço de R$ 1.703,43 no Pix com cupom (preço regular de R$ 1.949,00 ou 12x de R$ 154,30 com juros).",
+          "badge": "Preço Pix (8GB + Capa Teclado)",
+          "image": "/assets/products/lenovo-idea-tab-keyboard.jpg",
+          "currentPrice": 1703.43,
+          "previousPrice": 1949.00,
+          "discountPercentage": null,
+          "installments": {
+            "count": 12,
+            "value": 154.30,
+            "interestFree": false
+          }
+        }
+      ],
+      "hasStoreVariations": true,
+      "storeVariationsNote": "Atenção: As versões da Amazon e da Shopee possuem memória RAM e acessórios diferentes. Na Amazon: versão com 4GB RAM, 128GB, tela 90Hz, caneta e capa folio por R$ 1.599,00 (10x sem juros). Na Shopee: versão com 8GB RAM, 128GB, processador Dimensity 6300, capa com teclado e caneta por R$ 1.703,43 no Pix com cupom (regular R$ 1.949,00 ou 12x de R$ 154,30 com juros). Produto independente do Lenovo Tab K11.",
+      "rating": 4.9,
+      "reviewCount": 112,
+      "badge": "VERSÃO COM CANETA",
+      "badgeColor": "purple",
+      "remainingUnits": 7,
+      "specs": {
+        "Tela": "11\" IPS, 90Hz, resolução WUXGA",
+        "Armazenamento": "128GB interno",
+        "Memória RAM": "Amazon: 4GB RAM | Shopee: 8GB RAM",
+        "Acessórios Inclusos": "Amazon: Caneta Stylus + Capa Folio | Shopee: Capa Teclado + Caneta Stylus",
+        "Processador": "Octa-Core (Shopee: MediaTek Dimensity 6300)",
+        "Sistema Operacional": "Android 15",
+        "Conectividade": "Wi-Fi, Bluetooth, USB-C"
+      },
+      "description": "Tablet Lenovo Idea Tab com tela de 11 polegadas a 90Hz e sistema operacional Android 15 de fábrica. Atenção: a versão da Amazon possui 4GB de RAM e inclui caneta e capa folio; a versão da Shopee traz 8GB de RAM, processador Dimensity 6300 e inclui capa com teclado integrado e caneta.",
+      "isEsquenta": false,
+      "isMostSearched": true,
+      "isBestSeller": false,
+      "isRecentlyAdded": true
+    },
+    {
+      "id": "positivo-vision-tab-10",
+      "name": "Positivo Vision Tab 10 (10.1\" HD, 4GB RAM, 128GB, Octa-Core)",
+      "slug": "positivo-vision-tab-10-10-1-hd-4gb-128gb",
+      "category": "tablets",
+      "categoryLabel": "Tablets",
+      "brand": "POSITIVO",
+      "store": "Amazon / ML / Shopee",
+      "storeDotColor": "#0096d6",
+      "currentPrice": 824.50,
+      "previousPrice": 970.00,
+      "discountPercentage": null,
+      "installments": {
+        "count": 10,
+        "value": 90.61,
+        "interestFree": true
+      },
+      "image": "/assets/products/positivo-vision-tab-10.jpg",
+      "affiliateUrl": "https://meli.la/18bZ2C4",
+      "amazonUrl": "https://link.amazon/B02pBRBwg",
+      "mercadoLivreUrl": "https://meli.la/18bZ2C4",
+      "shopeeUrl": "https://s.shopee.com.br/1gJxH3nnVi",
+      "stores": [
+        {
+          "storeId": "mercadolivre",
+          "storeName": "Mercado Livre",
+          "url": "https://meli.la/18bZ2C4",
+          "modelName": "Positivo Vision Tab 10 com Capa Teclado",
+          "specsVariation": "Modelo Positivo Vision Tab 10 com Capa Teclado • Octa-Core, 4GB RAM, 128GB Armazenamento, Tela 10.1\" HD, Câmeras 13MP + 5MP, Bateria 6000mAh, Wi-Fi AC e 4G. Inclui capa com teclado integrado. Preço de R$ 824,50 no Pix (preço regular em outros meios de pagamento: R$ 970,00).",
+          "badge": "Preço Pix (Inclui Capa Teclado + 4G)",
+          "image": "/assets/products/positivo-vision-tab-10-keyboard.jpg",
+          "currentPrice": 824.50,
+          "previousPrice": 970.00,
+          "discountPercentage": null,
+          "installments": null
+        },
+        {
+          "storeId": "amazon",
+          "storeName": "Amazon",
+          "url": "https://link.amazon/B02pBRBwg",
+          "modelName": "Positivo Vision TAB 10",
+          "specsVariation": "Modelo Positivo Vision TAB 10 • Octa-Core, 4GB RAM, 128GB Armazenamento, Tela 10.1\" HD, Câmeras 13MP + 5MP, Bateria 6000mAh. Preço de R$ 842,34 em 10x de R$ 90,61 sem juros (preço de referência R$ 999,99).",
+          "badge": "Oferta Oficial Amazon",
+          "image": "/assets/products/positivo-vision-tab-10.jpg",
+          "currentPrice": 842.34,
+          "previousPrice": 999.99,
+          "discountPercentage": null,
+          "installments": {
+            "count": 10,
+            "value": 90.61,
+            "interestFree": true
+          }
+        },
+        {
+          "storeId": "shopee",
+          "storeName": "Shopee",
+          "url": "https://s.shopee.com.br/1gJxH3nnVi",
+          "modelName": "Positivo Vision Tab 10",
+          "specsVariation": "Modelo Positivo Vision Tab 10 • 4GB RAM, 128GB Armazenamento, Tela 10.1\" HD IPS, Android 13, Câmeras 13MP + 5MP. Preço de R$ 849,01 (preço regular em outros meios de pagamento: R$ 922,83 ou 12x de R$ 76,90 com juros).",
+          "badge": "Cupom Oficial Shopee",
+          "image": "/assets/products/positivo-vision-tab-10.jpg",
+          "currentPrice": 849.01,
+          "previousPrice": 922.83,
+          "discountPercentage": null,
+          "installments": {
+            "count": 12,
+            "value": 76.90,
+            "interestFree": false
+          }
+        }
+      ],
+      "hasStoreVariations": true,
+      "storeVariationsNote": "Atenção para os acessórios e conexões por loja: Apenas a oferta do Mercado Livre inclui a Capa com Teclado integrado e conectividade 4G, por R$ 824,50 no Pix (R$ 970,00 regular). Na Amazon, o Positivo Vision Tab 10 padrão sai por R$ 842,34 em 10x de R$ 90,61 sem juros. Na Shopee, o modelo padrão sai por R$ 849,01 (regular R$ 922,83 ou 12x de R$ 76,90 com juros).",
+      "rating": 4.7,
+      "reviewCount": 81,
+      "badge": "DESTAQUE",
+      "badgeColor": "blue",
+      "remainingUnits": 14,
+      "specs": {
+        "Tela": "10.1\" HD IPS (1280 x 800)",
+        "Armazenamento": "128GB interno (expansível via MicroSD)",
+        "Memória RAM": "4GB RAM",
+        "Processador": "Octa-Core",
+        "Câmeras": "Traseira 13MP com flash / Frontal 5MP",
+        "Bateria": "6000mAh de alta autonomia",
+        "Diferencial por Loja": "Mercado Livre inclui Capa com Teclado e 4G | Amazon e Shopee modelo padrão"
+      },
+      "description": "O Positivo Vision Tab 10 combina tela de 10.1 polegadas HD IPS, processador Octa-Core veloz, 4GB de RAM e 128GB de armazenamento com generosa bateria de 6000mAh. A oferta do Mercado Livre traz com exclusividade a Capa com Teclado integrado e conectividade 4G.",
+      "isEsquenta": false,
+      "isMostSearched": true,
+      "isBestSeller": false,
+      "isRecentlyAdded": true
     }
   ]
 }
