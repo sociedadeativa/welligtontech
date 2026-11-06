@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { 
   Heart, 
   ExternalLink, 
@@ -33,6 +33,48 @@ export const ProductCard: React.FC<ProductCardProps> = ({
     if (val === null || val === undefined) return '';
     return val.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
   };
+
+  // Select one specific retailer offer as the single price source for this card
+  const selectedOffer = useMemo(() => {
+    if (product.stores && product.stores.length > 0) {
+      const validOffers = product.stores.filter(
+        (s): s is typeof s & { currentPrice: number } =>
+          typeof s.currentPrice === 'number' && s.currentPrice > 0
+      );
+
+      if (validOffers.length > 0) {
+        // Pick the retailer offer with the lowest current price
+        const lowest = validOffers.reduce((best, curr) =>
+          curr.currentPrice < best.currentPrice ? curr : best
+        );
+        return {
+          currentPrice: lowest.currentPrice,
+          previousPrice: lowest.previousPrice ?? null,
+          installments: lowest.installments ?? null
+        };
+      }
+    }
+
+    // Fallback to product-level data if stores array is empty or lacks valid prices
+    return {
+      currentPrice: product.currentPrice ?? null,
+      previousPrice: product.previousPrice ?? null,
+      installments: product.installments ?? null
+    };
+  }, [product]);
+
+  const hasValidDiscount =
+    selectedOffer.currentPrice !== null &&
+    selectedOffer.previousPrice !== null &&
+    selectedOffer.previousPrice > selectedOffer.currentPrice;
+
+  const discountPercent = hasValidDiscount
+    ? Math.round(
+        ((selectedOffer.previousPrice! - selectedOffer.currentPrice!) /
+          selectedOffer.previousPrice!) *
+          100
+      )
+    : 0;
 
   const handleShare = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -152,16 +194,16 @@ export const ProductCard: React.FC<ProductCardProps> = ({
 
         {/* Pricing Block */}
         <div className="px-3.5 pt-1.5">
-          {product.currentPrice !== null && product.currentPrice !== undefined ? (
+          {selectedOffer.currentPrice !== null && selectedOffer.currentPrice !== undefined ? (
             <>
               <div className="flex items-center gap-1.5 h-4">
-                {product.previousPrice && product.previousPrice > product.currentPrice ? (
+                {hasValidDiscount && discountPercent > 0 ? (
                   <>
                     <span className="text-[11px] text-slate-400 line-through">
-                      De {formatBRL(product.previousPrice)}
+                      De {formatBRL(selectedOffer.previousPrice)}
                     </span>
                     <span className="text-[10px] font-black text-emerald-800 bg-emerald-100 px-1.5 py-0.2 rounded">
-                      -{Math.round(((product.previousPrice - product.currentPrice) / product.previousPrice) * 100)}%
+                      -{discountPercent}%
                     </span>
                   </>
                 ) : (
@@ -173,15 +215,18 @@ export const ProductCard: React.FC<ProductCardProps> = ({
 
               <div className="mt-0.5 h-6 flex items-baseline">
                 <span className="text-lg font-black text-slate-950 font-mono tracking-tight">
-                  {formatBRL(product.currentPrice)}
+                  {formatBRL(selectedOffer.currentPrice)}
                 </span>
               </div>
 
-              <p className="text-[10px] text-slate-500 font-medium leading-tight mt-0.5 h-4 truncate">
-                {product.installments
-                  ? `ou ${product.installments.count}x de ${formatBRL(product.installments.value)}`
-                  : 'Consulte condições de parcelamento'}
-              </p>
+              <div className="mt-0.5 h-4 flex items-center">
+                {selectedOffer.installments ? (
+                  <p className="text-[10px] text-slate-500 font-medium leading-tight truncate">
+                    ou {selectedOffer.installments.count}x de {formatBRL(selectedOffer.installments.value)}
+                    {selectedOffer.installments.interestFree === true ? ' sem juros' : ''}
+                  </p>
+                ) : null}
+              </div>
             </>
           ) : (
             <>
@@ -197,9 +242,11 @@ export const ProductCard: React.FC<ProductCardProps> = ({
                 </span>
               </div>
 
-              <p className="text-[10px] text-slate-400 font-medium leading-tight mt-0.5 h-4 truncate">
-                Preços e estoque no site parceiro
-              </p>
+              <div className="mt-0.5 h-4 flex items-center">
+                <p className="text-[10px] text-slate-400 font-medium leading-tight truncate">
+                  Preços e estoque no site parceiro
+                </p>
+              </div>
             </>
           )}
         </div>
